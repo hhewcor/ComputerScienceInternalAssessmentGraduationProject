@@ -46,15 +46,81 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StartForm.cs">
+    <Compile Include="Forms\CalculateResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartForm.Designer.cs">
+    <Compile Include="Forms\CalculateResultsForm.Designer.cs">
+      <DependentUpon>CalculateResultsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CalculateTimesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CalculateTimesForm.Designer.cs">
+      <DependentUpon>CalculateTimesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CompareResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompareResultsForm.Designer.cs">
+      <DependentUpon>CompareResultsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CompareTimesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompareTimesForm.Designer.cs">
+      <DependentUpon>CompareTimesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditSwimmerEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditSwimmerEventsForm.Designer.cs">
+      <DependentUpon>EditSwimmerEventsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditSwimmerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditSwimmerListForm.Designer.cs">
+      <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="StartForm.resx">
+    <Compile Include="Forms\SwimmerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SwimmerList.Designer.cs">
+      <DependentUpon>SwimmerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewSwimmerEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewSwimmerEventsForm.Designer.cs">
+      <DependentUpon>ViewSwimmerEventsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\CalculateResultsForm.resx">
+      <DependentUpon>CalculateResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CalculateTimesForm.resx">
+      <DependentUpon>CalculateTimesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompareResultsForm.resx">
+      <DependentUpon>CompareResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompareTimesForm.resx">
+      <DependentUpon>CompareTimesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSwimmerEventsForm.resx">
+      <DependentUpon>EditSwimmerEventsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSwimmerListForm.resx">
+      <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -66,6 +132,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\SwimmerList.resx">
+      <DependentUpon>SwimmerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewSwimmerEventsForm.resx">
+      <DependentUpon>ViewSwimmerEventsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
