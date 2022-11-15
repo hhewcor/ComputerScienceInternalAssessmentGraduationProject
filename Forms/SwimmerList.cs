@@ -120,5 +120,13 @@ namespace ComputerScienceInternalAssessment
             this.Hide();
             EditSwimmerListForm.Show();
         }
+
+        private void SwimmerListDataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Need to add the swimmer exclusive information into the form.
+            var ViewSwimmerEventsForm = new ViewSwimmerEventsForm();
+            this.Hide();
+            ViewSwimmerEventsForm.Show();
+        }
     }
 }
