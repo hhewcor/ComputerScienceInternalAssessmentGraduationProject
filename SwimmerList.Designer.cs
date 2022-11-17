@@ -48,12 +48,9 @@ namespace ComputerScienceInternalAssessment
             this.FilterBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.EditSwimmerListBtn = new System.Windows.Forms.Button();
-            this.SwimmerListDataGrid = new System.Windows.Forms.DataGridView();
-            this.SwimmerListName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SwimmerListGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SwimmerListGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
             this.FilterPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // BackToStartBtn
@@ -250,46 +247,21 @@ namespace ComputerScienceInternalAssessment
             this.EditSwimmerListBtn.UseVisualStyleBackColor = false;
             this.EditSwimmerListBtn.Click += new System.EventHandler(this.EditSwimmerListBtn_Click);
             // 
-            // SwimmerListDataGrid
+            // SwimmerListDataGridView
             // 
-            this.SwimmerListDataGrid.AllowUserToAddRows = false;
-            this.SwimmerListDataGrid.AllowUserToDeleteRows = false;
-            this.SwimmerListDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SwimmerListDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SwimmerListName,
-            this.SwimmerListGrade,
-            this.SwimmerListGender});
-            this.SwimmerListDataGrid.Location = new System.Drawing.Point(24, 177);
-            this.SwimmerListDataGrid.Name = "SwimmerListDataGrid";
-            this.SwimmerListDataGrid.ReadOnly = true;
-            this.SwimmerListDataGrid.Size = new System.Drawing.Size(349, 150);
-            this.SwimmerListDataGrid.TabIndex = 9;
-            this.SwimmerListDataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SwimmerListDataGrid_CellContentDoubleClick);
-            // 
-            // SwimmerListName
-            // 
-            this.SwimmerListName.HeaderText = "Name";
-            this.SwimmerListName.Name = "SwimmerListName";
-            this.SwimmerListName.ReadOnly = true;
-            // 
-            // SwimmerListGrade
-            // 
-            this.SwimmerListGrade.HeaderText = "Grade";
-            this.SwimmerListGrade.Name = "SwimmerListGrade";
-            this.SwimmerListGrade.ReadOnly = true;
-            // 
-            // SwimmerListGender
-            // 
-            this.SwimmerListGender.HeaderText = "M/F";
-            this.SwimmerListGender.Name = "SwimmerListGender";
-            this.SwimmerListGender.ReadOnly = true;
+            this.SwimmerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SwimmerListDataGridView.Location = new System.Drawing.Point(15, 152);
+            this.SwimmerListDataGridView.Name = "SwimmerListDataGridView";
+            this.SwimmerListDataGridView.Size = new System.Drawing.Size(432, 261);
+            this.SwimmerListDataGridView.TabIndex = 9;
+            this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 450);
-            this.Controls.Add(this.SwimmerListDataGrid);
+            this.Controls.Add(this.SwimmerListDataGridView);
             this.Controls.Add(this.EditSwimmerListBtn);
             this.Controls.Add(this.FilterPanel);
             this.Controls.Add(this.SearchSwimmerNameBtn);
@@ -303,7 +275,7 @@ namespace ComputerScienceInternalAssessment
             this.Text = "SwimmerList";
             this.Load += new System.EventHandler(this.SwimmerListForm_Load);
             this.FilterPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,9 +301,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Button FilterBtn;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button EditSwimmerListBtn;
-        private System.Windows.Forms.DataGridView SwimmerListDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SwimmerListName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SwimmerListGrade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SwimmerListGender;
+        private System.Windows.Forms.DataGridView SwimmerListDataGridView;
     }
 }

@@ -46,85 +46,85 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\CalculateResultsForm.cs">
+    <Compile Include="CalculateResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CalculateResultsForm.Designer.cs">
+    <Compile Include="CalculateResultsForm.Designer.cs">
       <DependentUpon>CalculateResultsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CalculateTimesForm.cs">
+    <Compile Include="CalculateTimesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CalculateTimesForm.Designer.cs">
+    <Compile Include="CalculateTimesForm.Designer.cs">
       <DependentUpon>CalculateTimesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CompareResultsForm.cs">
+    <Compile Include="CompareResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CompareResultsForm.Designer.cs">
+    <Compile Include="CompareResultsForm.Designer.cs">
       <DependentUpon>CompareResultsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CompareTimesForm.cs">
+    <Compile Include="CompareTimesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CompareTimesForm.Designer.cs">
+    <Compile Include="CompareTimesForm.Designer.cs">
       <DependentUpon>CompareTimesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditSwimmerEventsForm.cs">
+    <Compile Include="EditSwimmerEventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditSwimmerEventsForm.Designer.cs">
+    <Compile Include="EditSwimmerEventsForm.Designer.cs">
       <DependentUpon>EditSwimmerEventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditSwimmerListForm.cs">
+    <Compile Include="EditSwimmerListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditSwimmerListForm.Designer.cs">
+    <Compile Include="EditSwimmerListForm.Designer.cs">
       <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\StartForm.cs">
+    <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StartForm.Designer.cs">
+    <Compile Include="StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\SwimmerEventResultModel.cs" />
     <Compile Include="Models\SwimmerGoalModel.cs" />
     <Compile Include="Models\SwimmerMeetModel.cs" />
-    <Compile Include="Models\SwimmerModel.cs" />
+    <Compile Include="Models\Swimmer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\SwimmerList.cs">
+    <Compile Include="SwimmerList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SwimmerList.Designer.cs">
+    <Compile Include="SwimmerList.Designer.cs">
       <DependentUpon>SwimmerList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewSwimmerEventsForm.cs">
+    <Compile Include="ViewSwimmerEventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ViewSwimmerEventsForm.Designer.cs">
+    <Compile Include="ViewSwimmerEventsForm.Designer.cs">
       <DependentUpon>ViewSwimmerEventsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\CalculateResultsForm.resx">
+    <EmbeddedResource Include="CalculateResultsForm.resx">
       <DependentUpon>CalculateResultsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CalculateTimesForm.resx">
+    <EmbeddedResource Include="CalculateTimesForm.resx">
       <DependentUpon>CalculateTimesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CompareResultsForm.resx">
+    <EmbeddedResource Include="CompareResultsForm.resx">
       <DependentUpon>CompareResultsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CompareTimesForm.resx">
+    <EmbeddedResource Include="CompareTimesForm.resx">
       <DependentUpon>CompareTimesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditSwimmerEventsForm.resx">
+    <EmbeddedResource Include="EditSwimmerEventsForm.resx">
       <DependentUpon>EditSwimmerEventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditSwimmerListForm.resx">
+    <EmbeddedResource Include="EditSwimmerListForm.resx">
       <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StartForm.resx">
+    <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -136,10 +136,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\SwimmerList.resx">
+    <EmbeddedResource Include="SwimmerList.resx">
       <DependentUpon>SwimmerList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ViewSwimmerEventsForm.resx">
+    <EmbeddedResource Include="ViewSwimmerEventsForm.resx">
       <DependentUpon>ViewSwimmerEventsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

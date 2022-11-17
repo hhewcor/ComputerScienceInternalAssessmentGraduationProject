@@ -6,41 +6,42 @@ using System.Threading.Tasks;
 
 namespace ComputerScienceInternalAssessment.Models
 {
-    public class SwimmerModel
+    public class Swimmer
     {
-        public String SwimmerFirstName
+        public String FirstName
         {
             get;
             set;
         }
-        public String SwimmerLastName
-        {
-            get;
-            set;
-        }
-
-        public char SwimmerGender
+        public String LastName
         {
             get;
             set;
         }
 
-        public int SwimmerGrade
+        public String Gender
         {
             get;
             set;
         }
 
-        public String SwimmerEventTime
+        public String Grade
         {
             get;
             set;
         }
 
-        public SwimmerModel()
-        {
-
+        /*public String SwimmerEventTime
+       {
+            get;
+            set;
         }
+        */
+
+        //public SwimmerModel()
+        //{
+
+       // }
 
         /*
         public SwimmerModel(string n)
