@@ -30,14 +30,28 @@ namespace ComputerScienceInternalAssessment
             //add columns
             SwimmerListDataGridView.ColumnCount = 4;
             SwimmerListDataGridView.Columns[0].Name = "First Name";
+            SwimmerListDataGridView.Columns[0].ReadOnly = true;
+
             SwimmerListDataGridView.Columns[1].Name = "Last Name";
+            SwimmerListDataGridView.Columns[1].ReadOnly = true;
+
             SwimmerListDataGridView.Columns[2].Name = "Grade";
+            SwimmerListDataGridView.Columns[2].ReadOnly = true;
+
             SwimmerListDataGridView.Columns[3].Name = "M/F";
+            SwimmerListDataGridView.Columns[3].ReadOnly = true;
 
             SwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            addButtonColumn();
+            //addButtonColumn();
             SwimmerListDataGridView.Columns.Add(btn);
-            addRows();
+            //addRows();
+        }
+
+        private void makeSwimmerListReadOnly()
+        {
+            SwimmerListDataGridView.AllowUserToAddRows = false;
+            SwimmerListDataGridView.AllowUserToDeleteRows = false;
+            SwimmerListDataGridView.ReadOnly = true;
         }
 
         private void addRows()
@@ -204,9 +218,12 @@ namespace ComputerScienceInternalAssessment
 
         private void EditSwimmerListBtn_Click(object sender, EventArgs e)
         {
+            /*
             var EditSwimmerListForm = new EditSwimmerListForm();
             this.Hide();
             EditSwimmerListForm.Show();
+            */
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -220,15 +237,23 @@ namespace ComputerScienceInternalAssessment
                 //Fix what is shown.
                 try
                 {
+                    Console.WriteLine("Opening....");
                     string swimmerFirstName = swimmers[e.RowIndex].FirstName;
                     var ViewSwimmerEventsForm = new ViewSwimmerEventsForm();
+                    Console.WriteLine("Opened");
                     ViewSwimmerEventsForm.Show();
+                    Console.WriteLine("Showing");
                 }
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
             }
+        }
+
+        private void ImportBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -49,6 +49,7 @@ namespace ComputerScienceInternalAssessment
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.EditSwimmerListBtn = new System.Windows.Forms.Button();
             this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
+            this.ImportBtn = new System.Windows.Forms.Button();
             this.FilterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -256,11 +257,22 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerListDataGridView.TabIndex = 9;
             this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // ImportBtn
+            // 
+            this.ImportBtn.Location = new System.Drawing.Point(131, 13);
+            this.ImportBtn.Name = "ImportBtn";
+            this.ImportBtn.Size = new System.Drawing.Size(75, 23);
+            this.ImportBtn.TabIndex = 10;
+            this.ImportBtn.Text = "Import Data";
+            this.ImportBtn.UseVisualStyleBackColor = true;
+            this.ImportBtn.Click += new System.EventHandler(this.ImportBtn_Click);
+            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 450);
+            this.Controls.Add(this.ImportBtn);
             this.Controls.Add(this.SwimmerListDataGridView);
             this.Controls.Add(this.EditSwimmerListBtn);
             this.Controls.Add(this.FilterPanel);
@@ -302,5 +314,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button EditSwimmerListBtn;
         private System.Windows.Forms.DataGridView SwimmerListDataGridView;
+        private System.Windows.Forms.Button ImportBtn;
     }
 }
