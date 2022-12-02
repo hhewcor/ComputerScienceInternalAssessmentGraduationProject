@@ -21,6 +21,7 @@ namespace ComputerScienceInternalAssessment
         {
             this.CenterToScreen();
             this.ControlBox = false;
+            
 
         }
 

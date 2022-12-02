@@ -251,9 +251,9 @@ namespace ComputerScienceInternalAssessment
             // SwimmerListDataGridView
             // 
             this.SwimmerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SwimmerListDataGridView.Location = new System.Drawing.Point(15, 152);
+            this.SwimmerListDataGridView.Location = new System.Drawing.Point(15, 127);
             this.SwimmerListDataGridView.Name = "SwimmerListDataGridView";
-            this.SwimmerListDataGridView.Size = new System.Drawing.Size(432, 261);
+            this.SwimmerListDataGridView.Size = new System.Drawing.Size(432, 286);
             this.SwimmerListDataGridView.TabIndex = 9;
             this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -273,7 +273,6 @@ namespace ComputerScienceInternalAssessment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 450);
             this.Controls.Add(this.ImportBtn);
-            this.Controls.Add(this.SwimmerListDataGridView);
             this.Controls.Add(this.EditSwimmerListBtn);
             this.Controls.Add(this.FilterPanel);
             this.Controls.Add(this.SearchSwimmerNameBtn);
@@ -283,6 +282,7 @@ namespace ComputerScienceInternalAssessment
             this.Controls.Add(this.SearchFirstNameTxt);
             this.Controls.Add(this.SwimmerListHelpBtn);
             this.Controls.Add(this.BackToStartBtn);
+            this.Controls.Add(this.SwimmerListDataGridView);
             this.Name = "SwimmerListForm";
             this.Text = "SwimmerList";
             this.Load += new System.EventHandler(this.SwimmerListForm_Load);

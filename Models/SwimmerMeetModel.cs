@@ -8,6 +8,7 @@ namespace ComputerScienceInternalAssessment.Models
 {
     public class SwimmerMeetModel
     {
+        
         public String SwimmerMeetName
         {
             get;

@@ -22,7 +22,8 @@ namespace ComputerScienceInternalAssessment
 
         private void SwimmerListForm_Load(object sender, EventArgs e)
         {
-
+            this.CenterToScreen();
+            this.ControlBox = false;
         }
 
         private void constructSwimmerListDataGridView()
@@ -237,12 +238,14 @@ namespace ComputerScienceInternalAssessment
                 //Fix what is shown.
                 try
                 {
-                    Console.WriteLine("Opening....");
+                    
                     string swimmerFirstName = swimmers[e.RowIndex].FirstName;
                     var ViewSwimmerEventsForm = new ViewSwimmerEventsForm();
-                    Console.WriteLine("Opened");
+                    //Console.WriteLine("Opened");
                     ViewSwimmerEventsForm.Show();
-                    Console.WriteLine("Showing");
+                    //Console.WriteLine("Showing");
+
+                    MessageBox.Show("Opening");
                 }
                 catch (Exception exception)
                 {
@@ -253,7 +256,9 @@ namespace ComputerScienceInternalAssessment
 
         private void ImportBtn_Click(object sender, EventArgs e)
         {
-
+            var ImportForm = new ImportForm();
+            this.Hide();
+            ImportForm.Show();
         }
     }
 }

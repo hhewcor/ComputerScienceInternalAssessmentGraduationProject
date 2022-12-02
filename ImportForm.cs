@@ -24,7 +24,9 @@ namespace ComputerScienceInternalAssessment
 
         private void BackToSwimmerListBtn_Click(object sender, EventArgs e)
         {
-
+            var SwimmerListForm = new SwimmerListForm();
+            this.Hide();
+            SwimmerListForm.Show();
         }
 
         private void ImportXMLBtn_Click(object sender, EventArgs e)
