@@ -22,6 +22,7 @@ namespace ComputerScienceInternalAssessment
 
         private void SwimmerListForm_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             this.ControlBox = false;
         }
@@ -259,6 +260,13 @@ namespace ComputerScienceInternalAssessment
             var ImportForm = new ImportForm();
             this.Hide();
             ImportForm.Show();
+        }
+
+        private void ExportSwimmerListBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ExportSwimmerListForm exForm = new ExportSwimmerListForm();
+            exForm.Show();
         }
     }
 }

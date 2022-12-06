@@ -50,6 +50,7 @@ namespace ComputerScienceInternalAssessment
             this.EditSwimmerListBtn = new System.Windows.Forms.Button();
             this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
             this.ImportBtn = new System.Windows.Forms.Button();
+            this.ExportSwimmerListBtn = new System.Windows.Forms.Button();
             this.FilterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -267,11 +268,22 @@ namespace ComputerScienceInternalAssessment
             this.ImportBtn.UseVisualStyleBackColor = true;
             this.ImportBtn.Click += new System.EventHandler(this.ImportBtn_Click);
             // 
+            // ExportSwimmerListBtn
+            // 
+            this.ExportSwimmerListBtn.Location = new System.Drawing.Point(333, 419);
+            this.ExportSwimmerListBtn.Name = "ExportSwimmerListBtn";
+            this.ExportSwimmerListBtn.Size = new System.Drawing.Size(114, 23);
+            this.ExportSwimmerListBtn.TabIndex = 11;
+            this.ExportSwimmerListBtn.Text = "Export Swimmer List";
+            this.ExportSwimmerListBtn.UseVisualStyleBackColor = true;
+            this.ExportSwimmerListBtn.Click += new System.EventHandler(this.ExportSwimmerListBtn_Click);
+            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 450);
+            this.Controls.Add(this.ExportSwimmerListBtn);
             this.Controls.Add(this.ImportBtn);
             this.Controls.Add(this.EditSwimmerListBtn);
             this.Controls.Add(this.FilterPanel);
@@ -315,5 +327,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Button EditSwimmerListBtn;
         private System.Windows.Forms.DataGridView SwimmerListDataGridView;
         private System.Windows.Forms.Button ImportBtn;
+        private System.Windows.Forms.Button ExportSwimmerListBtn;
     }
 }

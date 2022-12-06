@@ -82,6 +82,13 @@
     <Compile Include="EditSwimmerListForm.Designer.cs">
       <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Events\UpdateSwimmerListDataGridViewEvent.cs" />
+    <Compile Include="ExportSwimmerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportSwimmerListForm.Designer.cs">
+      <DependentUpon>ExportSwimmerListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +137,9 @@
     <EmbeddedResource Include="EditSwimmerListForm.resx">
       <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExportSwimmerListForm.resx">
+      <DependentUpon>ExportSwimmerListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportForm.resx">
       <DependentUpon>ImportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,7 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBase\" />
-    <Folder Include="Events\" />
     <Folder Include="Processes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

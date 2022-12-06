@@ -19,6 +19,7 @@ namespace ComputerScienceInternalAssessment
 
         private void StartForm_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             this.ControlBox = false;
             
