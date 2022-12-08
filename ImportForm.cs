@@ -1,21 +1,17 @@
 ﻿using ImportExportData.Events;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace ComputerScienceInternalAssessment
 {
 
-    public delegate void UpdateSwimmerListDataGridViewHandler(object sender, UpdateSwimmerListDataGridViewEventArgs e);
+    //public delegate void UpdateSwimmerListDataGridViewHandler(object sender, UpdateSwimmerListDGVEventArgs e);
 
-    //public event UpdateSwimmerListDataGridViewHandler UpdateDataGridView;
+    //public event UpdateSwimmerListDataGridViewHandler UpdateDGV;
+
+    //string _file = string.Empty;
+
+    //string _file = string.Empty;
     public partial class ImportForm : Form
     {
         public ImportForm()
@@ -27,6 +23,8 @@ namespace ComputerScienceInternalAssessment
 
             this.XMLFileNameTxtBox.Text = "";
             this.XMLFileNameTxtBox.Enabled = false;
+
+
         }
 
         private void ImportForm_Load(object sender, EventArgs e)
@@ -44,6 +42,35 @@ namespace ComputerScienceInternalAssessment
             SwimmerListForm.Show();
         }
 
+        private void SelectExcelFileBtn_Click(object sender, EventArgs e)
+        {
+            /*
+            OpenFileDialog fdlg = new OpenFileDialog();
+
+            //Set Tile of OpenFileDialog
+            openDialog.Title = "Select An Excel File";
+
+            //Set the File Filter of OpenFileDialog
+            openDialog.Filter = "Excel 7.0 (*.xlsx)|*.xlsx" + "|" +
+                                "Excel (*.xls)|*.xls" + "|" +
+                                "CSV (*.csv)|*.csv" + "|" +
+                                "All Files (*.*)|*.*";
+
+            //Get the OK press of the Dialog Box
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get Selected File
+                _file = openDialog.FileName;
+                this.txtFile.Text = _file;
+            }
+            */
+        }
+
+        private void SelectXMLFileBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void ImportXMLBtn_Click(object sender, EventArgs e)
         {
 
@@ -51,31 +78,7 @@ namespace ComputerScienceInternalAssessment
 
         private void ImportExcelBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void SelectExcelFileBtn_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            openDialog.Title = "Select an Excel File";
-
-            openDialog.Filter = "Excel 7.0 (*.xlsx)|*.xlsx" + "|" +
-                                "Excel (*.xls)|*.xls" + "|" +
-                                "CSV (*.csv)|*.csv" + "|" +
-                                "All Files (*.*)|*.*";
-
-            //fix
-            /*if(openDialog.ShowDialog() == DialogResult.OK)
-            {
-               // fileName = openDialog.FileName;
-                //this.ExcelFileNameTxtBox.Text = _file;
-            }*/
-        }
-
-        private void SelectXMLFileBtn_Click(object sender, EventArgs e)
-        {
-
+            
         }
     }
 }

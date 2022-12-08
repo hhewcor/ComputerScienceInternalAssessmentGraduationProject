@@ -14,6 +14,10 @@ namespace ComputerScienceInternalAssessment
     public partial class SwimmerListForm : Form
     {
         private readonly DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+
+       // DataTable _dt = new DataTable();
+       // bool isXML = false;
+
         public SwimmerListForm()
         {
             InitializeComponent();
@@ -44,9 +48,9 @@ namespace ComputerScienceInternalAssessment
             SwimmerListDataGridView.Columns[3].ReadOnly = true;
 
             SwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //addButtonColumn();
+            addButtonColumn();
             SwimmerListDataGridView.Columns.Add(btn);
-            //addRows();
+            addRows();
         }
 
         private void makeSwimmerListReadOnly()

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ImportExportData.Events
 {
-    public class UpdateSwimmerListDataGridViewEventArgs : EventArgs
+    public class UpdateSwimmerListDGVEventArgs : EventArgs
     {
-        private DataSet _ds = null;
+        /*private DataSet _ds = null;
 
-        public UpdateSwimmerListDataGridViewEventArgs(DataSet ds)
+        public UpdateSwimmerListDGVEventArgs(DataSet ds)
         {
             _ds = ds;
         }
@@ -22,6 +22,6 @@ namespace ImportExportData.Events
             {
                 return _ds;
             }
-        }
+        }*/
     }
 }

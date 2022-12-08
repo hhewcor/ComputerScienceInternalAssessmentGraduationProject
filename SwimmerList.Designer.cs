@@ -251,9 +251,14 @@ namespace ComputerScienceInternalAssessment
             // 
             // SwimmerListDataGridView
             // 
+            this.SwimmerListDataGridView.AllowUserToAddRows = false;
+            this.SwimmerListDataGridView.AllowUserToDeleteRows = false;
+            this.SwimmerListDataGridView.AllowUserToOrderColumns = true;
+            this.SwimmerListDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.SwimmerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SwimmerListDataGridView.Location = new System.Drawing.Point(15, 127);
             this.SwimmerListDataGridView.Name = "SwimmerListDataGridView";
+            this.SwimmerListDataGridView.ReadOnly = true;
             this.SwimmerListDataGridView.Size = new System.Drawing.Size(432, 286);
             this.SwimmerListDataGridView.TabIndex = 9;
             this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

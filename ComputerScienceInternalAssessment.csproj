@@ -70,6 +70,7 @@
     <Compile Include="CompareTimesForm.Designer.cs">
       <DependentUpon>CompareTimesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data.cs" />
     <Compile Include="EditSwimmerEventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,7 @@
     <Compile Include="ImportForm.Designer.cs">
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Processes\ImportExcel.cs" />
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +163,7 @@
     <EmbeddedResource Include="ViewSwimmerEventsForm.resx">
       <DependentUpon>ViewSwimmerEventsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataBase\SampleData.xlsx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -174,9 +177,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataBase\" />
-    <Folder Include="Processes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
