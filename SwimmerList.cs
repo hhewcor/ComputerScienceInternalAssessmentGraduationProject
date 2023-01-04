@@ -18,10 +18,22 @@ namespace ComputerScienceInternalAssessment
        // DataTable _dt = new DataTable();
        // bool isXML = false;
 
+
         public SwimmerListForm()
         {
             InitializeComponent();
             constructSwimmerListDataGridView();
+
+            SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
+        }
+
+        private void SwimmerListDataGridView_CellEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
+            {
+                SwimmerListDataGridView.Columns["View"].ReadOnly = false;  // set all row as read-only
+                SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
+            }
         }
 
         private void SwimmerListForm_Load(object sender, EventArgs e)
@@ -49,8 +61,18 @@ namespace ComputerScienceInternalAssessment
 
             SwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             addButtonColumn();
-            SwimmerListDataGridView.Columns.Add(btn);
             addRows();
+
+        }
+
+        private void SwimmerListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
+          //  {
+                this.Hide();
+                EditSwimmerListForm editForm = new EditSwimmerListForm();
+                editForm.Show();
+           // }
         }
 
         private void makeSwimmerListReadOnly()
@@ -74,7 +96,11 @@ namespace ComputerScienceInternalAssessment
             btn.Name = "button";
             btn.Text = "View";
             btn.UseColumnTextForButtonValue = true;
+            btn.ReadOnly = false;
+            this.SwimmerListDataGridView.Columns.Add(btn);
         }
+
+        //private void SwimmerListDataGridView_CellClick
 
         //This will generate a generic list for testing purposes.
         //Need to fix so that the user can add and remove swimmers.
@@ -232,30 +258,11 @@ namespace ComputerScienceInternalAssessment
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void swimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Swimmer[] swimmers = getSwimmerList().ToArray();
-
-            //Get clicked button column and show new form
-            if (e.ColumnIndex == 5 && e.RowIndex < swimmers.Length)
+            if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
             {
-
-                //Fix what is shown.
-                try
-                {
-                    
-                    string swimmerFirstName = swimmers[e.RowIndex].FirstName;
-                    var ViewSwimmerEventsForm = new ViewSwimmerEventsForm();
-                    //Console.WriteLine("Opened");
-                    ViewSwimmerEventsForm.Show();
-                    //Console.WriteLine("Showing");
-
-                    MessageBox.Show("Opening");
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine(exception.Message);
-                }
+                
             }
         }
 

@@ -261,7 +261,6 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerListDataGridView.ReadOnly = true;
             this.SwimmerListDataGridView.Size = new System.Drawing.Size(432, 286);
             this.SwimmerListDataGridView.TabIndex = 9;
-            this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ImportBtn
             // 
