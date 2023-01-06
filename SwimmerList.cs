@@ -15,8 +15,8 @@ namespace ComputerScienceInternalAssessment
     {
         private readonly DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
 
-       // DataTable _dt = new DataTable();
-       // bool isXML = false;
+        // DataTable _dt = new DataTable();
+        // bool isXML = false;
 
 
         public SwimmerListForm()
@@ -24,16 +24,6 @@ namespace ComputerScienceInternalAssessment
             InitializeComponent();
             constructSwimmerListDataGridView();
 
-            SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
-        }
-
-        private void SwimmerListDataGridView_CellEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
-            {
-                SwimmerListDataGridView.Columns["View"].ReadOnly = false;  // set all row as read-only
-                SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
-            }
         }
 
         private void SwimmerListForm_Load(object sender, EventArgs e)
@@ -48,39 +38,31 @@ namespace ComputerScienceInternalAssessment
             //add columns
             SwimmerListDataGridView.ColumnCount = 4;
             SwimmerListDataGridView.Columns[0].Name = "First Name";
-            SwimmerListDataGridView.Columns[0].ReadOnly = true;
+            //SwimmerListDataGridView.Columns[0].ReadOnly = true;
 
             SwimmerListDataGridView.Columns[1].Name = "Last Name";
-            SwimmerListDataGridView.Columns[1].ReadOnly = true;
+            // SwimmerListDataGridView.Columns[1].ReadOnly = true;
 
             SwimmerListDataGridView.Columns[2].Name = "Grade";
-            SwimmerListDataGridView.Columns[2].ReadOnly = true;
+            //SwimmerListDataGridView.Columns[2].ReadOnly = true;
 
             SwimmerListDataGridView.Columns[3].Name = "M/F";
-            SwimmerListDataGridView.Columns[3].ReadOnly = true;
+            //SwimmerListDataGridView.Columns[3].ReadOnly = true;
 
             SwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            addButtonColumn();
+            //addButtonColumn();
+
+            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
+            col.UseColumnTextForButtonValue = true;
+            col.Text = "VIEW";
+            col.Name = "SwimmerEvents";
+            SwimmerListDataGridView.Columns.Add(col);
+
             addRows();
 
         }
 
-        private void SwimmerListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
-          //  {
-                this.Hide();
-                EditSwimmerListForm editForm = new EditSwimmerListForm();
-                editForm.Show();
-           // }
-        }
-
-        private void makeSwimmerListReadOnly()
-        {
-            SwimmerListDataGridView.AllowUserToAddRows = false;
-            SwimmerListDataGridView.AllowUserToDeleteRows = false;
-            SwimmerListDataGridView.ReadOnly = true;
-        }
+        
 
         private void addRows()
         {
@@ -92,20 +74,28 @@ namespace ComputerScienceInternalAssessment
 
         private void addButtonColumn()
         {
-            btn.HeaderText = @"View Swimmer Events";
-            btn.Name = "button";
-            btn.Text = "View";
-            btn.UseColumnTextForButtonValue = true;
-            btn.ReadOnly = false;
-            this.SwimmerListDataGridView.Columns.Add(btn);
+            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
+            col.UseColumnTextForButtonValue = true;
+            col.Text = "VIEW";
+            col.Name = "SwimmerEvents";
+            SwimmerListDataGridView.Columns.Add(col);
         }
 
-        //private void SwimmerListDataGridView_CellClick
+        private void swimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((e.ColumnIndex == this.SwimmerListDataGridView.Columns["SwimmerEvents"].Index) && (e.RowIndex >= 0))
+            {
+                this.Hide();
+                EditSwimmerListForm editForm = new EditSwimmerListForm();
+                editForm.Show();
+            }
+        }
 
         //This will generate a generic list for testing purposes.
         //Need to fix so that the user can add and remove swimmers.
         //Also need to add the criteria that Grade can only be integers
         //Also need to add the criteria that Gender can only be one letter long.
+
         private List<Swimmer> getSwimmerList()
         {
             List<Swimmer> swimmers = new List<Swimmer>();
@@ -115,7 +105,7 @@ namespace ComputerScienceInternalAssessment
                 LastName = "Hood",
                 Grade = "10",
                 Gender = "M"
-                
+
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -124,7 +114,7 @@ namespace ComputerScienceInternalAssessment
                 LastName = "Man",
                 Grade = "11",
                 Gender = "M"
-                
+
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -133,7 +123,7 @@ namespace ComputerScienceInternalAssessment
                 LastName = "Leia",
                 Grade = "12",
                 Gender = "F"
-                
+
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -150,7 +140,7 @@ namespace ComputerScienceInternalAssessment
                 LastName = "Man",
                 Grade = "9",
                 Gender = "M"
-                
+
             };
             swimmers.Add(s);
             return swimmers;
@@ -195,14 +185,14 @@ namespace ComputerScienceInternalAssessment
         {
             t1 = 25;
             this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-            
+
         }
 
         private void FilterBtn_MouseLeave(object sender, EventArgs e)
         {
             timer1.Stop();
-         // t1 = 25;
-         // this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
+            // t1 = 25;
+            // this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -258,14 +248,6 @@ namespace ComputerScienceInternalAssessment
 
         }
 
-        private void swimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
-            {
-                
-            }
-        }
-
         private void ImportBtn_Click(object sender, EventArgs e)
         {
             var ImportForm = new ImportForm();
@@ -279,5 +261,65 @@ namespace ComputerScienceInternalAssessment
             ExportSwimmerListForm exForm = new ExportSwimmerListForm();
             exForm.Show();
         }
+
+        /*
+        void SwimmerListDataGridView_DataBindingComplete(object sender,
+        DataGridViewBindingCompleteEventArgs e)
+        {
+            SwimmerListDataGridView.Rows[1].Cells["MyButton"] = new DataGridViewTextBoxCell();
+        }
+        */
+        /*
+       private void SwimmerListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+       {
+
+           //DataGridViewCellEventArgs e
+           //System.Windows.FormsDataGridViewCellEventArgs e
+           if (SwimmerListDataGridView.Columns[e.ColumnIndex].Name == "MyButton")
+               {
+                   // button clicked - do some logic
+               }
+               DataGridViewCell cell = (DataGridViewCell)SwimmerListDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+           if (cell.ColumnIndex == this.SwimmerListDataGridView.Columns["SwimmerEvents"].Index) 
+           {
+                   this.Hide();
+                   EditSwimmerListForm editForm = new EditSwimmerListForm();
+                   editForm.Show();
+           }
+       }
+
+
+       /*
+        * if(Loop){
+        * try{
+        *          this.Hide();
+                   EditSwimmerListForm editForm = new EditSwimmerListForm();
+                   editForm.Show();
+        * }
+        * catch (Exception exception) {
+        * Console.WriteLine(exception.Message);
+        * }
+        * }
+        * */
+
+        /* private void SwimmerListDataGridView_CellEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
+            {
+                SwimmerListDataGridView.Columns["View"].ReadOnly = false;  // set all row as read-only
+                SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
+            }
+       //SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
+        }*/
+        /*
+        private void makeSwimmerListReadOnly()
+        {
+            SwimmerListDataGridView.AllowUserToAddRows = false;
+            SwimmerListDataGridView.AllowUserToDeleteRows = false;
+            SwimmerListDataGridView.ReadOnly = true;
+        }
+        */
     }
 }
+

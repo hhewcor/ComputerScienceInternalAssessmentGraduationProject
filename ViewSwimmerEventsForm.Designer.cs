@@ -31,11 +31,13 @@ namespace ComputerScienceInternalAssessment
         {
             this.BackToSwimmerListFormBtn = new System.Windows.Forms.Button();
             this.EditSwimmerEventsFormBtn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // BackToSwimmerListFormBtn
             // 
-            this.BackToSwimmerListFormBtn.Location = new System.Drawing.Point(43, 29);
+            this.BackToSwimmerListFormBtn.Location = new System.Drawing.Point(28, 29);
             this.BackToSwimmerListFormBtn.Name = "BackToSwimmerListFormBtn";
             this.BackToSwimmerListFormBtn.Size = new System.Drawing.Size(75, 23);
             this.BackToSwimmerListFormBtn.TabIndex = 0;
@@ -45,7 +47,7 @@ namespace ComputerScienceInternalAssessment
             // 
             // EditSwimmerEventsFormBtn
             // 
-            this.EditSwimmerEventsFormBtn.Location = new System.Drawing.Point(301, 72);
+            this.EditSwimmerEventsFormBtn.Location = new System.Drawing.Point(322, 29);
             this.EditSwimmerEventsFormBtn.Name = "EditSwimmerEventsFormBtn";
             this.EditSwimmerEventsFormBtn.Size = new System.Drawing.Size(75, 23);
             this.EditSwimmerEventsFormBtn.TabIndex = 1;
@@ -53,16 +55,29 @@ namespace ComputerScienceInternalAssessment
             this.EditSwimmerEventsFormBtn.UseVisualStyleBackColor = true;
             this.EditSwimmerEventsFormBtn.Click += new System.EventHandler(this.EditSwimmerEventsFormBtn_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(28, 169);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(369, 222);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // ViewSwimmerEventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.EditSwimmerEventsFormBtn);
             this.Controls.Add(this.BackToSwimmerListFormBtn);
             this.Name = "ViewSwimmerEventsForm";
             this.Text = "ViewSwimmerEventsForm";
             this.Load += new System.EventHandler(this.ViewSwimmerEventsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -71,5 +86,6 @@ namespace ComputerScienceInternalAssessment
 
         private System.Windows.Forms.Button BackToSwimmerListFormBtn;
         private System.Windows.Forms.Button EditSwimmerEventsFormBtn;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -15,9 +15,15 @@ namespace ComputerScienceInternalAssessment
         public EditSwimmerListForm()
         {
             InitializeComponent();
+            constructEditSwimmerListDataGridView();
         }
 
         private void EditSwimmerListForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void constructEditSwimmerListDataGridView()
         {
 
         }
@@ -27,6 +33,11 @@ namespace ComputerScienceInternalAssessment
             var SwimmerListForm = new SwimmerListForm();
             this.Hide();
             SwimmerListForm.Show();
+        }
+
+        private void SaveSwimmerListFormBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
