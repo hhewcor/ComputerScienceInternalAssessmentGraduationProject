@@ -20,12 +20,29 @@ namespace ComputerScienceInternalAssessment
 
         private void EditSwimmerListForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void constructEditSwimmerListDataGridView()
         {
+            EditSwimmerListDataGridView.ColumnCount = 4;
+            EditSwimmerListDataGridView.Columns[0].Name = "First Name";
 
+            EditSwimmerListDataGridView.Columns[1].Name = "Last Name";
+
+            EditSwimmerListDataGridView.Columns[2].Name = "Grade";
+
+            EditSwimmerListDataGridView.Columns[3].Name = "M/F";
+
+            EditSwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            EditSwimmerListDataGridView.copyData();
+
+            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
+            col.UseColumnTextForButtonValue = true;
+            col.Text = "DELETE";
+            col.Name = "Delete Swimmer";
+            EditSwimmerListDataGridView.Columns.Add(col);
         }
 
         private void BackToSwimmerListFormBtn_Click(object sender, EventArgs e)

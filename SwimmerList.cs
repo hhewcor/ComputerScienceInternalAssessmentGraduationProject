@@ -62,8 +62,6 @@ namespace ComputerScienceInternalAssessment
 
         }
 
-        
-
         private void addRows()
         {
             foreach (var swimmer in getSwimmerList())
@@ -240,11 +238,10 @@ namespace ComputerScienceInternalAssessment
 
         private void EditSwimmerListBtn_Click(object sender, EventArgs e)
         {
-            /*
+            
             var EditSwimmerListForm = new EditSwimmerListForm();
             this.Hide();
             EditSwimmerListForm.Show();
-            */
 
         }
 
