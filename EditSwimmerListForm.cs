@@ -36,7 +36,7 @@ namespace ComputerScienceInternalAssessment
 
             EditSwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            EditSwimmerListDataGridView.copyData();
+            //EditSwimmerListDataGridView.copyData();
 
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
             col.UseColumnTextForButtonValue = true;

@@ -84,8 +84,8 @@ namespace ComputerScienceInternalAssessment
             if ((e.ColumnIndex == this.SwimmerListDataGridView.Columns["SwimmerEvents"].Index) && (e.RowIndex >= 0))
             {
                 this.Hide();
-                EditSwimmerListForm editForm = new EditSwimmerListForm();
-                editForm.Show();
+                ViewSwimmerEventsForm EventsForm = new ViewSwimmerEventsForm();
+                EventsForm.Show();
             }
         }
 
