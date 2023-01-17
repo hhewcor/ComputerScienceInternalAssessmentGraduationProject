@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TreeView = System.Windows.Forms.TreeView;
 
 namespace ComputerScienceInternalAssessment
 {
@@ -243,6 +245,13 @@ namespace ComputerScienceInternalAssessment
             this.Hide();
             EditSwimmerListForm.Show();
 
+        }
+
+        private void constructTreeView()
+        {
+            TreeNode treeNode = new TreeNode("Robin Hood");
+            treeView1.Nodes.Add(treeNode);
+          
         }
 
         private void ImportBtn_Click(object sender, EventArgs e)
