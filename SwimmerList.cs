@@ -24,6 +24,7 @@ namespace ComputerScienceInternalAssessment
         public SwimmerListForm()
         {
             InitializeComponent();
+            constructTreeView();
             constructSwimmerListDataGridView();
 
         }
@@ -249,8 +250,14 @@ namespace ComputerScienceInternalAssessment
 
         private void constructTreeView()
         {
-            TreeNode treeNode = new TreeNode("Robin Hood");
-            treeView1.Nodes.Add(treeNode);
+            foreach (var swimmer in getSwimmerList())
+            {
+                TreeNode node = treeView1.Nodes.Add("root", swimmer.FirstName + " " + swimmer.LastName);
+                TreeNode sub_node = node.Nodes.Add("gender", "Gender");
+                //sub_node.Nodes.Add("usa", "United States").Nodes.Add("nasa", "National Aeronautics and Space Administration (NASA)");
+            }
+            //TreeNode treeNode = new TreeNode("Robin Hood");
+           // treeView1.Nodes.Add(treeNode);
           
         }
 

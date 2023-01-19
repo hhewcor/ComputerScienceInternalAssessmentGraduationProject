@@ -30,36 +30,6 @@ namespace ComputerScienceInternalAssessment
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Grade");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Gender");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("EventTime");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("EventName", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("GoalTimes", new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("RabbitDash");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("57.89");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("100free", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("5:31.32");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("500Free", new System.Windows.Forms.TreeNode[] {
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("1/17/23", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode8,
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("JanuarySprintOff");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("1/31/23", new System.Windows.Forms.TreeNode[] {
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("ViewMeetInfo", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Robin Hood", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode5,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("PrincessPeach");
             this.BackToStartBtn = new System.Windows.Forms.Button();
             this.SwimmerListHelpBtn = new System.Windows.Forms.Button();
             this.SearchFirstNameTxt = new System.Windows.Forms.TextBox();
@@ -318,44 +288,8 @@ namespace ComputerScienceInternalAssessment
             // 
             this.treeView1.Location = new System.Drawing.Point(12, 133);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Grade";
-            treeNode1.Text = "Grade";
-            treeNode2.Name = "Gender";
-            treeNode2.Text = "Gender";
-            treeNode3.Name = "EventTime";
-            treeNode3.Text = "EventTime";
-            treeNode4.Name = "EventName";
-            treeNode4.Text = "EventName";
-            treeNode5.Name = "GoalTimes";
-            treeNode5.Text = "GoalTimes";
-            treeNode6.Name = "MeetName";
-            treeNode6.Text = "RabbitDash";
-            treeNode7.Name = "EventTime";
-            treeNode7.Text = "57.89";
-            treeNode8.Name = "EventName";
-            treeNode8.Text = "100free";
-            treeNode9.Name = "EventTime";
-            treeNode9.Text = "5:31.32";
-            treeNode10.Name = "EventName";
-            treeNode10.Text = "500Free";
-            treeNode11.Name = "MeetDate";
-            treeNode11.Text = "1/17/23";
-            treeNode12.Name = "MeetName";
-            treeNode12.Text = "JanuarySprintOff";
-            treeNode13.Name = "MeetDate";
-            treeNode13.Text = "1/31/23";
-            treeNode14.Name = "ViewMeetInfo";
-            treeNode14.Text = "ViewMeetInfo";
-            treeNode15.Name = "SwimmerName";
-            treeNode15.Text = "Robin Hood";
-            treeNode16.Name = "SwimmerName";
-            treeNode16.Text = "PrincessPeach";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15,
-            treeNode16});
             this.treeView1.Size = new System.Drawing.Size(435, 116);
             this.treeView1.TabIndex = 12;
-            this.treeView1.Visible = false;
             // 
             // SwimmerListForm
             // 
