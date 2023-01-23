@@ -15,7 +15,7 @@ namespace ComputerScienceInternalAssessment
         public EditSwimmerListForm()
         {
             InitializeComponent();
-            constructEditSwimmerListDataGridView();
+            ConstructEditSwimmerListDataGridView();
         }
 
         private void EditSwimmerListForm_Load(object sender, EventArgs e)
@@ -23,7 +23,7 @@ namespace ComputerScienceInternalAssessment
             
         }
 
-        private void constructEditSwimmerListDataGridView()
+        private void ConstructEditSwimmerListDataGridView()
         {
             EditSwimmerListDataGridView.ColumnCount = 4;
             EditSwimmerListDataGridView.Columns[0].Name = "First Name";

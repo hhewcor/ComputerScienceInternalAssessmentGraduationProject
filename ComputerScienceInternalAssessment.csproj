@@ -103,7 +103,6 @@
     <Compile Include="StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\SwimmerEventResultModel.cs" />
     <Compile Include="Models\SwimmerGoalModel.cs" />
     <Compile Include="Models\SwimmerMeetModel.cs" />
     <Compile Include="Models\Swimmer.cs" />

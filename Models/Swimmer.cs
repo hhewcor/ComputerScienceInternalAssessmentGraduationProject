@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.SwimmerGoalModel;
 
 namespace ComputerScienceInternalAssessment.Models
 {
     public class Swimmer
     {
+        public SwimmerMeetModel sm;
         public String FirstName
         {
             get;
@@ -31,6 +33,25 @@ namespace ComputerScienceInternalAssessment.Models
             set;
         }
 
+        public Swimmer()
+        {
+
+        }
+
+       /* public Swimmer(Swimmer s, SwimmerMeetModel m)
+        {
+            sm = m;
+        }
+       */
+
+        public Swimmer(string fn, string ln, string gend, string grd)
+        {
+            FirstName = fn;
+            LastName = ln;
+            Gender = gend;
+            Grade = grd;
+            //swimmerMeet = sm;
+        }
 
 
         /*public String SwimmerEventTime
@@ -43,7 +64,7 @@ namespace ComputerScienceInternalAssessment.Models
         //public SwimmerModel()
         //{
 
-       // }
+        // }
 
         /*
         public SwimmerModel(string n)

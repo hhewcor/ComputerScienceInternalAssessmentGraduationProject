@@ -46,7 +46,7 @@ namespace ComputerScienceInternalAssessment
             this.FilterNinthGradeBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.FilterBtn = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.EditSwimmerListBtn = new System.Windows.Forms.Button();
             this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
             this.ImportBtn = new System.Windows.Forms.Button();
@@ -235,9 +235,9 @@ namespace ComputerScienceInternalAssessment
             this.FilterBtn.MouseLeave += new System.EventHandler(this.FilterBtn_MouseLeave);
             this.FilterBtn.MouseHover += new System.EventHandler(this.FilterBtn_MouseHover);
             // 
-            // timer1
+            // Timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.Timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // EditSwimmerListBtn
             // 
@@ -262,7 +262,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerListDataGridView.ReadOnly = true;
             this.SwimmerListDataGridView.Size = new System.Drawing.Size(432, 158);
             this.SwimmerListDataGridView.TabIndex = 9;
-            this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.swimmerListDataGridView_CellContentClick);
+            this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SwimmerListDataGridView_CellContentClick);
             // 
             // ImportBtn
             // 
@@ -337,7 +337,7 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Button FilterNinthGradeBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button FilterBtn;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Button EditSwimmerListBtn;
         private System.Windows.Forms.DataGridView SwimmerListDataGridView;
         private System.Windows.Forms.Button ImportBtn;

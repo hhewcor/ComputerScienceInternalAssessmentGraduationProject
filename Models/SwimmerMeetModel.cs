@@ -8,7 +8,8 @@ namespace ComputerScienceInternalAssessment.Models
 {
     public class SwimmerMeetModel
     {
-        
+        //public SwimmerEventResultModel SwimmerResultName;
+        //public SwimmerEventResultModel SwimmerResultTime;
         public String SwimmerMeetName
         {
             get;
@@ -19,6 +20,31 @@ namespace ComputerScienceInternalAssessment.Models
         {
             get;
             set;
+        }
+
+        public String SwimmerResultName
+        {
+            get;
+            set;
+        }
+
+        public String SwimmerResultTime
+        {
+            get;
+            set;
+        }
+
+        public SwimmerMeetModel(String meetName, String meetDate, String EventResultName, String EventResultTime)
+        {
+            SwimmerMeetName = meetName;
+            SwimmerMeetDate = meetDate;
+            SwimmerResultName = EventResultName;
+            SwimmerResultTime = EventResultTime;
+        }
+        
+        public SwimmerMeetModel()
+        {
+
         }
     }
 }

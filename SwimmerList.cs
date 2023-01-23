@@ -24,8 +24,8 @@ namespace ComputerScienceInternalAssessment
         public SwimmerListForm()
         {
             InitializeComponent();
-            constructTreeView();
-            constructSwimmerListDataGridView();
+            ConstructTreeView();
+            ConstructSwimmerListDataGridView();
 
         }
 
@@ -36,7 +36,7 @@ namespace ComputerScienceInternalAssessment
             this.ControlBox = false;
         }
 
-        private void constructSwimmerListDataGridView()
+        private void ConstructSwimmerListDataGridView()
         {
             //add columns
             SwimmerListDataGridView.ColumnCount = 4;
@@ -61,19 +61,19 @@ namespace ComputerScienceInternalAssessment
             col.Name = "SwimmerEvents";
             SwimmerListDataGridView.Columns.Add(col);
 
-            addRows();
+            AddRows();
 
         }
 
-        private void addRows()
+        private void AddRows()
         {
-            foreach (var swimmer in getSwimmerList())
+            foreach (var swimmer in GetSwimmerList())
             {
                 SwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender);
             }
         }
 
-        private void addButtonColumn()
+        private void AddButtonColumn()
         {
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
             col.UseColumnTextForButtonValue = true;
@@ -82,7 +82,7 @@ namespace ComputerScienceInternalAssessment
             SwimmerListDataGridView.Columns.Add(col);
         }
 
-        private void swimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void SwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if ((e.ColumnIndex == this.SwimmerListDataGridView.Columns["SwimmerEvents"].Index) && (e.RowIndex >= 0))
             {
@@ -97,25 +97,41 @@ namespace ComputerScienceInternalAssessment
         //Also need to add the criteria that Grade can only be integers
         //Also need to add the criteria that Gender can only be one letter long.
 
-        private List<Swimmer> getSwimmerList()
+
+        private List<Swimmer> GetSwimmerList()
         {
+            
+          //  List<SwimmerMeetModel> SwimmerMeet = new List<SwimmerMeetModel>();
             List<Swimmer> swimmers = new List<Swimmer>();
+           // List<>
+
+            /*SwimmerMeetModel m = new SwimmerMeetModel()
+            {
+                SwimmerMeetName = "Rabbit Sprintoff",
+                SwimmerMeetDate = "1 / 13 / 22",
+                SwimmerResultName = "500 Free",
+                SwimmerResultTime = "8:34.21"
+            };
+            */
+
             Swimmer s = new Swimmer()
             {
                 FirstName = "Robin",
                 LastName = "Hood",
                 Grade = "10",
-                Gender = "M"
-
+                Gender = "M",
+                //sm = m
             };
             swimmers.Add(s);
+
+            //swimmers.Add(m);
+
             s = new Swimmer()
             {
                 FirstName = "Bat",
                 LastName = "Man",
                 Grade = "11",
                 Gender = "M"
-
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -143,6 +159,15 @@ namespace ComputerScienceInternalAssessment
                 Gender = "M"
 
             };
+            
+
+            /*immerMeetModel m = new SwimmerMeetModel();
+            m = new SwimmerMeetModel()
+            {
+
+            };
+            */
+
             swimmers.Add(s);
             return swimmers;
         }
@@ -179,7 +204,7 @@ namespace ComputerScienceInternalAssessment
         private void FilterBtn_Click(object sender, EventArgs e)
         {
             this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-            timer1.Start();
+            Timer1.Start();
         }
 
         private void FilterBtn_MouseHover(object sender, EventArgs e)
@@ -191,7 +216,7 @@ namespace ComputerScienceInternalAssessment
 
         private void FilterBtn_MouseLeave(object sender, EventArgs e)
         {
-            timer1.Stop();
+            Timer1.Stop();
             // t1 = 25;
             // this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
         }
@@ -200,7 +225,7 @@ namespace ComputerScienceInternalAssessment
         {
             if (t1 > 175)
             {
-                timer1.Stop();
+                Timer1.Stop();
             }
             else
             {
@@ -248,13 +273,27 @@ namespace ComputerScienceInternalAssessment
 
         }
 
-        private void constructTreeView()
+        private void ConstructTreeView()
         {
-            foreach (var swimmer in getSwimmerList())
+            foreach (var swimmer in GetSwimmerList())
             {
                 TreeNode node = treeView1.Nodes.Add("root", swimmer.FirstName + " " + swimmer.LastName);
                 TreeNode sub_node = node.Nodes.Add("gender", "Gender");
-                //sub_node.Nodes.Add("usa", "United States").Nodes.Add("nasa", "National Aeronautics and Space Administration (NASA)");
+                sub_node.Nodes.Add("M/F", swimmer.Gender);
+                sub_node = node.Nodes.Add("GT", "Goal Times");
+                sub_node.Nodes.Add("50frGT", "50 Free Goal Time");
+                sub_node.Nodes.Add("100frGT", "100 Free Goal Time");
+                sub_node.Nodes.Add("200frGT", "200 Free Goal Time");
+                sub_node.Nodes.Add("500frGT", "500 Free Goal Time");
+                sub_node.Nodes.Add("100flGT", "100 Fly Goal Time");
+                sub_node.Nodes.Add("100bkGT", "100 Back Goal Time");
+                sub_node.Nodes.Add("100brGT", "100 Breast Goal Time");
+                sub_node.Nodes.Add("200IMfrGT", "200 IM Goal Time");
+
+                sub_node = node.Nodes.Add("MeetInfo", "View Meet Info");
+
+                //sub_node.Nodes.Add("meetDate", SwimmerMeet.SwimmerMeetName);
+                sub_node.Nodes.Add("meetDate", "Date");
             }
             //TreeNode treeNode = new TreeNode("Robin Hood");
            // treeView1.Nodes.Add(treeNode);
