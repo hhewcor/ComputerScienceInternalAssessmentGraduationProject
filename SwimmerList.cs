@@ -15,7 +15,7 @@ namespace ComputerScienceInternalAssessment
 {
     public partial class SwimmerListForm : Form
     {
-        private readonly DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+        //private readonly DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
 
         // DataTable _dt = new DataTable();
         // bool isXML = false;
@@ -73,6 +73,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        /*
         private void AddButtonColumn()
         {
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
@@ -81,6 +82,7 @@ namespace ComputerScienceInternalAssessment
             col.Name = "SwimmerEvents";
             SwimmerListDataGridView.Columns.Add(col);
         }
+        */
 
         private void SwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -113,6 +115,7 @@ namespace ComputerScienceInternalAssessment
                 SwimmerResultTime = "8:34.21"
             };
             */
+            
 
             Swimmer s = new Swimmer()
             {
@@ -120,7 +123,7 @@ namespace ComputerScienceInternalAssessment
                 LastName = "Hood",
                 Grade = "10",
                 Gender = "M",
-                //sm = m
+                
             };
             swimmers.Add(s);
 
@@ -131,7 +134,11 @@ namespace ComputerScienceInternalAssessment
                 FirstName = "Bat",
                 LastName = "Man",
                 Grade = "11",
-                Gender = "M"
+                Gender = "M",
+                SwimmerMeetName = "Rabbit Sprintoff",
+                SwimmerMeetDate = "1 / 13 / 22",
+                SwimmerResultName = "500 Free",
+                SwimmerResultTime = "8:34.21"
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -221,19 +228,6 @@ namespace ComputerScienceInternalAssessment
             // this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (t1 > 175)
-            {
-                Timer1.Stop();
-            }
-            else
-            {
-                this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-                t1 += 25;
-            }
-        }
-
         private void FilterNinthGradeBtn_Click(object sender, EventArgs e)
         {
 
@@ -290,10 +284,12 @@ namespace ComputerScienceInternalAssessment
                 sub_node.Nodes.Add("100brGT", "100 Breast Goal Time");
                 sub_node.Nodes.Add("200IMfrGT", "200 IM Goal Time");
 
-                sub_node = node.Nodes.Add("MeetInfo", "View Meet Info");
+                sub_node = node.Nodes.Add("ViewMeetInfo", "View Meet Info");
+                TreeNode sub_sub_node = sub_node.Nodes.Add("meetDate", swimmer.SwimmerMeetDate);
 
                 //sub_node.Nodes.Add("meetDate", SwimmerMeet.SwimmerMeetName);
-                sub_node.Nodes.Add("meetDate", "Date");
+                //sub_node.Nodes.Add("meetDate", swimmer.SwimmerMeetDate);
+                sub_sub_node.Nodes.Add("meetName", swimmer.SwimmerMeetName);
             }
             //TreeNode treeNode = new TreeNode("Robin Hood");
            // treeView1.Nodes.Add(treeNode);
@@ -312,6 +308,19 @@ namespace ComputerScienceInternalAssessment
             this.Hide();
             ExportSwimmerListForm exForm = new ExportSwimmerListForm();
             exForm.Show();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            if (t1 > 175)
+            {
+                Timer1.Stop();
+            }
+            else
+            {
+                this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
+                t1 += 25;
+            }
         }
 
         /*

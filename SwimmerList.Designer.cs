@@ -237,7 +237,7 @@ namespace ComputerScienceInternalAssessment
             // 
             // Timer1
             // 
-            this.Timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // EditSwimmerListBtn
             // 
