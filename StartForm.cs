@@ -34,6 +34,7 @@ namespace ComputerScienceInternalAssessment
             SwimmerListForm.Show();
         }
 
+        /*
         private void CompareTimesBtn_Click(object sender, EventArgs e)
         {
             var CompareTimesForm = new CompareTimesForm();
@@ -47,6 +48,8 @@ namespace ComputerScienceInternalAssessment
             this.Hide();
             CalculateTimesForm.Show();
         }
+        */
+        
 
         private void StartHelpBtn_Click(object sender, EventArgs e)
         {

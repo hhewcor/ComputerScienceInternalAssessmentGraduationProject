@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ComputerScienceInternalAssessment.Models
 {
-    public class Swimmer : SwimmerMeetModel
+    public class Swimmer
     {
         //public SwimmerMeetModel sm;
         public String FirstName
@@ -33,6 +33,24 @@ namespace ComputerScienceInternalAssessment.Models
             set;
         }
 
+        public String SwimmerEvent
+        {
+            get;
+            set;
+        }
+
+        public String GoalTime
+        {
+            get;
+            set;
+        }
+
+        public String Time
+        {
+            get;
+            set;
+        }
+
         //public <SwimmerMeetModel> meets = new <SwimmerMeetModel>();
 
         public Swimmer()
@@ -48,13 +66,15 @@ namespace ComputerScienceInternalAssessment.Models
         }
        */
 
-        public Swimmer(string fn, string ln, string gend, string grd)
+        public Swimmer(string fn, string ln, string gend, string grd, string evt, string gt, string tm)
         {
             FirstName = fn;
             LastName = ln;
             Gender = gend;
             Grade = grd;
-            //swimmerMeet = sm;
+            SwimmerEvent = evt;
+            GoalTime = gt;
+            Time = tm;
         }
 
 

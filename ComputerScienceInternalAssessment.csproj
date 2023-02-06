@@ -46,18 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculateResultsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CalculateResultsForm.Designer.cs">
-      <DependentUpon>CalculateResultsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CalculateTimesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CalculateTimesForm.Designer.cs">
-      <DependentUpon>CalculateTimesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="CompareResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,7 +58,6 @@
     <Compile Include="CompareTimesForm.Designer.cs">
       <DependentUpon>CompareTimesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
     <Compile Include="EditSwimmerEventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,18 +71,6 @@
       <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\UpdateSwimmerListDataGridViewEvent.cs" />
-    <Compile Include="ExportSwimmerListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExportSwimmerListForm.Designer.cs">
-      <DependentUpon>ExportSwimmerListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ImportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImportForm.Designer.cs">
-      <DependentUpon>ImportForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Processes\ImportExcel.cs" />
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
@@ -103,8 +78,6 @@
     <Compile Include="StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\SwimmerGoalModel.cs" />
-    <Compile Include="Models\SwimmerMeetModel.cs" />
     <Compile Include="Models\Swimmer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,12 +93,6 @@
     <Compile Include="ViewSwimmerEventsForm.Designer.cs">
       <DependentUpon>ViewSwimmerEventsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CalculateResultsForm.resx">
-      <DependentUpon>CalculateResultsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CalculateTimesForm.resx">
-      <DependentUpon>CalculateTimesForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CompareResultsForm.resx">
       <DependentUpon>CompareResultsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,12 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditSwimmerListForm.resx">
       <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExportSwimmerListForm.resx">
-      <DependentUpon>ExportSwimmerListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImportForm.resx">
-      <DependentUpon>ImportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>

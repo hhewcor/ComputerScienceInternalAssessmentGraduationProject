@@ -49,9 +49,6 @@ namespace ComputerScienceInternalAssessment
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.EditSwimmerListBtn = new System.Windows.Forms.Button();
             this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
-            this.ImportBtn = new System.Windows.Forms.Button();
-            this.ExportSwimmerListBtn = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.FilterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +67,7 @@ namespace ComputerScienceInternalAssessment
             // SwimmerListHelpBtn
             // 
             this.SwimmerListHelpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.SwimmerListHelpBtn.Location = new System.Drawing.Point(333, 13);
+            this.SwimmerListHelpBtn.Location = new System.Drawing.Point(742, 26);
             this.SwimmerListHelpBtn.Name = "SwimmerListHelpBtn";
             this.SwimmerListHelpBtn.Size = new System.Drawing.Size(78, 23);
             this.SwimmerListHelpBtn.TabIndex = 1;
@@ -83,7 +80,7 @@ namespace ComputerScienceInternalAssessment
             this.SearchFirstNameTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.SearchFirstNameTxt.Location = new System.Drawing.Point(116, 52);
             this.SearchFirstNameTxt.Name = "SearchFirstNameTxt";
-            this.SearchFirstNameTxt.Size = new System.Drawing.Size(89, 20);
+            this.SearchFirstNameTxt.Size = new System.Drawing.Size(229, 20);
             this.SearchFirstNameTxt.TabIndex = 2;
             this.SearchFirstNameTxt.TextChanged += new System.EventHandler(this.SearchFirstNameTxt_TextChanged);
             // 
@@ -110,16 +107,16 @@ namespace ComputerScienceInternalAssessment
             this.SearchLastNameTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.SearchLastNameTxt.Location = new System.Drawing.Point(114, 85);
             this.SearchLastNameTxt.Name = "SearchLastNameTxt";
-            this.SearchLastNameTxt.Size = new System.Drawing.Size(91, 20);
+            this.SearchLastNameTxt.Size = new System.Drawing.Size(231, 20);
             this.SearchLastNameTxt.TabIndex = 5;
             this.SearchLastNameTxt.TextChanged += new System.EventHandler(this.SearchLastNameTxt_TextChanged);
             // 
             // SearchSwimmerNameBtn
             // 
             this.SearchSwimmerNameBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(215, 62);
+            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(368, 66);
             this.SearchSwimmerNameBtn.Name = "SearchSwimmerNameBtn";
-            this.SearchSwimmerNameBtn.Size = new System.Drawing.Size(53, 23);
+            this.SearchSwimmerNameBtn.Size = new System.Drawing.Size(79, 23);
             this.SearchSwimmerNameBtn.TabIndex = 6;
             this.SearchSwimmerNameBtn.Text = "Search";
             this.SearchSwimmerNameBtn.UseVisualStyleBackColor = false;
@@ -135,7 +132,7 @@ namespace ComputerScienceInternalAssessment
             this.FilterPanel.Controls.Add(this.FilterNinthGradeBtn);
             this.FilterPanel.Controls.Add(this.button1);
             this.FilterPanel.Controls.Add(this.FilterBtn);
-            this.FilterPanel.Location = new System.Drawing.Point(284, 52);
+            this.FilterPanel.Location = new System.Drawing.Point(643, 55);
             this.FilterPanel.Name = "FilterPanel";
             this.FilterPanel.Size = new System.Drawing.Size(75, 25);
             this.FilterPanel.TabIndex = 7;
@@ -242,9 +239,9 @@ namespace ComputerScienceInternalAssessment
             // EditSwimmerListBtn
             // 
             this.EditSwimmerListBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.EditSwimmerListBtn.Location = new System.Drawing.Point(365, 52);
+            this.EditSwimmerListBtn.Location = new System.Drawing.Point(742, 55);
             this.EditSwimmerListBtn.Name = "EditSwimmerListBtn";
-            this.EditSwimmerListBtn.Size = new System.Drawing.Size(75, 25);
+            this.EditSwimmerListBtn.Size = new System.Drawing.Size(78, 25);
             this.EditSwimmerListBtn.TabIndex = 8;
             this.EditSwimmerListBtn.Text = "Edit";
             this.EditSwimmerListBtn.UseVisualStyleBackColor = false;
@@ -254,51 +251,24 @@ namespace ComputerScienceInternalAssessment
             // 
             this.SwimmerListDataGridView.AllowUserToAddRows = false;
             this.SwimmerListDataGridView.AllowUserToDeleteRows = false;
-            this.SwimmerListDataGridView.AllowUserToOrderColumns = true;
+            this.SwimmerListDataGridView.AllowUserToResizeColumns = false;
+            this.SwimmerListDataGridView.AllowUserToResizeRows = false;
+            this.SwimmerListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.SwimmerListDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.SwimmerListDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.SwimmerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SwimmerListDataGridView.Location = new System.Drawing.Point(15, 255);
+            this.SwimmerListDataGridView.Location = new System.Drawing.Point(15, 127);
             this.SwimmerListDataGridView.Name = "SwimmerListDataGridView";
             this.SwimmerListDataGridView.ReadOnly = true;
-            this.SwimmerListDataGridView.Size = new System.Drawing.Size(432, 158);
+            this.SwimmerListDataGridView.Size = new System.Drawing.Size(802, 286);
             this.SwimmerListDataGridView.TabIndex = 9;
             this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SwimmerListDataGridView_CellContentClick);
-            // 
-            // ImportBtn
-            // 
-            this.ImportBtn.Location = new System.Drawing.Point(131, 13);
-            this.ImportBtn.Name = "ImportBtn";
-            this.ImportBtn.Size = new System.Drawing.Size(75, 23);
-            this.ImportBtn.TabIndex = 10;
-            this.ImportBtn.Text = "Import Data";
-            this.ImportBtn.UseVisualStyleBackColor = true;
-            this.ImportBtn.Click += new System.EventHandler(this.ImportBtn_Click);
-            // 
-            // ExportSwimmerListBtn
-            // 
-            this.ExportSwimmerListBtn.Location = new System.Drawing.Point(333, 419);
-            this.ExportSwimmerListBtn.Name = "ExportSwimmerListBtn";
-            this.ExportSwimmerListBtn.Size = new System.Drawing.Size(114, 23);
-            this.ExportSwimmerListBtn.TabIndex = 11;
-            this.ExportSwimmerListBtn.Text = "Export Swimmer List";
-            this.ExportSwimmerListBtn.UseVisualStyleBackColor = true;
-            this.ExportSwimmerListBtn.Click += new System.EventHandler(this.ExportSwimmerListBtn_Click);
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(12, 133);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(435, 116);
-            this.treeView1.TabIndex = 12;
             // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 450);
-            this.Controls.Add(this.treeView1);
-            this.Controls.Add(this.ExportSwimmerListBtn);
-            this.Controls.Add(this.ImportBtn);
+            this.ClientSize = new System.Drawing.Size(839, 450);
             this.Controls.Add(this.EditSwimmerListBtn);
             this.Controls.Add(this.FilterPanel);
             this.Controls.Add(this.SearchSwimmerNameBtn);
@@ -340,8 +310,5 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Button EditSwimmerListBtn;
         private System.Windows.Forms.DataGridView SwimmerListDataGridView;
-        private System.Windows.Forms.Button ImportBtn;
-        private System.Windows.Forms.Button ExportSwimmerListBtn;
-        private System.Windows.Forms.TreeView treeView1;
     }
 }

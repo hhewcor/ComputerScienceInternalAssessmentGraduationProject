@@ -24,7 +24,7 @@ namespace ComputerScienceInternalAssessment
         public SwimmerListForm()
         {
             InitializeComponent();
-            ConstructTreeView();
+           // ConstructTreeView();
             ConstructSwimmerListDataGridView();
 
         }
@@ -39,7 +39,8 @@ namespace ComputerScienceInternalAssessment
         private void ConstructSwimmerListDataGridView()
         {
             //add columns
-            SwimmerListDataGridView.ColumnCount = 4;
+            SwimmerListDataGridView.ColumnCount = 7;
+
             SwimmerListDataGridView.Columns[0].Name = "First Name";
             //SwimmerListDataGridView.Columns[0].ReadOnly = true;
 
@@ -49,8 +50,14 @@ namespace ComputerScienceInternalAssessment
             SwimmerListDataGridView.Columns[2].Name = "Grade";
             //SwimmerListDataGridView.Columns[2].ReadOnly = true;
 
-            SwimmerListDataGridView.Columns[3].Name = "M/F";
+            SwimmerListDataGridView.Columns[3].Name = "Gender";
             //SwimmerListDataGridView.Columns[3].ReadOnly = true;
+
+            SwimmerListDataGridView.Columns[4].Name = "Event";
+
+            SwimmerListDataGridView.Columns[5].Name = "Goal Time";
+
+            SwimmerListDataGridView.Columns[6].Name = "Swimmer Time";
 
             SwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             //addButtonColumn();
@@ -58,8 +65,13 @@ namespace ComputerScienceInternalAssessment
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
             col.UseColumnTextForButtonValue = true;
             col.Text = "VIEW";
-            col.Name = "SwimmerEvents";
+            col.Name = "Compare Time";
             SwimmerListDataGridView.Columns.Add(col);
+
+            foreach (DataGridViewColumn column in SwimmerListDataGridView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
 
             AddRows();
 
@@ -69,7 +81,7 @@ namespace ComputerScienceInternalAssessment
         {
             foreach (var swimmer in GetSwimmerList())
             {
-                SwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender);
+                SwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender, swimmer.SwimmerEvent, swimmer.GoalTime, swimmer.Time);
             }
         }
 
@@ -86,11 +98,66 @@ namespace ComputerScienceInternalAssessment
 
         private void SwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((e.ColumnIndex == this.SwimmerListDataGridView.Columns["SwimmerEvents"].Index) && (e.RowIndex >= 0))
+            Swimmer[] swimmers = GetSwimmerList().ToArray();
+            if ((e.ColumnIndex == this.SwimmerListDataGridView.Columns["Compare Time"].Index) && (e.RowIndex >= 0))
             {
-                this.Hide();
+                try
+                {
+                    string SwimmerFn = swimmers[e.RowIndex].FirstName;
+                    string SwimmerLn = swimmers[e.RowIndex].LastName;
+                    string Swimmerevt = swimmers[e.RowIndex].SwimmerEvent;
+                    string SwimmerGoalTime = swimmers[e.RowIndex].GoalTime;
+                    string SwimmerTime = swimmers[e.RowIndex].Time;
+                    String dropGain = "";
+                    String test = "";
+                    String test2 = "";
+                    decimal subtract;
+                    string sign = "";
+
+                    string[] splitGoalTime = SwimmerGoalTime.Split(':', '.');
+                    string[] splitTime = SwimmerTime.Split(':', '.');
+
+
+                    
+
+                    if (int.Parse(splitTime[0]) > int.Parse(splitGoalTime[0]))
+                    {
+                        dropGain = "gained";
+                        sign = "+";
+                    }
+                    if (int.Parse(splitTime[0]) < int.Parse(splitGoalTime[0]))
+                    {
+                        dropGain = "dropped";
+                        //sign = "-";
+                    }
+                    //if(int.Parse(splitTime[]))
+
+           
+
+                    for (int x = 0; x < splitGoalTime.Length; x++)
+                    {
+                        test += splitGoalTime[x];
+                    }
+
+                    for (int y = 0; y < splitTime.Length; y++)
+                    {
+                        test2 += splitTime[y];
+                    }
+
+                    subtract = decimal.Parse(test2) - decimal.Parse(test);
+                    string finish = (subtract / 100).ToString();
+
+                    MessageBox.Show(SwimmerFn + " " + SwimmerLn + " " + dropGain + " hjafdjhklasdjh seconds" + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + finish + " difference.");
+                    //MessageBox.Show(subtract + " " + finish);
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+                /*this.Hide();
                 ViewSwimmerEventsForm EventsForm = new ViewSwimmerEventsForm();
                 EventsForm.Show();
+                */
             }
         }
 
@@ -100,7 +167,7 @@ namespace ComputerScienceInternalAssessment
         //Also need to add the criteria that Gender can only be one letter long.
 
 
-        private List<Swimmer> GetSwimmerList()
+        public List<Swimmer> GetSwimmerList()
         {
             
           //  List<SwimmerMeetModel> SwimmerMeet = new List<SwimmerMeetModel>();
@@ -123,7 +190,9 @@ namespace ComputerScienceInternalAssessment
                 LastName = "Hood",
                 Grade = "10",
                 Gender = "M",
-                
+                SwimmerEvent = "100 fr",
+                GoalTime = "50.98",
+                Time = "51.23"
             };
             swimmers.Add(s);
 
@@ -135,10 +204,9 @@ namespace ComputerScienceInternalAssessment
                 LastName = "Man",
                 Grade = "11",
                 Gender = "M",
-                SwimmerMeetName = "Rabbit Sprintoff",
-                SwimmerMeetDate = "1 / 13 / 22",
-                SwimmerResultName = "500 Free",
-                SwimmerResultTime = "8:34.21"
+                SwimmerEvent = "100 fl",
+                GoalTime = "55.31",
+                Time = "56.22"
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -146,8 +214,10 @@ namespace ComputerScienceInternalAssessment
                 FirstName = "Princess",
                 LastName = "Leia",
                 Grade = "12",
-                Gender = "F"
-
+                Gender = "F",
+                SwimmerEvent = "100 br",
+                GoalTime = "1:05.93",
+                Time = "1:07.81"
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -155,7 +225,10 @@ namespace ComputerScienceInternalAssessment
                 FirstName = "Princess",
                 LastName = "Peach",
                 Grade = "9",
-                Gender = "F"
+                Gender = "F",
+                SwimmerEvent = "200 IM",
+                GoalTime = "2:17.65",
+                Time = "2:15.26"
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -163,8 +236,10 @@ namespace ComputerScienceInternalAssessment
                 FirstName = "Spider",
                 LastName = "Man",
                 Grade = "9",
-                Gender = "M"
-
+                Gender = "M",
+                SwimmerEvent = "50 fr",
+                GoalTime = "22.15",
+                Time = "21.82"
             };
             
 
@@ -267,6 +342,7 @@ namespace ComputerScienceInternalAssessment
 
         }
 
+        /*
         private void ConstructTreeView()
         {
             foreach (var swimmer in GetSwimmerList())
@@ -295,7 +371,9 @@ namespace ComputerScienceInternalAssessment
            // treeView1.Nodes.Add(treeNode);
           
         }
-
+        */
+        
+        /*
         private void ImportBtn_Click(object sender, EventArgs e)
         {
             var ImportForm = new ImportForm();
@@ -309,6 +387,8 @@ namespace ComputerScienceInternalAssessment
             ExportSwimmerListForm exForm = new ExportSwimmerListForm();
             exForm.Show();
         }
+        */
+        
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
