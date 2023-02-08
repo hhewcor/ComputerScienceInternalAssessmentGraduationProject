@@ -112,27 +112,13 @@ namespace ComputerScienceInternalAssessment
                     String test = "";
                     String test2 = "";
                     decimal subtract;
-                    string sign = "";
+                    decimal part;
+                    string defaultAnswer = "";
+                    string answer = "";
+                    string finish = "";
 
                     string[] splitGoalTime = SwimmerGoalTime.Split(':', '.');
                     string[] splitTime = SwimmerTime.Split(':', '.');
-
-
-                    
-
-                    if (int.Parse(splitTime[0]) > int.Parse(splitGoalTime[0]))
-                    {
-                        dropGain = "gained";
-                        sign = "+";
-                    }
-                    if (int.Parse(splitTime[0]) < int.Parse(splitGoalTime[0]))
-                    {
-                        dropGain = "dropped";
-                        //sign = "-";
-                    }
-                    //if(int.Parse(splitTime[]))
-
-           
 
                     for (int x = 0; x < splitGoalTime.Length; x++)
                     {
@@ -145,9 +131,70 @@ namespace ComputerScienceInternalAssessment
                     }
 
                     subtract = decimal.Parse(test2) - decimal.Parse(test);
-                    string finish = (subtract / 100).ToString();
+                    
+                    if ((subtract / 100) > 1000)
+                    {
+                        
+                        finish = ((subtract / 1000) % 40).ToString();
+                    }
+                    else
+                    {
+                        finish = (subtract / 100).ToString();
+                    }
+                    
 
-                    MessageBox.Show(SwimmerFn + " " + SwimmerLn + " " + dropGain + " hjafdjhklasdjh seconds" + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + finish + " difference.");
+                    defaultAnswer = SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + " in the " + Swimmerevt + ".\n" + "Their goal time was " + SwimmerGoalTime + "." + "\n" + "They ";
+
+                    if (int.Parse(splitTime[0]) > int.Parse(splitGoalTime[0]))
+                    {
+                        dropGain = "gained";
+                        answer = defaultAnswer + dropGain + " " + finish + ".";
+                    }
+                    if (int.Parse(splitTime[0]) < int.Parse(splitGoalTime[0]))
+                    {
+                        dropGain = "dropped";
+                        answer = defaultAnswer + dropGain + " " + finish + ".";
+                    }
+                    if (int.Parse(splitTime[0]) == int.Parse(splitGoalTime[0]))
+                    {
+                        if(int.Parse(splitTime[1]) > int.Parse(splitGoalTime[1]))
+                        {
+                            dropGain = "gained";
+                            answer = defaultAnswer + dropGain + " " + finish + ".";
+                        }
+                        if(int.Parse(splitTime[1]) < int.Parse(splitGoalTime[1]))
+                        {
+                            dropGain = "dropped";
+                            answer = defaultAnswer + dropGain + " " + finish + ".";
+                        }
+                        if((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 2))
+                        {
+                            answer = defaultAnswer + "didn't drop or gain time.";
+                        }
+                        if((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 3))
+                        {
+                            if(int.Parse(splitTime[2]) > int.Parse(splitGoalTime[2]))
+                            {
+                                dropGain = "gained";
+                                answer = defaultAnswer + dropGain + " " + finish + ".";
+                            }
+                            if (int.Parse(splitTime[2]) < int.Parse(splitGoalTime[2]))
+                            {
+                                dropGain = "dropped";
+                                answer = defaultAnswer + dropGain + " " + finish + ".";
+                            }
+                            if (int.Parse(splitTime[2]) == int.Parse(splitGoalTime[2]))
+                            {
+                                answer = defaultAnswer + "didn't drop or gain time.";
+                            }
+                        }
+                    }
+
+                    //SwimmerFn + " " + SwimmerLn + " " + dropGain + " " + finish + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + sign + " " + finish + " difference from their time of " + SwimmerTime + ".";
+                    // SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + "in the " Swimmerevt + "\n" + "Their goal time was " + SwimmerGoalTime + ".\n" + "This is a " + finish + " " + dropGain + ".";
+                    //if(int.Parse(splitTime[])
+
+                    MessageBox.Show(answer);
                     //MessageBox.Show(subtract + " " + finish);
                 }
                 catch (Exception exception)
@@ -158,7 +205,7 @@ namespace ComputerScienceInternalAssessment
                 ViewSwimmerEventsForm EventsForm = new ViewSwimmerEventsForm();
                 EventsForm.Show();
                 */
-            }
+                }
         }
 
         //This will generate a generic list for testing purposes.
@@ -192,7 +239,7 @@ namespace ComputerScienceInternalAssessment
                 Gender = "M",
                 SwimmerEvent = "100 fr",
                 GoalTime = "50.98",
-                Time = "51.23"
+                Time = "49.67"
             };
             swimmers.Add(s);
 
@@ -207,6 +254,17 @@ namespace ComputerScienceInternalAssessment
                 SwimmerEvent = "100 fl",
                 GoalTime = "55.31",
                 Time = "56.22"
+            };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "James",
+                LastName = "Bond",
+                Grade = "12",
+                Gender = "M",
+                SwimmerEvent = "50 fr",
+                GoalTime = "20.31",
+                Time = "20.31"
             };
             swimmers.Add(s);
             s = new Swimmer()
@@ -241,7 +299,85 @@ namespace ComputerScienceInternalAssessment
                 GoalTime = "22.15",
                 Time = "21.82"
             };
-            
+
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Ant",
+                LastName = "Man",
+                Grade = "11",
+                Gender = "M",
+                SwimmerEvent = "50 fr",
+                GoalTime = "25.13",
+                Time = "25.13"
+            };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Romeo",
+                LastName = "Montague",
+                Grade = "12",
+                Gender = "M",
+                SwimmerEvent = "500 fr",
+                GoalTime = "5:24.81",
+                Time = "5:24.91"
+            };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Katniss",
+                LastName = "Everdeen",
+                Grade = "10",
+                Gender = "F",
+                SwimmerEvent = "500 fr",
+                GoalTime = "5:42.67",
+                Time = "5:42.42"
+            };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Hermione",
+                LastName = "Granger",
+                Grade = "9",
+                Gender = "F",
+                SwimmerEvent = "200 IM",
+                GoalTime = "2:25.39",
+                Time = "2:25.39"
+            };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Elle",
+                LastName = "Woods",
+                Grade = "11",
+                Gender = "F",
+                SwimmerEvent = "100 bk",
+                GoalTime = "1:02.31",
+                Time = "1:02.92"
+            };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Regina",
+                LastName = "George",
+                Grade = "11",
+                Gender = "F",
+                SwimmerEvent = "200 fr",
+                GoalTime = "2:03.82",
+                Time = "1:59.82"
+            };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Jack",
+                LastName = "Sparrow",
+                Grade = "10",
+                Gender = "M",
+                SwimmerEvent = "200 fr",
+                GoalTime = "1:59.35",
+                Time = "2:07.35"
+            };
+
 
             /*immerMeetModel m = new SwimmerMeetModel();
             m = new SwimmerMeetModel()
