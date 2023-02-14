@@ -112,7 +112,7 @@ namespace ComputerScienceInternalAssessment
                     String test = "";
                     String test2 = "";
                     decimal subtract;
-                    decimal part;
+                    int part = 0;
                     string defaultAnswer = "";
                     string answer = "";
                     string finish = "";
@@ -131,15 +131,18 @@ namespace ComputerScienceInternalAssessment
                     }
 
                     subtract = decimal.Parse(test2) - decimal.Parse(test);
+
                     
-                    if ((subtract / 100) > 1000)
+
+                    if (subtract >= 1000 || subtract <= -1000)
                     {
-                        
-                        finish = ((subtract / 1000) % 40).ToString();
+                        part = Convert.ToInt32(subtract) / 1000;
+                        finish = ((subtract - (part * 1000)) / 100).ToString();
                     }
                     else
                     {
-                        finish = (subtract / 100).ToString();
+                        subtract /= 100;
+                        finish = subtract.ToString();
                     }
                     
 
@@ -377,6 +380,17 @@ namespace ComputerScienceInternalAssessment
                 GoalTime = "1:59.35",
                 Time = "2:07.35"
             };
+            swimmers.Add(s);
+            s = new Swimmer()
+            {
+                FirstName = "Sherlock",
+                LastName = "Holmes",
+                Grade = "12",
+                Gender = "M",
+                SwimmerEvent = "200 fr",
+                GoalTime = "1:59.35",
+                Time = "2:03.82"
+            };
 
 
             /*immerMeetModel m = new SwimmerMeetModel();
@@ -441,8 +455,16 @@ namespace ComputerScienceInternalAssessment
 
         private void FilterNinthGradeBtn_Click(object sender, EventArgs e)
         {
-
+            
+           string word = "9";
+           for (int x = 0; x < SwimmerListDataGridView.RowCount; x++)
+            {
+                //if(SwimmerListDataGridView.)
+            }
         }
+            
+    }
+        
 
         private void FilterTenthGradeBtn_Click(object sender, EventArgs e)
         {
@@ -478,6 +500,14 @@ namespace ComputerScienceInternalAssessment
 
         }
 
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                row.Visible = true;
+            }
+        }
+
         /*
         private void ConstructTreeView()
         {
@@ -508,7 +538,7 @@ namespace ComputerScienceInternalAssessment
           
         }
         */
-        
+
         /*
         private void ImportBtn_Click(object sender, EventArgs e)
         {
@@ -524,7 +554,7 @@ namespace ComputerScienceInternalAssessment
             exForm.Show();
         }
         */
-        
+
 
         private void Timer1_Tick(object sender, EventArgs e)
         {

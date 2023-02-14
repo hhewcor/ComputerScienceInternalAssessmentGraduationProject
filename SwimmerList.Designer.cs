@@ -49,6 +49,7 @@ namespace ComputerScienceInternalAssessment
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.EditSwimmerListBtn = new System.Windows.Forms.Button();
             this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
+            this.resetBtn = new System.Windows.Forms.Button();
             this.FilterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -132,7 +133,7 @@ namespace ComputerScienceInternalAssessment
             this.FilterPanel.Controls.Add(this.FilterNinthGradeBtn);
             this.FilterPanel.Controls.Add(this.button1);
             this.FilterPanel.Controls.Add(this.FilterBtn);
-            this.FilterPanel.Location = new System.Drawing.Point(643, 55);
+            this.FilterPanel.Location = new System.Drawing.Point(553, 66);
             this.FilterPanel.Name = "FilterPanel";
             this.FilterPanel.Size = new System.Drawing.Size(75, 25);
             this.FilterPanel.TabIndex = 7;
@@ -264,11 +265,23 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerListDataGridView.TabIndex = 9;
             this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SwimmerListDataGridView_CellContentClick);
             // 
+            // resetBtn
+            // 
+            this.resetBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.resetBtn.Location = new System.Drawing.Point(643, 64);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(75, 27);
+            this.resetBtn.TabIndex = 10;
+            this.resetBtn.Text = "Reset";
+            this.resetBtn.UseVisualStyleBackColor = false;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
+            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 450);
+            this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.EditSwimmerListBtn);
             this.Controls.Add(this.FilterPanel);
             this.Controls.Add(this.SearchSwimmerNameBtn);
@@ -310,5 +323,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Button EditSwimmerListBtn;
         private System.Windows.Forms.DataGridView SwimmerListDataGridView;
+        private System.Windows.Forms.Button resetBtn;
     }
 }
