@@ -29,7 +29,6 @@ namespace ComputerScienceInternalAssessment
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.BackToStartBtn = new System.Windows.Forms.Button();
             this.SwimmerListHelpBtn = new System.Windows.Forms.Button();
             this.SearchFirstNameTxt = new System.Windows.Forms.TextBox();
@@ -37,20 +36,16 @@ namespace ComputerScienceInternalAssessment
             this.SearchLastNameLabel = new System.Windows.Forms.Label();
             this.SearchLastNameTxt = new System.Windows.Forms.TextBox();
             this.SearchSwimmerNameBtn = new System.Windows.Forms.Button();
-            this.FilterPanel = new System.Windows.Forms.Panel();
             this.FilterFemaleBtn = new System.Windows.Forms.Button();
             this.FilterMaleBtn = new System.Windows.Forms.Button();
             this.FilterTwelthGradeBtn = new System.Windows.Forms.Button();
             this.FilterEleventhGradeBtn = new System.Windows.Forms.Button();
             this.FilterTenthGradeBtn = new System.Windows.Forms.Button();
             this.FilterNinthGradeBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.FilterBtn = new System.Windows.Forms.Button();
-            this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.EditSwimmerListBtn = new System.Windows.Forms.Button();
             this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
             this.resetBtn = new System.Windows.Forms.Button();
-            this.FilterPanel.SuspendLayout();
+            this.FilterLable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,26 +118,11 @@ namespace ComputerScienceInternalAssessment
             this.SearchSwimmerNameBtn.UseVisualStyleBackColor = false;
             this.SearchSwimmerNameBtn.Click += new System.EventHandler(this.SearchSwimmerNameBtn_Click);
             // 
-            // FilterPanel
-            // 
-            this.FilterPanel.Controls.Add(this.FilterFemaleBtn);
-            this.FilterPanel.Controls.Add(this.FilterMaleBtn);
-            this.FilterPanel.Controls.Add(this.FilterTwelthGradeBtn);
-            this.FilterPanel.Controls.Add(this.FilterEleventhGradeBtn);
-            this.FilterPanel.Controls.Add(this.FilterTenthGradeBtn);
-            this.FilterPanel.Controls.Add(this.FilterNinthGradeBtn);
-            this.FilterPanel.Controls.Add(this.button1);
-            this.FilterPanel.Controls.Add(this.FilterBtn);
-            this.FilterPanel.Location = new System.Drawing.Point(553, 66);
-            this.FilterPanel.Name = "FilterPanel";
-            this.FilterPanel.Size = new System.Drawing.Size(75, 25);
-            this.FilterPanel.TabIndex = 7;
-            // 
             // FilterFemaleBtn
             // 
             this.FilterFemaleBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterFemaleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterFemaleBtn.Location = new System.Drawing.Point(0, 150);
+            this.FilterFemaleBtn.Location = new System.Drawing.Point(549, 96);
             this.FilterFemaleBtn.Name = "FilterFemaleBtn";
             this.FilterFemaleBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterFemaleBtn.TabIndex = 7;
@@ -154,7 +134,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterMaleBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterMaleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterMaleBtn.Location = new System.Drawing.Point(0, 125);
+            this.FilterMaleBtn.Location = new System.Drawing.Point(468, 96);
             this.FilterMaleBtn.Name = "FilterMaleBtn";
             this.FilterMaleBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterMaleBtn.TabIndex = 6;
@@ -166,7 +146,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterTwelthGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterTwelthGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterTwelthGradeBtn.Location = new System.Drawing.Point(0, 100);
+            this.FilterTwelthGradeBtn.Location = new System.Drawing.Point(549, 64);
             this.FilterTwelthGradeBtn.Name = "FilterTwelthGradeBtn";
             this.FilterTwelthGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterTwelthGradeBtn.TabIndex = 5;
@@ -178,7 +158,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterEleventhGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterEleventhGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterEleventhGradeBtn.Location = new System.Drawing.Point(0, 75);
+            this.FilterEleventhGradeBtn.Location = new System.Drawing.Point(468, 64);
             this.FilterEleventhGradeBtn.Name = "FilterEleventhGradeBtn";
             this.FilterEleventhGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterEleventhGradeBtn.TabIndex = 4;
@@ -190,7 +170,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterTenthGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterTenthGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterTenthGradeBtn.Location = new System.Drawing.Point(0, 50);
+            this.FilterTenthGradeBtn.Location = new System.Drawing.Point(549, 33);
             this.FilterTenthGradeBtn.Name = "FilterTenthGradeBtn";
             this.FilterTenthGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterTenthGradeBtn.TabIndex = 3;
@@ -202,40 +182,13 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterNinthGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterNinthGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterNinthGradeBtn.Location = new System.Drawing.Point(0, 25);
+            this.FilterNinthGradeBtn.Location = new System.Drawing.Point(468, 33);
             this.FilterNinthGradeBtn.Name = "FilterNinthGradeBtn";
             this.FilterNinthGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterNinthGradeBtn.TabIndex = 2;
             this.FilterNinthGradeBtn.Text = "9th Grade";
             this.FilterNinthGradeBtn.UseVisualStyleBackColor = false;
             this.FilterNinthGradeBtn.Click += new System.EventHandler(this.FilterNinthGradeBtn_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(-3, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(0, 0);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // FilterBtn
-            // 
-            this.FilterBtn.BackColor = System.Drawing.Color.Plum;
-            this.FilterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterBtn.Location = new System.Drawing.Point(0, 0);
-            this.FilterBtn.Name = "FilterBtn";
-            this.FilterBtn.Size = new System.Drawing.Size(75, 25);
-            this.FilterBtn.TabIndex = 0;
-            this.FilterBtn.Text = "Filter";
-            this.FilterBtn.UseVisualStyleBackColor = false;
-            this.FilterBtn.Click += new System.EventHandler(this.FilterBtn_Click);
-            this.FilterBtn.MouseLeave += new System.EventHandler(this.FilterBtn_MouseLeave);
-            this.FilterBtn.MouseHover += new System.EventHandler(this.FilterBtn_MouseHover);
-            // 
-            // Timer1
-            // 
-            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // EditSwimmerListBtn
             // 
@@ -276,16 +229,31 @@ namespace ComputerScienceInternalAssessment
             this.resetBtn.UseVisualStyleBackColor = false;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
+            // FilterLable
+            // 
+            this.FilterLable.AutoSize = true;
+            this.FilterLable.Location = new System.Drawing.Point(465, 9);
+            this.FilterLable.Name = "FilterLable";
+            this.FilterLable.Size = new System.Drawing.Size(32, 13);
+            this.FilterLable.TabIndex = 11;
+            this.FilterLable.Text = "Filter:";
+            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 450);
+            this.Controls.Add(this.FilterLable);
+            this.Controls.Add(this.FilterFemaleBtn);
             this.Controls.Add(this.resetBtn);
+            this.Controls.Add(this.FilterMaleBtn);
             this.Controls.Add(this.EditSwimmerListBtn);
-            this.Controls.Add(this.FilterPanel);
+            this.Controls.Add(this.FilterTwelthGradeBtn);
+            this.Controls.Add(this.FilterEleventhGradeBtn);
             this.Controls.Add(this.SearchSwimmerNameBtn);
+            this.Controls.Add(this.FilterTenthGradeBtn);
             this.Controls.Add(this.SearchLastNameTxt);
+            this.Controls.Add(this.FilterNinthGradeBtn);
             this.Controls.Add(this.SearchLastNameLabel);
             this.Controls.Add(this.SearchFirstNameLabel);
             this.Controls.Add(this.SearchFirstNameTxt);
@@ -295,7 +263,6 @@ namespace ComputerScienceInternalAssessment
             this.Name = "SwimmerListForm";
             this.Text = "SwimmerList";
             this.Load += new System.EventHandler(this.SwimmerListForm_Load);
-            this.FilterPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,18 +278,15 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Label SearchLastNameLabel;
         private System.Windows.Forms.TextBox SearchLastNameTxt;
         private System.Windows.Forms.Button SearchSwimmerNameBtn;
-        private System.Windows.Forms.Panel FilterPanel;
         private System.Windows.Forms.Button FilterFemaleBtn;
         private System.Windows.Forms.Button FilterMaleBtn;
         private System.Windows.Forms.Button FilterTwelthGradeBtn;
         private System.Windows.Forms.Button FilterEleventhGradeBtn;
         private System.Windows.Forms.Button FilterTenthGradeBtn;
         private System.Windows.Forms.Button FilterNinthGradeBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button FilterBtn;
-        private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Button EditSwimmerListBtn;
         private System.Windows.Forms.DataGridView SwimmerListDataGridView;
         private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.Label FilterLable;
     }
 }

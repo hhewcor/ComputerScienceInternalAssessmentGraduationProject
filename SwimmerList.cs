@@ -418,12 +418,21 @@ namespace ComputerScienceInternalAssessment
 
         private void SearchFirstNameTxt_TextChanged(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                row.Visible = true;
+            }
+            SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[0], ListSortDirection.Ascending);
 
         }
 
         private void SearchLastNameTxt_TextChanged(object sender, EventArgs e)
         {
-
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                row.Visible = true;
+            }
+            SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[1], ListSortDirection.Ascending);
         }
 
         private void SearchSwimmerNameBtn_Click(object sender, EventArgs e)
@@ -431,64 +440,103 @@ namespace ComputerScienceInternalAssessment
 
         }
 
-        int t1 = 25;
-
-        private void FilterBtn_Click(object sender, EventArgs e)
-        {
-            this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-            Timer1.Start();
-        }
-
-        private void FilterBtn_MouseHover(object sender, EventArgs e)
-        {
-            t1 = 25;
-            this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-
-        }
-
-        private void FilterBtn_MouseLeave(object sender, EventArgs e)
-        {
-            Timer1.Stop();
-            // t1 = 25;
-            // this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-        }
-
         private void FilterNinthGradeBtn_Click(object sender, EventArgs e)
         {
-            
-           string word = "9";
-           for (int x = 0; x < SwimmerListDataGridView.RowCount; x++)
+            string word = "9";
+
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
             {
-                //if(SwimmerListDataGridView.)
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
             }
         }
             
-    }
+    
         
 
         private void FilterTenthGradeBtn_Click(object sender, EventArgs e)
         {
+            string word = "10";
 
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
         }
 
         private void FilterEleventhGradeBtn_Click(object sender, EventArgs e)
         {
+            string word = "11";
 
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
         }
 
         private void FilterTwelthGradeBtn_Click(object sender, EventArgs e)
         {
+            string word = "12";
 
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
         }
 
         private void FilterMaleBtn_Click(object sender, EventArgs e)
         {
+            string word = "M";
 
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 3) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
         }
 
         private void FilterFemaleBtn_Click(object sender, EventArgs e)
         {
+            string word = "F";
 
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 3) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
         }
 
         private void EditSwimmerListBtn_Click(object sender, EventArgs e)
@@ -554,20 +602,6 @@ namespace ComputerScienceInternalAssessment
             exForm.Show();
         }
         */
-
-
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            if (t1 > 175)
-            {
-                Timer1.Stop();
-            }
-            else
-            {
-                this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-                t1 += 25;
-            }
-        }
 
         /*
         void SwimmerListDataGridView_DataBindingComplete(object sender,

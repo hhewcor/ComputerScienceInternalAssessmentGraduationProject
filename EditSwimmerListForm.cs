@@ -81,6 +81,7 @@ namespace ComputerScienceInternalAssessment
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+            
 
             //AddRows();
             
@@ -93,28 +94,6 @@ namespace ComputerScienceInternalAssessment
             SwimmerListForm.Show();
         }
 
-        int t1 = 25;
-
-        private void FilterBtn_Click(object sender, EventArgs e)
-        {
-            this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-            Timer1.Start();
-        }
-
-        private void FilterBtn_MouseHover(object sender, EventArgs e)
-        {
-            t1 = 25;
-            this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-
-        }
-
-        private void FilterBtn_MouseLeave(object sender, EventArgs e)
-        {
-            Timer1.Stop();
-            // t1 = 25;
-            // this.FilterPanel.Size = new Size(this.FilterPanel.Size.Width, t1);
-        }
-
         private void SaveSwimmerListFormBtn_Click(object sender, EventArgs e)
         {
 
@@ -123,6 +102,102 @@ namespace ComputerScienceInternalAssessment
         private void EditSwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void FilterNinthGradeBtn_Click(object sender, EventArgs e)
+        {
+            string word = "9";
+
+            foreach (DataGridViewRow row in EditSwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void FilterTenthGradeBtn_Click(object sender, EventArgs e)
+        {
+            string word = "10";
+
+            foreach (DataGridViewRow row in EditSwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void FilterEleventhGradeBtn_Click(object sender, EventArgs e)
+        {
+            string word = "11";
+
+            foreach (DataGridViewRow row in EditSwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void FilterTwelthGradeBtn_Click(object sender, EventArgs e)
+        {
+            string word = "12";
+
+            foreach (DataGridViewRow row in EditSwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void FilterMaleBtn_Click(object sender, EventArgs e)
+        {
+            string word = "M";
+
+            foreach (DataGridViewRow row in EditSwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 3) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void FilterFemaleBtn_Click(object sender, EventArgs e)
+        {
+            string word = "F";
+
+            foreach (DataGridViewRow row in EditSwimmerListDataGridView.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if ((cell.ColumnIndex == 3) && (cell.Value != word)) //Set your Column Index
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
         }
     }
 }
