@@ -73,18 +73,32 @@ namespace ComputerScienceInternalAssessment
 
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
             col.UseColumnTextForButtonValue = true;
-            col.Text = "Delete";
-            col.Name = "Delete Swimmer";
+            col.Text = "Edit";
+            col.Name = "Edit Swimmer";
             EditSwimmerListDataGridView.Columns.Add(col);
 
-            foreach (DataGridViewColumn column in EditSwimmerListDataGridView.Columns)
-            {
-                column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
-            
+            DataGridViewButtonColumn col2 = new DataGridViewButtonColumn();
+            col2.UseColumnTextForButtonValue = true;
+            col2.Text = "Delete";
+            col2.Name = "Delete Swimmer";
+            EditSwimmerListDataGridView.Columns.Add(col2);
+
+            copyData();
+
+            EditSwimmerListDataGridView.AllowUserToAddRows = false;
 
             //AddRows();
-            
+
+        }
+
+
+        public void copyData()
+        {
+            SwimmerListForm f = new SwimmerListForm();
+            foreach (var swimmer in f.GetSwimmerList())
+            {
+                EditSwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender, swimmer.SwimmerEvent, swimmer.GoalTime, swimmer.Time);
+            }
         }
 
         private void BackToSwimmerListFormBtn_Click(object sender, EventArgs e)
@@ -101,8 +115,32 @@ namespace ComputerScienceInternalAssessment
 
         private void EditSwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Swimmer[] swimmers = f.GetSwimmerList().ToArray();
+            if ((e.ColumnIndex == this.EditSwimmerListDataGridView.Columns["Edit Swimmer"].Index) && (e.RowIndex >= 0))
+            {
+                try
+                {
 
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+            }
+
+            if ((e.ColumnIndex == this.EditSwimmerListDataGridView.Columns["Delete Swimmer"].Index) && (e.RowIndex >= 0))
+            {
+                try
+                {
+
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+            }
         }
+
 
         private void FilterNinthGradeBtn_Click(object sender, EventArgs e)
         {
@@ -118,6 +156,7 @@ namespace ComputerScienceInternalAssessment
                     }
                 }
             }
+            EditSwimmerListDataGridView.AllowUserToAddRows = true;
         }
 
         private void FilterTenthGradeBtn_Click(object sender, EventArgs e)
@@ -195,8 +234,17 @@ namespace ComputerScienceInternalAssessment
                     if ((cell.ColumnIndex == 3) && (cell.Value != word)) //Set your Column Index
                     {
                         row.Visible = false;
+
                     }
                 }
+            }
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in EditSwimmerListDataGridView.Rows)
+            {
+                row.Visible = true;
             }
         }
     }

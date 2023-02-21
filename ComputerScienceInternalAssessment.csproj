@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSwimmerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSwimmerForm.Designer.cs">
+      <DependentUpon>AddSwimmerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CompareResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="ViewSwimmerEventsForm.Designer.cs">
       <DependentUpon>ViewSwimmerEventsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddSwimmerForm.resx">
+      <DependentUpon>AddSwimmerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CompareResultsForm.resx">
       <DependentUpon>CompareResultsForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -24,7 +24,7 @@ namespace ComputerScienceInternalAssessment
         public SwimmerListForm()
         {
             InitializeComponent();
-           // ConstructTreeView();
+            // ConstructTreeView();
             ConstructSwimmerListDataGridView();
 
         }
@@ -132,7 +132,7 @@ namespace ComputerScienceInternalAssessment
 
                     subtract = decimal.Parse(test2) - decimal.Parse(test);
 
-                    
+
 
                     if (subtract >= 1000 || subtract <= -1000)
                     {
@@ -144,7 +144,7 @@ namespace ComputerScienceInternalAssessment
                         subtract /= 100;
                         finish = subtract.ToString();
                     }
-                    
+
 
                     defaultAnswer = SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + " in the " + Swimmerevt + ".\n" + "Their goal time was " + SwimmerGoalTime + "." + "\n" + "They ";
 
@@ -160,23 +160,23 @@ namespace ComputerScienceInternalAssessment
                     }
                     if (int.Parse(splitTime[0]) == int.Parse(splitGoalTime[0]))
                     {
-                        if(int.Parse(splitTime[1]) > int.Parse(splitGoalTime[1]))
+                        if (int.Parse(splitTime[1]) > int.Parse(splitGoalTime[1]))
                         {
                             dropGain = "gained";
                             answer = defaultAnswer + dropGain + " " + finish + ".";
                         }
-                        if(int.Parse(splitTime[1]) < int.Parse(splitGoalTime[1]))
+                        if (int.Parse(splitTime[1]) < int.Parse(splitGoalTime[1]))
                         {
                             dropGain = "dropped";
                             answer = defaultAnswer + dropGain + " " + finish + ".";
                         }
-                        if((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 2))
+                        if ((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 2))
                         {
                             answer = defaultAnswer + "didn't drop or gain time.";
                         }
-                        if((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 3))
+                        if ((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 3))
                         {
-                            if(int.Parse(splitTime[2]) > int.Parse(splitGoalTime[2]))
+                            if (int.Parse(splitTime[2]) > int.Parse(splitGoalTime[2]))
                             {
                                 dropGain = "gained";
                                 answer = defaultAnswer + dropGain + " " + finish + ".";
@@ -208,7 +208,7 @@ namespace ComputerScienceInternalAssessment
                 ViewSwimmerEventsForm EventsForm = new ViewSwimmerEventsForm();
                 EventsForm.Show();
                 */
-                }
+            }
         }
 
         //This will generate a generic list for testing purposes.
@@ -219,10 +219,10 @@ namespace ComputerScienceInternalAssessment
 
         public List<Swimmer> GetSwimmerList()
         {
-            
-          //  List<SwimmerMeetModel> SwimmerMeet = new List<SwimmerMeetModel>();
+
+            //  List<SwimmerMeetModel> SwimmerMeet = new List<SwimmerMeetModel>();
             List<Swimmer> swimmers = new List<Swimmer>();
-           // List<>
+            // List<>
 
             /*SwimmerMeetModel m = new SwimmerMeetModel()
             {
@@ -232,7 +232,7 @@ namespace ComputerScienceInternalAssessment
                 SwimmerResultTime = "8:34.21"
             };
             */
-            
+
 
             Swimmer s = new Swimmer()
             {
@@ -455,9 +455,25 @@ namespace ComputerScienceInternalAssessment
                 }
             }
         }
-            
-    
-        
+
+
+        /*public String CopyData()
+        {
+            string response = "";
+            for (int x = 0; x < SwimmerListDataGridView.Rows.Count; x++)
+            {
+                for (int y = 0; y < SwimmerListDataGridView.Columns.Count; y++)
+                {
+                    if (SwimmerListDataGridView.Rows[x].Cells[y].Value.ToString() != null)
+                    {
+                        response = SwimmerListDataGridView.Rows[x].Cells[y].Value.ToString();
+                        return response;
+                    }
+                }
+            }
+        }
+        */
+
 
         private void FilterTenthGradeBtn_Click(object sender, EventArgs e)
         {
