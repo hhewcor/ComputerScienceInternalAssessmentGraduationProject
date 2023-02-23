@@ -46,7 +46,7 @@ namespace ComputerScienceInternalAssessment
             this.SearchFirstNameTxt = new System.Windows.Forms.TextBox();
             this.SwimmerListHelpBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddSwimmerBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EditSwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,21 +232,23 @@ namespace ComputerScienceInternalAssessment
             this.resetBtn.UseVisualStyleBackColor = false;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
-            // button1
+            // AddSwimmerBtn
             // 
-            this.button1.Location = new System.Drawing.Point(750, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Add Swimmer";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddSwimmerBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddSwimmerBtn.Location = new System.Drawing.Point(750, 74);
+            this.AddSwimmerBtn.Name = "AddSwimmerBtn";
+            this.AddSwimmerBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddSwimmerBtn.TabIndex = 27;
+            this.AddSwimmerBtn.Text = "Add Swimmer";
+            this.AddSwimmerBtn.UseVisualStyleBackColor = false;
+            this.AddSwimmerBtn.Click += new System.EventHandler(this.AddSwimmerBtn_Click);
             // 
             // EditSwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddSwimmerBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.SearchSwimmerNameBtn);
             this.Controls.Add(this.SearchLastNameTxt);
@@ -292,6 +294,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.TextBox SearchFirstNameTxt;
         private System.Windows.Forms.Button SwimmerListHelpBtn;
         private System.Windows.Forms.Button resetBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddSwimmerBtn;
     }
 }

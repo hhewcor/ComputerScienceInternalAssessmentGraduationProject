@@ -20,7 +20,9 @@ namespace ComputerScienceInternalAssessment
 
         private void EditSwimmerListForm_Load(object sender, EventArgs e)
         {
-            
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.CenterToScreen();
+            this.ControlBox = false;
         }
 
         private void ConstructEditSwimmerListDataGridView()
@@ -120,7 +122,7 @@ namespace ComputerScienceInternalAssessment
             {
                 try
                 {
-
+                   
                 }
                 catch (Exception exception)
                 {
@@ -246,6 +248,13 @@ namespace ComputerScienceInternalAssessment
             {
                 row.Visible = true;
             }
+        }
+
+        private void AddSwimmerBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddSwimmerForm swForm = new AddSwimmerForm();
+            swForm.Show();
         }
     }
 }
