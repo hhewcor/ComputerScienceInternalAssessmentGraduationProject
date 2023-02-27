@@ -20,6 +20,7 @@ namespace ComputerScienceInternalAssessment
         // DataTable _dt = new DataTable();
         // bool isXML = false;
 
+        public List<Swimmer> swimmers = new List<Swimmer>();
 
         public SwimmerListForm()
         {
@@ -73,16 +74,34 @@ namespace ComputerScienceInternalAssessment
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
+            this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
             AddRows();
 
         }
 
         private void AddRows()
         {
+            //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
             foreach (var swimmer in GetSwimmerList())
             {
                 SwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender, swimmer.SwimmerEvent, swimmer.GoalTime, swimmer.Time);
             }
+            //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
+        }
+
+        public void addSwimmerRow(String fn, String ln, String grd, String gd, String evt, String gt, String tm)
+        {
+            Swimmer s = new Swimmer()
+            {
+                FirstName = fn,
+                LastName = ln,
+                Grade = grd,
+                Gender = gd,
+                SwimmerEvent = evt,
+                GoalTime = gt,
+                Time = tm
+            };
+            swimmers.Add(s);
         }
 
         /*
@@ -221,7 +240,7 @@ namespace ComputerScienceInternalAssessment
         {
 
             //  List<SwimmerMeetModel> SwimmerMeet = new List<SwimmerMeetModel>();
-            List<Swimmer> swimmers = new List<Swimmer>();
+           // List<Swimmer> swimmers = new List<Swimmer>();
             // List<>
 
             /*SwimmerMeetModel m = new SwimmerMeetModel()
@@ -232,8 +251,9 @@ namespace ComputerScienceInternalAssessment
                 SwimmerResultTime = "8:34.21"
             };
             */
+            
 
-
+            
             Swimmer s = new Swimmer()
             {
                 FirstName = "Robin",
@@ -401,6 +421,8 @@ namespace ComputerScienceInternalAssessment
             */
 
             swimmers.Add(s);
+            
+
             return swimmers;
         }
 
