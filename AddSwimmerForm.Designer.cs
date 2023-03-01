@@ -325,6 +325,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerGoalTimeMinTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeMinTxtBox.TabIndex = 26;
             this.SwimmerGoalTimeMinTxtBox.TextChanged += new System.EventHandler(this.SwimmerGoalTimeMinTxtBox_TextChanged);
+            this.SwimmerGoalTimeMinTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerGoalTimeMinTxtBox_KeyPress);
             // 
             // SwimmerGoalTimeSecTxtBox
             // 
@@ -333,6 +334,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerGoalTimeSecTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeSecTxtBox.TabIndex = 27;
             this.SwimmerGoalTimeSecTxtBox.TextChanged += new System.EventHandler(this.SwimmerGoalTimeSecTxtBox_TextChanged);
+            this.SwimmerGoalTimeSecTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerGoalTimeSecTxtBox_KeyPress);
             // 
             // SwimmerGoalTimeMilTxtBox
             // 
@@ -341,6 +343,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerGoalTimeMilTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeMilTxtBox.TabIndex = 28;
             this.SwimmerGoalTimeMilTxtBox.TextChanged += new System.EventHandler(this.SwimmerGoalTimeMilTxtBox_TextChanged);
+            this.SwimmerGoalTimeMilTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerGoalTimeMilTxtBox_KeyPress);
             // 
             // label1
             // 
@@ -389,6 +392,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerTimeMilTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeMilTxtBox.TabIndex = 34;
             this.SwimmerTimeMilTxtBox.TextChanged += new System.EventHandler(this.SwimmerTimeMilTxtBox_TextChanged);
+            this.SwimmerTimeMilTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerTimeMilTxtBox_KeyPress);
             // 
             // SwimmerTimeSecTxtBox
             // 
@@ -397,6 +401,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerTimeSecTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeSecTxtBox.TabIndex = 33;
             this.SwimmerTimeSecTxtBox.TextChanged += new System.EventHandler(this.SwimmerTimeSecTxtBox_TextChanged);
+            this.SwimmerTimeSecTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerTimeSecTxtBox_KeyPress);
             // 
             // SwimmerTimeMinTxtBox
             // 
@@ -405,6 +410,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerTimeMinTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeMinTxtBox.TabIndex = 32;
             this.SwimmerTimeMinTxtBox.TextChanged += new System.EventHandler(this.SwimmerTimeMinTxtBox_TextChanged);
+            this.SwimmerTimeMinTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerTimeMinTxtBox_KeyPress);
             // 
             // SwimmerTimeLabel
             // 
