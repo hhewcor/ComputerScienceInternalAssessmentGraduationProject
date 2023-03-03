@@ -116,18 +116,22 @@ namespace ComputerScienceInternalAssessment
             // FirstNameTxtBox
             // 
             this.FirstNameTxtBox.Location = new System.Drawing.Point(143, 67);
+            this.FirstNameTxtBox.MaxLength = 20;
             this.FirstNameTxtBox.Name = "FirstNameTxtBox";
             this.FirstNameTxtBox.Size = new System.Drawing.Size(119, 20);
             this.FirstNameTxtBox.TabIndex = 6;
             this.FirstNameTxtBox.TextChanged += new System.EventHandler(this.FirstNameTxtBox_TextChanged);
+            this.FirstNameTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FirstNameTxtBox_KeyPress);
             // 
             // LastNameTxtBox
             // 
             this.LastNameTxtBox.Location = new System.Drawing.Point(143, 94);
+            this.LastNameTxtBox.MaxLength = 20;
             this.LastNameTxtBox.Name = "LastNameTxtBox";
             this.LastNameTxtBox.Size = new System.Drawing.Size(119, 20);
             this.LastNameTxtBox.TabIndex = 7;
             this.LastNameTxtBox.TextChanged += new System.EventHandler(this.LastNameTxtBox_TextChanged);
+            this.LastNameTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastNameTxtBox_KeyPress);
             // 
             // NinthGradeRadioBtn
             // 
@@ -321,6 +325,7 @@ namespace ComputerScienceInternalAssessment
             // SwimmerGoalTimeMinTxtBox
             // 
             this.SwimmerGoalTimeMinTxtBox.Location = new System.Drawing.Point(157, 333);
+            this.SwimmerGoalTimeMinTxtBox.MaxLength = 2;
             this.SwimmerGoalTimeMinTxtBox.Name = "SwimmerGoalTimeMinTxtBox";
             this.SwimmerGoalTimeMinTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeMinTxtBox.TabIndex = 26;
@@ -330,6 +335,7 @@ namespace ComputerScienceInternalAssessment
             // SwimmerGoalTimeSecTxtBox
             // 
             this.SwimmerGoalTimeSecTxtBox.Location = new System.Drawing.Point(206, 333);
+            this.SwimmerGoalTimeSecTxtBox.MaxLength = 2;
             this.SwimmerGoalTimeSecTxtBox.Name = "SwimmerGoalTimeSecTxtBox";
             this.SwimmerGoalTimeSecTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeSecTxtBox.TabIndex = 27;
@@ -339,6 +345,7 @@ namespace ComputerScienceInternalAssessment
             // SwimmerGoalTimeMilTxtBox
             // 
             this.SwimmerGoalTimeMilTxtBox.Location = new System.Drawing.Point(254, 333);
+            this.SwimmerGoalTimeMilTxtBox.MaxLength = 2;
             this.SwimmerGoalTimeMilTxtBox.Name = "SwimmerGoalTimeMilTxtBox";
             this.SwimmerGoalTimeMilTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeMilTxtBox.TabIndex = 28;
@@ -388,6 +395,7 @@ namespace ComputerScienceInternalAssessment
             // SwimmerTimeMilTxtBox
             // 
             this.SwimmerTimeMilTxtBox.Location = new System.Drawing.Point(253, 359);
+            this.SwimmerTimeMilTxtBox.MaxLength = 2;
             this.SwimmerTimeMilTxtBox.Name = "SwimmerTimeMilTxtBox";
             this.SwimmerTimeMilTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeMilTxtBox.TabIndex = 34;
@@ -397,6 +405,7 @@ namespace ComputerScienceInternalAssessment
             // SwimmerTimeSecTxtBox
             // 
             this.SwimmerTimeSecTxtBox.Location = new System.Drawing.Point(205, 359);
+            this.SwimmerTimeSecTxtBox.MaxLength = 2;
             this.SwimmerTimeSecTxtBox.Name = "SwimmerTimeSecTxtBox";
             this.SwimmerTimeSecTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeSecTxtBox.TabIndex = 33;
@@ -406,6 +415,7 @@ namespace ComputerScienceInternalAssessment
             // SwimmerTimeMinTxtBox
             // 
             this.SwimmerTimeMinTxtBox.Location = new System.Drawing.Point(156, 359);
+            this.SwimmerTimeMinTxtBox.MaxLength = 2;
             this.SwimmerTimeMinTxtBox.Name = "SwimmerTimeMinTxtBox";
             this.SwimmerTimeMinTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeMinTxtBox.TabIndex = 32;

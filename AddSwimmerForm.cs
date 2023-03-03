@@ -325,9 +325,6 @@ namespace ComputerScienceInternalAssessment
          */
             SwimmerListForm f = new SwimmerListForm();
 
-            swFirstName = FirstNameTxtBox.Text;
-            swLastName = LastNameTxtBox.Text;
-
             /*
              * swGoalTimeMin = Convert.ToInt32(SwimmerGoalTimeMinTxtBox);
             swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox);
@@ -339,19 +336,27 @@ namespace ComputerScienceInternalAssessment
             */
 
             //checkSelected();
-            check = true;
-            checkEvent();
-            combineSwGT();
-            combineSWT();
+            //check = true;
             
+            //combineSwGT();
+            //combineSWT();
+
+            check = checkInfo();
 
 
             if (check == true)
             {
+                EditSwimmerListForm ed = new EditSwimmerListForm();
+                swEvent = swDistance + " " + swStroke;
+                combineSwGT();
+                combineSWT();
+                this.Hide();
+                ed.Show();
                 MessageBox.Show(answer);
+               f.addSwimmerRow(swFirstName, swLastName, swGrade, swGender, swEvent, combineSwGT(), combineSWT());
             }
             else { 
-                    MessageBox.Show("Please check that you have formatted the data correctly.");
+                    MessageBox.Show(answer);
                
                 /*this.Hide();
                 EditSwimmerListForm edsl = new EditSwimmerListForm();
@@ -364,71 +369,270 @@ namespace ComputerScienceInternalAssessment
             //f.addSwimmerRow()
         }
 
-        private void checkSelected()
+        private bool checkInfo()
         {
-            
-          /*  if ((swFirstNameSelected == false) && (swLastNameSelected == false) && (swGradeSelected == false) && (swGenderSelected == false) && (swDistanceSelected == false) && (swStrokeSelected == false))
+            answer = "";
+            bool conditionOne = checkSelectedName();
+            bool conditionTwo = checkSelectedGrade();
+            bool conditionThree = checkGenderSelected();
+            bool conditionFour = checkStrokeSelected();
+            bool conditionFive = checkDistanceSelected();
+            bool conditionSix = checkEvent();
+            bool conditionSeven = checkGT();
+            bool conditionEight = checkTime();
+
+            if (conditionOne == false)
             {
-                check = false;
+                return false;
             }
-          */
-            
+            else if (conditionTwo == false){
+                return false;
+            }
+            else if (conditionThree == false)
+            {
+                return false;
+            }
+            else if (conditionFour == false)
+            {
+                return false;
+            }
+            else if (conditionFive == false)
+            {
+                return false;
+            }
+            else if (conditionSix == false)
+            {
+                return false;
+            }
+            else if (conditionSeven == false)
+            {
+                return false;
+            }
+            else if (conditionEight == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        private void checkEvent()
+        private bool checkSelectedName()
         {
-            
-                if((swDistance != "100") && (swStroke == "fl")){
-                    check = false;
-                }
-                else if ((swDistance != "100") && (swStroke == "bk")){
-                    check = false;
-                }
-                else if ((swDistance != "100") && (swStroke == "br"))
-                {
-                    check = false;
-                }
-                else if ((swDistance != "200") && (swStroke == "IM"))
-                {
-                    check = false;
-                }
-            
+            swFirstName = FirstNameTxtBox.Text;
+            swLastName = LastNameTxtBox.Text;
+
+            if (string.IsNullOrEmpty(swFirstName) || string.IsNullOrEmpty(swLastName))
+            {
+                answer += "Please add a first and last name. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        private void combineSwGT()
+        private bool checkSelectedGrade()
         {
-            swEvent = swDistance + " " + swStroke;
-            
+            if (swGradeSelected == false)
+            {
+                answer += "Please select a grade. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool checkGenderSelected()
+        {
+            if(swGenderSelected == false)
+            {
+                answer += "Please select a gender. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool checkDistanceSelected()
+        {
+            if(swDistanceSelected == false)
+            {
+                answer += "Please select a distance. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool checkStrokeSelected()
+        {
+            if(swStrokeSelected == false)
+            {
+                answer += "Please select a stroke. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool checkEvent()
+        {
+            if((swDistance != "100") && (swStroke == "fl") && (swDistanceSelected == true))
+            {
+                answer += "Swimmers cannot swim " + swDistance + " " + swStroke + ", only 100 fly. Please change the field. ";
+                return false;
+            }
+            else if ((swDistance != "100") && (swStroke == "bk") && (swDistanceSelected == true))
+            {
+                answer += "Swimmers cannot swim " + swDistance + " " + swStroke + ", only 100 back. Please change the field. ";
+                return false;
+            }
+            else if ((swDistance != "100") && (swStroke == "br") && (swDistanceSelected == true))
+            {
+                answer += "Swimmers cannot swim " + swDistance + " " + swStroke + ", only 100 breast. Please change the field. ";
+                return false;
+            }
+            else if ((swDistance != "200") && (swStroke == "IM") && (swDistanceSelected == true))
+            {
+                answer += "Swimmers cannot swim " + swDistance + " " + swStroke + ", only 200 IM. Please change the field. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool checkGT()
+        {
+            if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a goal time in the correct format. ";
+                return false;
+            }
+            else if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == true))
+            {
+                answer += "Please check that you have entered a goal time in the correct format. ";
+                return false;
+            }
+            else if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a goal time in the correct format. ";
+                return false;
+            }
+            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a goal time in the correct format. ";
+                return false;
+            }
+            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == true))
+            {
+                answer += "Please check that you have entered a goal time in the correct format. ";
+                return false;
+            }
+            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a goal time in the correct format. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+            private bool checkTime()
+        {
+            if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a time in the correct format. ";
+                return false;
+            }
+            else if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMinSelected == true))
+            {
+                answer += "Please check that you have entered a time in the correct format. ";
+                return false;
+            }
+            else if ((swTimeMinSelected == false) && (swTimeSecSelected == true) && (swTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a time in the correct format. ";
+                return false;
+            }
+            else if ((swTimeMinSelected == true) && (swTimeSecSelected == false) && (swTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a time in the correct format. ";
+                return false;
+            }
+            else if ((swTimeMinSelected == true) && (swTimeSecSelected == false) && (swTimeMinSelected == true))
+            {
+                answer += "Please check that you have entered a time in the correct format. ";
+                return false;
+            }
+            else if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMinSelected == false))
+            {
+                answer += "Please check that you have entered a time in the correct format. ";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private String combineSwGT()
+        {
             if((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == true)){
-                swGT = swGoalTimeMin + ":" + swGoalTimeSec + "." + swGoalTimeMil;
+                    swGoalTimeMin = Convert.ToInt32(SwimmerGoalTimeMinTxtBox.Text);
+                    swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox.Text);
+                    swGoalTimeMil = Convert.ToInt32(SwimmerGoalTimeMilTxtBox.Text);
+
+                    swGT = swGoalTimeMin + ":" + swGoalTimeSec + "." + swGoalTimeMil;
             }
 
             else if((SwimmerGoalTimeMinTxtBox == null) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == true))
             {
+                swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox.Text);
+                swGoalTimeMil = Convert.ToInt32(SwimmerGoalTimeMilTxtBox.Text);
+
                 swGT = swGoalTimeSec + "." + swGoalTimeMil;
             }
 
-            answer = swEvent + " " + swGT;
+            return swGT;
         }
 
 
         //ENDED HERE!!
-        private void combineSWT()
+        private String combineSWT()
         {
             if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMinSelected == true))
             {
-                swTimeMin = Convert.ToInt32(SwimmerGoalTimeMinTxtBox.Text);
-                //FIX
+                swTimeMin = Convert.ToInt32(SwimmerTimeMinTxtBox.Text);
+                swTimeSec = Convert.ToInt32(SwimmerTimeSecTxtBox.Text);
+                swTimeMil = Convert.ToInt32(SwimmerTimeMilTxtBox.Text);
 
                 swT = swTimeMin + ":" + swTimeSec + "." + swTimeMil;
             }
 
             else if ((SwimmerTimeMinTxtBox == null) && (swTimeSecSelected == true) && (swTimeMinSelected == true))
             {
+                swTimeSec = Convert.ToInt32(SwimmerTimeSecTxtBox.Text);
+                swTimeMil = Convert.ToInt32(SwimmerTimeMilTxtBox.Text);
+
                 swT = swTimeSec + "." + swTimeMil;
             }
 
-            answer = answer + " " + swT + ".";
+            return swT;
         }
 
         private void SwimmerGoalTimeMinTxtBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -442,6 +646,7 @@ namespace ComputerScienceInternalAssessment
             if((SwimmerGoalTimeMinTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
             {
                 SwimmerGoalTimeMinTxtBox.Text = string.Empty;
+                swGoalTimeMinSelected = false;
             }
         }
 
@@ -451,6 +656,12 @@ namespace ComputerScienceInternalAssessment
             {
                 MessageBox.Show("please enter digits only");
                 e.Handled = true;
+            }
+
+            if ((SwimmerGoalTimeSecTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
+            {
+                SwimmerGoalTimeSecTxtBox.Text = string.Empty;
+                swGoalTimeSecSelected = false;
             }
         }
 
@@ -462,6 +673,11 @@ namespace ComputerScienceInternalAssessment
                 e.Handled = true;
             }
 
+            if ((SwimmerGoalTimeMilTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
+            {
+                SwimmerGoalTimeMilTxtBox.Text = string.Empty;
+                swGoalTimeMilSelected = false;
+            }
         }
 
         private void SwimmerTimeMinTxtBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -470,6 +686,12 @@ namespace ComputerScienceInternalAssessment
             {
                 MessageBox.Show("please enter digits only");
                 e.Handled = true;
+            }
+
+            if ((SwimmerTimeMinTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
+            {
+                SwimmerTimeMinTxtBox.Text = string.Empty;
+                swTimeMinSelected = false;
             }
         }
 
@@ -480,6 +702,12 @@ namespace ComputerScienceInternalAssessment
                 MessageBox.Show("please enter digits only");
                 e.Handled = true;
             }
+
+            if ((SwimmerTimeSecTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
+            {
+                SwimmerTimeSecTxtBox.Text = string.Empty;
+                swTimeSecSelected = false;
+            }
         }
 
         private void SwimmerTimeMilTxtBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -488,6 +716,42 @@ namespace ComputerScienceInternalAssessment
             {
                 MessageBox.Show("please enter digits only");
                 e.Handled = true;
+            }
+
+            if ((SwimmerTimeMilTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
+            {
+                SwimmerTimeMilTxtBox.Text = string.Empty;
+                swTimeMilSelected = false;
+            }
+        }
+
+        private void FirstNameTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+            {
+                MessageBox.Show("please enter letters only");
+                e.Handled = true;
+            }
+
+            if ((FirstNameTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
+            {
+                FirstNameTxtBox.Text = string.Empty;
+                swFirstNameSelected = false;
+            }
+        }
+
+        private void LastNameTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == '-')))
+            {
+                MessageBox.Show("please enter letters only");
+                e.Handled = true;
+            }
+
+            if ((LastNameTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
+            {
+                LastNameTxtBox.Text = string.Empty;
+                swLastNameSelected = false;
             }
         }
 

@@ -77,6 +77,8 @@ namespace ComputerScienceInternalAssessment.Models
             Time = tm;
         }
 
+        
+
 
         /*public String SwimmerEventTime
        {
