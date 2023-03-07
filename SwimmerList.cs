@@ -37,6 +37,16 @@ namespace ComputerScienceInternalAssessment
             this.ControlBox = false;
         }
 
+        /*
+        public SwimmerListForm SWLF { get; set; }
+
+        public EditSwimmerListForm(SwimmerListForm swLF)
+        {
+            InitializeComponent();
+            this.SwimmerListForm = swLF;
+        }
+        */
+
         private void ConstructSwimmerListDataGridView()
         {
             //add columns
@@ -426,6 +436,12 @@ namespace ComputerScienceInternalAssessment
             return swimmers;
         }
 
+        /*public static explicit operator SwimmerListForm(Form v)
+        {
+            throw new NotImplementedException();
+        }
+        */
+
         private void BackToStartBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -579,11 +595,25 @@ namespace ComputerScienceInternalAssessment
 
         private void EditSwimmerListBtn_Click(object sender, EventArgs e)
         {
-            
-            var EditSwimmerListForm = new EditSwimmerListForm();
-            this.Hide();
-            EditSwimmerListForm.Show();
+            /*
+            EditSwimmerListForm EditSwimmer = new EditSwimmerListForm();
+            EditSwimmer.Owner = this;
+            try
+            {
+                this.Hide();
+                EditSwimmer.ShowDialog();
+            }
+            finally
+            {
+                EditSwimmer.Dispose();
+            }
+            //this.Hide();
+            //EditSwimmerListForm.Show();
+            */
 
+            EditSwimmerListForm EditSwimmer = new EditSwimmerListForm(this);
+            this.Hide();
+            EditSwimmer.Show();
         }
 
         private void resetBtn_Click(object sender, EventArgs e)

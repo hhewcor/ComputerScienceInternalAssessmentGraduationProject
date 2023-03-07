@@ -18,6 +18,22 @@ namespace ComputerScienceInternalAssessment
             ConstructEditSwimmerListDataGridView();
         }
 
+        public SwimmerListForm swLF { get; set; }
+        public EditSwimmerListForm(SwimmerListForm sw)
+        {
+            InitializeComponent();
+            this.swLF = sw;
+            ConstructEditSwimmerListDataGridView();
+            //sw.swimmers.Add(s);
+        }
+
+        /*
+        public SwimmerListForm(Swimmer s)
+        {
+            s
+        }
+        */
+        //Trying to work on passing information between forms!
         private void EditSwimmerListForm_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -251,10 +267,38 @@ namespace ComputerScienceInternalAssessment
         }
 
         private void AddSwimmerBtn_Click(object sender, EventArgs e)
-        {
+        { 
+
+
             this.Hide();
-            AddSwimmerForm swForm = new AddSwimmerForm();
+            AddSwimmerForm swForm = new AddSwimmerForm(this);
+            /*swForm.Owner = this;
+            try
+            {
+                this.Hide();
+                swForm.ShowDialog();
+            }
+            finally
+            {
+                swForm.Dispose();
+            }
+            ConstructEditSwimmerListDataGridView();
+            //EditSwimmerListDataGridView.Add()
+            */
             swForm.Show();
+        }
+
+        /*
+        public void AddNewSwimmer(string fn, string ln, string gend, string grd, string evt, string gt, string tm)
+        {
+            //add new ListItem here
+            //Swimmer
+        }
+        */
+
+        public static implicit operator EditSwimmerListForm(SwimmerListForm v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

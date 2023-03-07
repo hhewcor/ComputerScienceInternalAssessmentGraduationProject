@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerScienceInternalAssessment.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,32 @@ namespace ComputerScienceInternalAssessment
 {
     public partial class AddSwimmerForm : Form
     {
+        /*
+        public AddSwimmerForm(EditSwimmerListForm edswF)
+        {
+            InitializeComponent();
+            this.ed = edswF;
+        }
+        */
+
+        public EditSwimmerListForm EdLF { get; set; }
+
+
+        public AddSwimmerForm(EditSwimmerListForm edSLF)
+        {
+            InitializeComponent();
+            this.EdLF = edSLF;
+        }
+
+       
+
         public AddSwimmerForm()
         {
             InitializeComponent();
         }
+
+        //public EditSwimmerListForm ed { get; set; }
+
 
         private void AddSwimmerForm_Load(object sender, EventArgs e)
         {
@@ -180,49 +203,40 @@ namespace ComputerScienceInternalAssessment
         {
             if (SwimmerGoalTimeMinTxtBox != null)
             {
-                try
-                {
-                    swGoalTimeMinSelected = true;
-                    String stGoalTimeMin = SwimmerGoalTimeMinTxtBox.Text;
-                    //swGoalTimeMin = Convert.ToInt32(stGoalTimeMin);
-                }
-                catch (Exception exception)
-                {
-                    swGoalTimeMinSelected = false;
-                }
+                swGoalTimeMinSelected = true;
+                String stTimeMil = SwimmerGoalTimeMinTxtBox.Text;
+                //swTimeMil = Convert.ToInt32(stTimeMil);
+            }
+            else
+            {
+                swGoalTimeMinSelected = false;
             }
         }
         private void SwimmerGoalTimeSecTxtBox_TextChanged(object sender, EventArgs e)
         {
-            
-            if (SwimmerGoalTimeSecTxtBox != null )
+
+            if (SwimmerGoalTimeSecTxtBox != null)
             {
-                try
-                {
-                    swGoalTimeSecSelected = true;
-                    String stGoalTimeSec = SwimmerGoalTimeSecTxtBox.Text;
-                    //swGoalTimeSec = Convert.ToInt32(stGoalTimeSec);
-                }
-                catch (Exception exception)
-                {
-                    swGoalTimeSecSelected = false;
-                }
+                swGoalTimeSecSelected = true;
+                String stTimeMil = SwimmerGoalTimeSecTxtBox.Text;
+                //swTimeMil = Convert.ToInt32(stTimeMil);
+            }
+            else
+            {
+                swGoalTimeSecSelected = false;
             }
         }
         private void SwimmerGoalTimeMilTxtBox_TextChanged(object sender, EventArgs e)
         {
             if (SwimmerGoalTimeMilTxtBox != null)
             {
-                try
-                {
-                    swGoalTimeMilSelected = true;
-                    String stGoalTimeMil = SwimmerGoalTimeMilTxtBox.Text;
-                    //swGoalTimeMil = Convert.ToInt32(stGoalTimeMil);
-                }
-                catch (Exception exception)
-                {
-                    swGoalTimeMilSelected = false;
-                }
+                swGoalTimeMilSelected = true;
+                String stTimeMil = SwimmerGoalTimeMilTxtBox.Text;
+                //swTimeMil = Convert.ToInt32(stTimeMil);
+            }
+            else
+            {
+                swGoalTimeMilSelected = false;
             }
         }
 
@@ -231,16 +245,13 @@ namespace ComputerScienceInternalAssessment
         {
             if (SwimmerTimeMinTxtBox != null)
             {
-                try
-                {
-                    swTimeMinSelected = true;
-                    String stTimeMin = SwimmerTimeMinTxtBox.Text;
-                    //swTimeMin = Convert.ToInt32(stTimeMin);
-                }
-                catch (Exception exception)
-                {
-                    swTimeMinSelected = false;
-                }
+                swTimeMinSelected = true;
+                String stTimeMil = SwimmerTimeMinTxtBox.Text;
+                //swTimeMil = Convert.ToInt32(stTimeMil);
+            }
+            else
+            {
+                swTimeMinSelected = false;
             }
         }
 
@@ -248,16 +259,13 @@ namespace ComputerScienceInternalAssessment
         {
             if (SwimmerTimeSecTxtBox != null)
             {
-                try
-                {
-                    swTimeSecSelected = true;
-                    String stTimeSec = SwimmerTimeSecTxtBox.Text;
-                    //swTimeSec = Convert.ToInt32(stTimeSec);
-                }
-                catch (Exception exception)
-                {
-                    swTimeSecSelected = false;
-                }
+                swTimeSecSelected = true;
+                String stTimeMil = SwimmerTimeSecTxtBox.Text;
+                //swTimeMil = Convert.ToInt32(stTimeMil);
+            }
+            else
+            {
+                swTimeSecSelected = false;
             }
         }
 
@@ -270,17 +278,14 @@ namespace ComputerScienceInternalAssessment
             */
 
             if (SwimmerTimeMilTxtBox != null)
-            {
-                try
-                {
+            { 
                     swTimeMilSelected = true;
                     String stTimeMil = SwimmerTimeMilTxtBox.Text;
                     //swTimeMil = Convert.ToInt32(stTimeMil);
-                }
-                catch (Exception exception)
-                {
+            }
+            else 
+            { 
                     swTimeMilSelected = false;   
-                }
             }
         }
 
@@ -346,14 +351,30 @@ namespace ComputerScienceInternalAssessment
 
             if (check == true)
             {
+                answer = "Swimmer added.";
+                //var ed = (SwimmerListForm)this.Owner;
                 EditSwimmerListForm ed = new EditSwimmerListForm();
+
                 swEvent = swDistance + " " + swStroke;
                 combineSwGT();
                 combineSWT();
                 this.Hide();
                 ed.Show();
-                MessageBox.Show(answer);
-               f.addSwimmerRow(swFirstName, swLastName, swGrade, swGender, swEvent, combineSwGT(), combineSWT());
+                
+                Swimmer s = new Swimmer()
+                {
+                    FirstName = swFirstName,
+                    LastName = swLastName,
+                    Grade = swGrade,
+                    Gender = swGender,
+                    SwimmerEvent = swEvent,
+                    GoalTime = combineSwGT(),
+                    Time = combineSWT()
+                };
+
+                MessageBox.Show(answer + s);
+                //ed.swimmers.Add(s);
+                
             }
             else { 
                     MessageBox.Show(answer);
@@ -516,32 +537,32 @@ namespace ComputerScienceInternalAssessment
 
         private bool checkGT()
         {
-            if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == false))
+            if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == false) && (swGoalTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a goal time in the correct format. ";
                 return false;
             }
-            else if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == true))
+            else if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == false) && (swGoalTimeMilSelected == true))
             {
                 answer += "Please check that you have entered a goal time in the correct format. ";
                 return false;
             }
-            else if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == false))
+            else if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a goal time in the correct format. ";
                 return false;
             }
-            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == false))
+            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == false) && (swGoalTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a goal time in the correct format. ";
                 return false;
             }
-            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == false) && (swGoalTimeMinSelected == true))
+            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == false) && (swGoalTimeMilSelected == true))
             {
                 answer += "Please check that you have entered a goal time in the correct format. ";
                 return false;
             }
-            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == false))
+            else if ((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a goal time in the correct format. ";
                 return false;
@@ -554,32 +575,32 @@ namespace ComputerScienceInternalAssessment
 
             private bool checkTime()
         {
-            if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMinSelected == false))
+            if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a time in the correct format. ";
                 return false;
             }
-            else if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMinSelected == true))
+            else if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMilSelected == true))
             {
                 answer += "Please check that you have entered a time in the correct format. ";
                 return false;
             }
-            else if ((swTimeMinSelected == false) && (swTimeSecSelected == true) && (swTimeMinSelected == false))
+            else if ((swTimeMinSelected == false) && (swTimeSecSelected == true) && (swTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a time in the correct format. ";
                 return false;
             }
-            else if ((swTimeMinSelected == true) && (swTimeSecSelected == false) && (swTimeMinSelected == false))
+            else if ((swTimeMinSelected == true) && (swTimeSecSelected == false) && (swTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a time in the correct format. ";
                 return false;
             }
-            else if ((swTimeMinSelected == true) && (swTimeSecSelected == false) && (swTimeMinSelected == true))
+            else if ((swTimeMinSelected == true) && (swTimeSecSelected == false) && (swTimeMilSelected == true))
             {
                 answer += "Please check that you have entered a time in the correct format. ";
                 return false;
             }
-            else if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMinSelected == false))
+            else if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a time in the correct format. ";
                 return false;
@@ -592,7 +613,7 @@ namespace ComputerScienceInternalAssessment
 
         private String combineSwGT()
         {
-            if((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == true)){
+            if((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == true)){
                     swGoalTimeMin = Convert.ToInt32(SwimmerGoalTimeMinTxtBox.Text);
                     swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox.Text);
                     swGoalTimeMil = Convert.ToInt32(SwimmerGoalTimeMilTxtBox.Text);
@@ -600,7 +621,7 @@ namespace ComputerScienceInternalAssessment
                     swGT = swGoalTimeMin + ":" + swGoalTimeSec + "." + swGoalTimeMil;
             }
 
-            else if((SwimmerGoalTimeMinTxtBox == null) && (swGoalTimeSecSelected == true) && (swGoalTimeMinSelected == true))
+            else if((SwimmerGoalTimeMinTxtBox == null) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == true))
             {
                 swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox.Text);
                 swGoalTimeMil = Convert.ToInt32(SwimmerGoalTimeMilTxtBox.Text);
@@ -611,11 +632,9 @@ namespace ComputerScienceInternalAssessment
             return swGT;
         }
 
-
-        //ENDED HERE!!
         private String combineSWT()
         {
-            if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMinSelected == true))
+            if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMilSelected == true))
             {
                 swTimeMin = Convert.ToInt32(SwimmerTimeMinTxtBox.Text);
                 swTimeSec = Convert.ToInt32(SwimmerTimeSecTxtBox.Text);
@@ -624,7 +643,7 @@ namespace ComputerScienceInternalAssessment
                 swT = swTimeMin + ":" + swTimeSec + "." + swTimeMil;
             }
 
-            else if ((SwimmerTimeMinTxtBox == null) && (swTimeSecSelected == true) && (swTimeMinSelected == true))
+            else if ((SwimmerTimeMinTxtBox == null) && (swTimeSecSelected == true) && (swTimeMilSelected == true))
             {
                 swTimeSec = Convert.ToInt32(SwimmerTimeSecTxtBox.Text);
                 swTimeMil = Convert.ToInt32(SwimmerTimeMilTxtBox.Text);
