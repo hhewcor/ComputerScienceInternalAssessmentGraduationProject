@@ -21,13 +21,15 @@ namespace ComputerScienceInternalAssessment
         }
         */
 
-        public EditSwimmerListForm EdLF { get; set; }
+        public static AddSwimmerForm instance;
+
+        public SwimmerListForm LF { get; set; }
 
 
-        public AddSwimmerForm(EditSwimmerListForm edSLF)
+        public AddSwimmerForm(SwimmerListForm edSLF)
         {
             InitializeComponent();
-            this.EdLF = edSLF;
+            this.LF = edSLF;
         }
 
        
@@ -35,6 +37,7 @@ namespace ComputerScienceInternalAssessment
         public AddSwimmerForm()
         {
             InitializeComponent();
+            instance = this;
         }
 
         //public EditSwimmerListForm ed { get; set; }
@@ -50,8 +53,8 @@ namespace ComputerScienceInternalAssessment
         private void BackToEditSwimmerListFormBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditSwimmerListForm edsl = new EditSwimmerListForm();
-            edsl.Show();
+            SwimmerListForm sl = new SwimmerListForm();
+            sl.Show();
         }
 
         private void SwimmerListHelpBtn_Click(object sender, EventArgs e)
@@ -290,6 +293,7 @@ namespace ComputerScienceInternalAssessment
         }
 
         //Swimmer Name -----------------------------------------------------
+        /*
         private void FirstNameTxtBox_TextChanged(object sender, EventArgs e)
         {
             if(FirstNameTxtBox != null)
@@ -307,6 +311,7 @@ namespace ComputerScienceInternalAssessment
                 //swLastName = LastNameTxtBox.Text;
             }
         }
+        */
 
         //##############################################################################################################
         //ADD SWIMMER BUTTON **********************************************************************************************
@@ -353,15 +358,14 @@ namespace ComputerScienceInternalAssessment
             {
                 answer = "Swimmer added.";
                 //var ed = (SwimmerListForm)this.Owner;
-                EditSwimmerListForm ed = new EditSwimmerListForm();
+                SwimmerListForm ed = new SwimmerListForm();
 
                 swEvent = swDistance + " " + swStroke;
                 combineSwGT();
                 combineSWT();
-                this.Hide();
-                ed.Show();
                 
-                Swimmer s = new Swimmer()
+                
+                /*Swimmer s = new Swimmer()
                 {
                     FirstName = swFirstName,
                     LastName = swLastName,
@@ -371,10 +375,20 @@ namespace ComputerScienceInternalAssessment
                     GoalTime = combineSwGT(),
                     Time = combineSWT()
                 };
+                */
 
-                MessageBox.Show(answer + s);
+                //SwimmerListForm.instance.swimmers.Add(s);
+                SwimmerListForm.instance.addSwimmerRow(swFirstName, swLastName, swGrade, swGender, swEvent, combineSwGT(), combineSWT());
+
+
+                //ed.Show();
+
+                MessageBox.Show(answer);
                 //ed.swimmers.Add(s);
-                
+                this.Hide();
+
+                ed.Show();
+
             }
             else { 
                     MessageBox.Show(answer);

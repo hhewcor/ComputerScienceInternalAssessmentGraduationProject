@@ -42,10 +42,11 @@ namespace ComputerScienceInternalAssessment
             this.FilterEleventhGradeBtn = new System.Windows.Forms.Button();
             this.FilterTenthGradeBtn = new System.Windows.Forms.Button();
             this.FilterNinthGradeBtn = new System.Windows.Forms.Button();
-            this.EditSwimmerListBtn = new System.Windows.Forms.Button();
             this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
             this.resetBtn = new System.Windows.Forms.Button();
             this.FilterLable = new System.Windows.Forms.Label();
+            this.AddSwimmerBtn = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,17 +191,6 @@ namespace ComputerScienceInternalAssessment
             this.FilterNinthGradeBtn.UseVisualStyleBackColor = false;
             this.FilterNinthGradeBtn.Click += new System.EventHandler(this.FilterNinthGradeBtn_Click);
             // 
-            // EditSwimmerListBtn
-            // 
-            this.EditSwimmerListBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.EditSwimmerListBtn.Location = new System.Drawing.Point(742, 55);
-            this.EditSwimmerListBtn.Name = "EditSwimmerListBtn";
-            this.EditSwimmerListBtn.Size = new System.Drawing.Size(78, 25);
-            this.EditSwimmerListBtn.TabIndex = 8;
-            this.EditSwimmerListBtn.Text = "Edit";
-            this.EditSwimmerListBtn.UseVisualStyleBackColor = false;
-            this.EditSwimmerListBtn.Click += new System.EventHandler(this.EditSwimmerListBtn_Click);
-            // 
             // SwimmerListDataGridView
             // 
             this.SwimmerListDataGridView.AllowUserToAddRows = false;
@@ -238,16 +228,37 @@ namespace ComputerScienceInternalAssessment
             this.FilterLable.TabIndex = 11;
             this.FilterLable.Text = "Filter:";
             // 
+            // AddSwimmerBtn
+            // 
+            this.AddSwimmerBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddSwimmerBtn.Location = new System.Drawing.Point(742, 64);
+            this.AddSwimmerBtn.Name = "AddSwimmerBtn";
+            this.AddSwimmerBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddSwimmerBtn.TabIndex = 28;
+            this.AddSwimmerBtn.Text = "Add Swimmer";
+            this.AddSwimmerBtn.UseVisualStyleBackColor = false;
+            this.AddSwimmerBtn.Click += new System.EventHandler(this.AddSwimmerBtn_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 419);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(801, 203);
+            this.listView1.TabIndex = 30;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 450);
+            this.ClientSize = new System.Drawing.Size(1209, 648);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.AddSwimmerBtn);
             this.Controls.Add(this.FilterLable);
             this.Controls.Add(this.FilterFemaleBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.FilterMaleBtn);
-            this.Controls.Add(this.EditSwimmerListBtn);
             this.Controls.Add(this.FilterTwelthGradeBtn);
             this.Controls.Add(this.FilterEleventhGradeBtn);
             this.Controls.Add(this.SearchSwimmerNameBtn);
@@ -284,9 +295,10 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Button FilterEleventhGradeBtn;
         private System.Windows.Forms.Button FilterTenthGradeBtn;
         private System.Windows.Forms.Button FilterNinthGradeBtn;
-        private System.Windows.Forms.Button EditSwimmerListBtn;
         private System.Windows.Forms.DataGridView SwimmerListDataGridView;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label FilterLable;
+        private System.Windows.Forms.Button AddSwimmerBtn;
+        private System.Windows.Forms.ListView listView1;
     }
 }

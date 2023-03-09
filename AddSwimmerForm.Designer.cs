@@ -120,7 +120,6 @@ namespace ComputerScienceInternalAssessment
             this.FirstNameTxtBox.Name = "FirstNameTxtBox";
             this.FirstNameTxtBox.Size = new System.Drawing.Size(119, 20);
             this.FirstNameTxtBox.TabIndex = 6;
-            this.FirstNameTxtBox.TextChanged += new System.EventHandler(this.FirstNameTxtBox_TextChanged);
             this.FirstNameTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FirstNameTxtBox_KeyPress);
             // 
             // LastNameTxtBox
@@ -130,7 +129,6 @@ namespace ComputerScienceInternalAssessment
             this.LastNameTxtBox.Name = "LastNameTxtBox";
             this.LastNameTxtBox.Size = new System.Drawing.Size(119, 20);
             this.LastNameTxtBox.TabIndex = 7;
-            this.LastNameTxtBox.TextChanged += new System.EventHandler(this.LastNameTxtBox_TextChanged);
             this.LastNameTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastNameTxtBox_KeyPress);
             // 
             // NinthGradeRadioBtn

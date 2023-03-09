@@ -271,7 +271,7 @@ namespace ComputerScienceInternalAssessment
 
 
             this.Hide();
-            AddSwimmerForm swForm = new AddSwimmerForm(this);
+            AddSwimmerForm swForm = new AddSwimmerForm();
             /*swForm.Owner = this;
             try
             {
