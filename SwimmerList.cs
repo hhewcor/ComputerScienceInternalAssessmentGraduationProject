@@ -20,7 +20,10 @@ namespace ComputerScienceInternalAssessment
         // DataTable _dt = new DataTable();
         // bool isXML = false;
 
-        public List<Swimmer> swimmers = new List<Swimmer>();
+        public static List<Swimmer> swimmers;
+        public ListBox lb = new ListBox();
+
+        Dictionary<string, Swimmer> swList = new Dictionary<string, Swimmer>();
         //public List<Swimmer> sw;
 
         public static SwimmerListForm instance;
@@ -28,8 +31,10 @@ namespace ComputerScienceInternalAssessment
         public SwimmerListForm()
         {
             InitializeComponent();
+            swimmers = new List<Swimmer>();
             instance = this;
-            
+
+            listBox1 = lb;
 
             // ConstructTreeView();
             ConstructSwimmerListDataGridView();
@@ -112,11 +117,16 @@ namespace ComputerScienceInternalAssessment
             SwimmerListDataGridView.Rows.Clear();
             //listView1.Items.AddRange(swimmers);
             //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
-            foreach (Swimmer s in swimmers)
+            /*
+            foreach (Swimmer s in GetSwimmerList())
             {
-                SwimmerListDataGridView.Rows.Add(s.FirstName, s.LastName, s.Grade, s.Gender, s.SwimmerEvent, s.GoalTime, s.Time);
-                
+                SwimmerListDataGridView.Rows.Add(s.FirstName, s.LastName, s.Grade, s.Gender, s.SwimmerEvent, s.GoalTime, s.Time); ;
+            }
+            */
 
+            foreach (var kvp in swList)
+            {
+                SwimmerListDataGridView.Rows.Add("Key = {0}, Value = {1}", kvp.Value);
             }
             //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
         }
@@ -134,7 +144,7 @@ namespace ComputerScienceInternalAssessment
                 GoalTime = gt,
                 Time = tm
             };
-            swimmers.Add(s);
+            swList.Add(s.FirstName + " " + s.LastName, s);
             //SwimmerListDataGridView.Rows.Add(fn, ln, grd, gd, evt, gt, tm);
             //this.loadRows();
         }
@@ -288,7 +298,7 @@ namespace ComputerScienceInternalAssessment
             */
             
 
-            /*
+            
             Swimmer s = new Swimmer()
             {
                 FirstName = "Robin",
@@ -300,6 +310,7 @@ namespace ComputerScienceInternalAssessment
                 Time = "49.67"
             };
             swimmers.Add(s);
+            swList.Add(s.FirstName + " " + s.LastName, s);
 
             //swimmers.Add(m);
 
@@ -314,6 +325,8 @@ namespace ComputerScienceInternalAssessment
                 Time = "56.22"
             };
             swimmers.Add(s);
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "James",
@@ -325,6 +338,8 @@ namespace ComputerScienceInternalAssessment
                 Time = "20.31"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
             s = new Swimmer()
             {
                 FirstName = "Princess",
@@ -336,6 +351,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "1:07.81"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Princess",
@@ -347,6 +365,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "2:15.26"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Spider",
@@ -359,6 +380,9 @@ namespace ComputerScienceInternalAssessment
             };
 
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Ant",
@@ -370,6 +394,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "25.13"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Romeo",
@@ -381,6 +408,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "5:24.91"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Katniss",
@@ -392,6 +422,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "5:42.42"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Hermione",
@@ -403,6 +436,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "2:25.39"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Elle",
@@ -414,6 +450,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "1:02.92"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Regina",
@@ -425,6 +464,9 @@ namespace ComputerScienceInternalAssessment
                 Time = "1:59.82"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
             s = new Swimmer()
             {
                 FirstName = "Jack",
@@ -436,6 +478,10 @@ namespace ComputerScienceInternalAssessment
                 Time = "2:07.35"
             };
             swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
+
             s = new Swimmer()
             {
                 FirstName = "Sherlock",
@@ -447,19 +493,23 @@ namespace ComputerScienceInternalAssessment
                 Time = "2:03.82"
             };
 
-
-            /*immerMeetModel m = new SwimmerMeetModel();
+            /*
+            SwimmerMeetModel m = new SwimmerMeetModel();
             m = new SwimmerMeetModel()
             {
 
             };
+            */
             
 
             swimmers.Add(s);
-            */
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+
 
             return swimmers;
         }
+
 
         /*public static explicit operator SwimmerListForm(Form v)
         {
@@ -618,9 +668,10 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        /*
         private void EditSwimmerListBtn_Click(object sender, EventArgs e)
         {
-            /*
+            
             EditSwimmerListForm EditSwimmer = new EditSwimmerListForm();
             EditSwimmer.Owner = this;
             try
@@ -634,12 +685,13 @@ namespace ComputerScienceInternalAssessment
             }
             //this.Hide();
             //EditSwimmerListForm.Show();
-            */
+            
 
             EditSwimmerListForm EditSwimmer = new EditSwimmerListForm(this);
             this.Hide();
             EditSwimmer.Show();
         }
+            */
 
         private void resetBtn_Click(object sender, EventArgs e)
         {
@@ -652,7 +704,8 @@ namespace ComputerScienceInternalAssessment
         private void AddSwimmerBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AddSwimmerForm swForm = new AddSwimmerForm();
+            //AddSwimmerForm swForm = new AddSwimmerForm();
+            var swForm = new AddSwimmerForm();
             swForm.Show();
         }
 

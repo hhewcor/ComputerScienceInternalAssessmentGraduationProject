@@ -356,8 +356,10 @@ namespace ComputerScienceInternalAssessment
 
             if (check == true)
             {
-                answer = "Swimmer added.";
+                //answer = "Swimmer added.";
                 //var ed = (SwimmerListForm)this.Owner;
+
+
                 SwimmerListForm ed = new SwimmerListForm();
 
                 swEvent = swDistance + " " + swStroke;
@@ -380,6 +382,7 @@ namespace ComputerScienceInternalAssessment
                 //SwimmerListForm.instance.swimmers.Add(s);
                 SwimmerListForm.instance.addSwimmerRow(swFirstName, swLastName, swGrade, swGender, swEvent, combineSwGT(), combineSWT());
 
+               
 
                 //ed.Show();
 

@@ -46,7 +46,7 @@ namespace ComputerScienceInternalAssessment
             this.resetBtn = new System.Windows.Forms.Button();
             this.FilterLable = new System.Windows.Forms.Label();
             this.AddSwimmerBtn = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,21 +239,20 @@ namespace ComputerScienceInternalAssessment
             this.AddSwimmerBtn.UseVisualStyleBackColor = false;
             this.AddSwimmerBtn.Click += new System.EventHandler(this.AddSwimmerBtn_Click);
             // 
-            // listView1
+            // listBox1
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 419);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(801, 203);
-            this.listView1.TabIndex = 30;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(19, 433);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(778, 173);
+            this.listBox1.TabIndex = 29;
             // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 648);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.AddSwimmerBtn);
             this.Controls.Add(this.FilterLable);
             this.Controls.Add(this.FilterFemaleBtn);
@@ -299,6 +298,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label FilterLable;
         private System.Windows.Forms.Button AddSwimmerBtn;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

@@ -101,7 +101,7 @@ namespace ComputerScienceInternalAssessment
             col2.Name = "Delete Swimmer";
             EditSwimmerListDataGridView.Columns.Add(col2);
 
-            copyData();
+            //copyData();
 
             EditSwimmerListDataGridView.AllowUserToAddRows = false;
 
@@ -112,11 +112,13 @@ namespace ComputerScienceInternalAssessment
 
         public void copyData()
         {
+            /*
             SwimmerListForm f = new SwimmerListForm();
-            foreach (var swimmer in f.GetSwimmerList())
+            foreach (String s in f.GetSwimmerList())
             {
-                EditSwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender, swimmer.SwimmerEvent, swimmer.GoalTime, swimmer.Time);
+                EditSwimmerListDataGridView.Rows.Add(s.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender, swimmer.SwimmerEvent, swimmer.GoalTime, swimmer.Time);
             }
+            */
         }
 
         private void BackToSwimmerListFormBtn_Click(object sender, EventArgs e)
