@@ -272,8 +272,8 @@ namespace ComputerScienceInternalAssessment
         { 
 
 
-            this.Hide();
-            AddSwimmerForm swForm = new AddSwimmerForm();
+           // this.Hide();
+           // AddSwimmerForm swForm = new AddSwimmerForm();
             /*swForm.Owner = this;
             try
             {
@@ -287,7 +287,7 @@ namespace ComputerScienceInternalAssessment
             ConstructEditSwimmerListDataGridView();
             //EditSwimmerListDataGridView.Add()
             */
-            swForm.Show();
+            //swForm.Show();
         }
 
         /*

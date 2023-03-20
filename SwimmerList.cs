@@ -20,25 +20,32 @@ namespace ComputerScienceInternalAssessment
         // DataTable _dt = new DataTable();
         // bool isXML = false;
 
-        public static List<Swimmer> swimmers;
-        public ListBox lb = new ListBox();
+        //public static List<Swimmer> swimmers;
+        // public ListBox lb = new ListBox();
 
-        Dictionary<string, Swimmer> swList = new Dictionary<string, Swimmer>();
+        //Dictionary<string, Swimmer> swList = new Dictionary<string, Swimmer>();
         //public List<Swimmer> sw;
 
-        public static SwimmerListForm instance;
+        //public static SwimmerListForm instance;
 
+        //AddSwimmerForm swForm = new ;
         public SwimmerListForm()
         {
             InitializeComponent();
-            swimmers = new List<Swimmer>();
-            instance = this;
+            //swimmers = new List<Swimmer>();
+            //instance = this;
 
-            listBox1 = lb;
+           // listBox1 = lb;
 
             // ConstructTreeView();
             ConstructSwimmerListDataGridView();
 
+        }
+
+        public SwimmerListForm(AddSwimmerForm aSF)
+        {
+            InitializeComponent();
+            ConstructSwimmerListDataGridView();
         }
 
         private void SwimmerListForm_Load(object sender, EventArgs e)
@@ -108,29 +115,30 @@ namespace ComputerScienceInternalAssessment
             }
 
             //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
-            loadRows();
+            //loadRows();
 
         }
 
-        private void loadRows()
+        /*private void loadRows()
         {
             SwimmerListDataGridView.Rows.Clear();
             //listView1.Items.AddRange(swimmers);
             //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
-            /*
+            
             foreach (Swimmer s in GetSwimmerList())
             {
                 SwimmerListDataGridView.Rows.Add(s.FirstName, s.LastName, s.Grade, s.Gender, s.SwimmerEvent, s.GoalTime, s.Time); ;
             }
-            */
+            
 
             foreach (var kvp in swList)
             {
                 SwimmerListDataGridView.Rows.Add("Key = {0}, Value = {1}", kvp.Value);
             }
             //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
-        }
+        }*/
 
+        /*
         public void addSwimmerRow(String fn, String ln, String grd, String gd, String evt, String gt, String tm)
         {
             
@@ -148,6 +156,7 @@ namespace ComputerScienceInternalAssessment
             //SwimmerListDataGridView.Rows.Add(fn, ln, grd, gd, evt, gt, tm);
             //this.loadRows();
         }
+        */
 
         /*
         private void AddButtonColumn()
@@ -162,16 +171,36 @@ namespace ComputerScienceInternalAssessment
 
         private void SwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Swimmer[] swimmers = GetSwimmerList().ToArray();
-            if ((e.ColumnIndex == this.SwimmerListDataGridView.Columns["Compare Time"].Index) && (e.RowIndex >= 0))
+            //first of all create a 2D array varialble and count the rows and //column of data grid view
+            string[,] dataValue = new string[SwimmerListDataGridView.Rows.Count, SwimmerListDataGridView.Columns.Count];
+
+            //loop through the rows of data grid view 
+            foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
+            {
+                //getting index of row
+                int i = row.Index;
+                //loop through the column of data grid view
+
+                foreach (DataGridViewColumn col in SwimmerListDataGridView.Columns)
+                {
+                    //getting index of column
+                    int j = col.Index;
+                    //add all the rows and column to 2D Array
+                    dataValue[row.Index, col.Index] = SwimmerListDataGridView.Rows[i].Cells[j].Value.ToString();
+                }
+            }
+
+            
+            //Swimmer[] swimmers = GetSwimmerList().ToArray();
+            if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Compare Time"].Index) && (e.RowIndex >= 0))
             {
                 try
                 {
-                    string SwimmerFn = swimmers[e.RowIndex].FirstName;
-                    string SwimmerLn = swimmers[e.RowIndex].LastName;
-                    string Swimmerevt = swimmers[e.RowIndex].SwimmerEvent;
-                    string SwimmerGoalTime = swimmers[e.RowIndex].GoalTime;
-                    string SwimmerTime = swimmers[e.RowIndex].Time;
+                    string SwimmerFn = dataValue[e.RowIndex, 0];
+                    string SwimmerLn = dataValue[e.RowIndex, 1];
+                    string Swimmerevt = dataValue[e.RowIndex, 4];
+                    string SwimmerGoalTime = dataValue[e.RowIndex, 5];
+                    string SwimmerTime = dataValue[e.RowIndex, 6];
                     String dropGain = "";
                     String test = "";
                     String test2 = "";
@@ -254,13 +283,15 @@ namespace ComputerScienceInternalAssessment
                             {
                                 answer = defaultAnswer + "didn't drop or gain time.";
                             }
+            
                         }
                     }
 
-                    //SwimmerFn + " " + SwimmerLn + " " + dropGain + " " + finish + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + sign + " " + finish + " difference from their time of " + SwimmerTime + ".";
-                    // SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + "in the " Swimmerevt + "\n" + "Their goal time was " + SwimmerGoalTime + ".\n" + "This is a " + finish + " " + dropGain + ".";
-                    //if(int.Parse(splitTime[])
+            //SwimmerFn + " " + SwimmerLn + " " + dropGain + " " + finish + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + sign + " " + finish + " difference from their time of " + SwimmerTime + ".";
+            // SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + "in the " Swimmerevt + "\n" + "Their goal time was " + SwimmerGoalTime + ".\n" + "This is a " + finish + " " + dropGain + ".";
+            //if(int.Parse(splitTime[])
 
+            
                     MessageBox.Show(answer);
                     //MessageBox.Show(subtract + " " + finish);
                 }
@@ -280,7 +311,12 @@ namespace ComputerScienceInternalAssessment
         //Also need to add the criteria that Grade can only be integers
         //Also need to add the criteria that Gender can only be one letter long.
 
+        public void addToGrid(String fn, String ln, String grd, String gd, String evt, String gt, String tm)
+        {
+            SwimmerListDataGridView.Rows.Add(fn, ln, grd, gd, evt, gt, tm);
+        }
 
+        /*
         public List<Swimmer> GetSwimmerList()
         {
 
@@ -295,7 +331,7 @@ namespace ComputerScienceInternalAssessment
                 SwimmerResultName = "500 Free",
                 SwimmerResultTime = "8:34.21"
             };
-            */
+            
             
 
             
@@ -493,13 +529,13 @@ namespace ComputerScienceInternalAssessment
                 Time = "2:03.82"
             };
 
-            /*
+            
             SwimmerMeetModel m = new SwimmerMeetModel();
             m = new SwimmerMeetModel()
             {
 
             };
-            */
+            
             
 
             swimmers.Add(s);
@@ -703,11 +739,25 @@ namespace ComputerScienceInternalAssessment
 
         private void AddSwimmerBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Close();
             //AddSwimmerForm swForm = new AddSwimmerForm();
-            var swForm = new AddSwimmerForm();
-            swForm.Show();
+            AddSwimmerForm swForm = new AddSwimmerForm(this);
+            SwimmerListDataGridView.Rows.Add(swForm.SendData());
+            swForm.ShowDialog();
+            //swForm.VisibleChanged += formVisibleChanged;
         }
+
+        /*
+        private void formVisibleChanged(object sender, EventArgs e)
+        {
+            AddSwimmerForm swForm = (AddSwimmerForm)sender;
+            if (!swForm.Visible)
+            {
+                SwimmerListDataGridView.Rows.Add();
+                swForm.Dispose();
+            }
+        }
+        */
 
         /*
         private void ConstructTreeView()
