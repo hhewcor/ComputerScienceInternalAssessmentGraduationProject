@@ -44,12 +44,11 @@ namespace ComputerScienceInternalAssessment
             this.FilterEleventhGradeBtn = new System.Windows.Forms.Button();
             this.FilterTenthGradeBtn = new System.Windows.Forms.Button();
             this.FilterNinthGradeBtn = new System.Windows.Forms.Button();
-            SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
+            this.SwimmerListDataGridView = new System.Windows.Forms.DataGridView();
             this.resetBtn = new System.Windows.Forms.Button();
             this.FilterLable = new System.Windows.Forms.Label();
             this.AddSwimmerBtn = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(SwimmerListDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // BackToStartBtn
@@ -195,20 +194,20 @@ namespace ComputerScienceInternalAssessment
             // 
             // SwimmerListDataGridView
             // 
-            SwimmerListDataGridView.AllowUserToAddRows = false;
-            SwimmerListDataGridView.AllowUserToDeleteRows = false;
-            SwimmerListDataGridView.AllowUserToResizeColumns = false;
-            SwimmerListDataGridView.AllowUserToResizeRows = false;
-            SwimmerListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            SwimmerListDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            SwimmerListDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            SwimmerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            SwimmerListDataGridView.Location = new System.Drawing.Point(15, 127);
-            SwimmerListDataGridView.Name = "SwimmerListDataGridView";
-            SwimmerListDataGridView.ReadOnly = true;
-            SwimmerListDataGridView.Size = new System.Drawing.Size(802, 286);
-            SwimmerListDataGridView.TabIndex = 9;
-            SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SwimmerListDataGridView_CellContentClick);
+            this.SwimmerListDataGridView.AllowUserToAddRows = false;
+            this.SwimmerListDataGridView.AllowUserToDeleteRows = false;
+            this.SwimmerListDataGridView.AllowUserToResizeColumns = false;
+            this.SwimmerListDataGridView.AllowUserToResizeRows = false;
+            this.SwimmerListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.SwimmerListDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.SwimmerListDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.SwimmerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SwimmerListDataGridView.Location = new System.Drawing.Point(15, 127);
+            this.SwimmerListDataGridView.Name = "SwimmerListDataGridView";
+            this.SwimmerListDataGridView.ReadOnly = true;
+            this.SwimmerListDataGridView.Size = new System.Drawing.Size(802, 286);
+            this.SwimmerListDataGridView.TabIndex = 9;
+            this.SwimmerListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SwimmerListDataGridView_CellContentClick);
             // 
             // resetBtn
             // 
@@ -241,20 +240,11 @@ namespace ComputerScienceInternalAssessment
             this.AddSwimmerBtn.UseVisualStyleBackColor = false;
             this.AddSwimmerBtn.Click += new System.EventHandler(this.AddSwimmerBtn_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(19, 433);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(778, 173);
-            this.listBox1.TabIndex = 29;
-            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 648);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(834, 427);
             this.Controls.Add(this.AddSwimmerBtn);
             this.Controls.Add(this.FilterLable);
             this.Controls.Add(this.FilterFemaleBtn);
@@ -271,11 +261,11 @@ namespace ComputerScienceInternalAssessment
             this.Controls.Add(this.SearchFirstNameTxt);
             this.Controls.Add(this.SwimmerListHelpBtn);
             this.Controls.Add(this.BackToStartBtn);
-            this.Controls.Add(SwimmerListDataGridView);
+            this.Controls.Add(this.SwimmerListDataGridView);
             this.Name = "SwimmerListForm";
             this.Text = "SwimmerList";
             this.Load += new System.EventHandler(this.SwimmerListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(SwimmerListDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,7 +289,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label FilterLable;
         private System.Windows.Forms.Button AddSwimmerBtn;
-        private System.Windows.Forms.ListBox listBox1;
-        public static System.Windows.Forms.DataGridView SwimmerListDataGridView;
+        public  System.Windows.Forms.DataGridView SwimmerListDataGridView;
     }
 }

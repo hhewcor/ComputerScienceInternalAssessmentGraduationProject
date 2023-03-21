@@ -25,13 +25,13 @@ namespace ComputerScienceInternalAssessment
 
         //public SwimmerListForm LF { get; set; }
 
-        //SwimmerListForm instance;
+        SwimmerListForm instance;
 
 
         public AddSwimmerForm(SwimmerListForm edSLF)
         {
             InitializeComponent();
-            //this.instance = edSLF;
+            this.instance = edSLF;
         }
 
         public AddSwimmerForm()
@@ -46,11 +46,12 @@ namespace ComputerScienceInternalAssessment
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
-            //this.ControlBox = false;
+            this.ControlBox = false;
         }
 
         private void BackToEditSwimmerListFormBtn_Click(object sender, EventArgs e)
         {
+            this.Hide();
            // this.Close();
            // SwimmerListForm sl = new SwimmerListForm();
             //sl.Show();
@@ -65,18 +66,18 @@ namespace ComputerScienceInternalAssessment
         //var buttons = this.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
 
         private bool swGradeSelected = false;
-        private String swGrade = "";
+        public String swGrade = "";
 
         private bool swGenderSelected = false;
-        private String swGender = "";
+        public String swGender = "";
 
         private bool swStrokeSelected = false;
-        private String swStroke = "";
+        public String swStroke = "";
 
         private bool swDistanceSelected = false;
-        private String swDistance = "";
+        public String swDistance = "";
 
-        private String swEvent = "";
+        public String swEvent = "";
 
         private bool swGoalTimeMinSelected = false;
         private bool swGoalTimeSecSelected = false;
@@ -95,12 +96,12 @@ namespace ComputerScienceInternalAssessment
         //private int swTimeMil;
 
         private bool swFirstNameSelected = false;
-        private String swFirstName = "";
+        public String swFirstName = "";
 
         private bool swLastNameSelected = false;
-        private String swLastName = "";
+        public String swLastName = "";
 
-        private bool check = true;
+        public bool check = true;
         private String swGT;
         private String swT;
         private String answer;
@@ -352,7 +353,6 @@ namespace ComputerScienceInternalAssessment
 
             check = checkInfo();
 
-
             if (check == true)
             {
                 answer = "Swimmer added.";
@@ -379,9 +379,9 @@ namespace ComputerScienceInternalAssessment
                 */
 
                 //SwimmerListForm.instance.swimmers.Add(s);
-                this.Visible = false;
+                //this.Visible = false;
 
-                SwimmerListForm.SwimmerListDataGridView.Rows.Add(swFirstName, swLastName, swGrade, swGender, swEvent, combineSwGT(), combineSWT());
+                //SwimmerListForm.SwimmerListDataGridView.Rows.Add(swFirstName, swLastName, swGrade, swGender, swEvent, combineSwGT(), combineSWT());
 
 
                 //ENDED HERE!!!!!!
@@ -392,6 +392,7 @@ namespace ComputerScienceInternalAssessment
                 //this.Hide();
 
                 //ed.Show();
+                //sendData();
                 this.Hide();
             }
             else { 
@@ -408,7 +409,9 @@ namespace ComputerScienceInternalAssessment
             //f.addSwimmerRow()
         }
 
-        private bool checkInfo()
+
+
+        public bool checkInfo()
         {
             answer = "";
             bool conditionOne = checkSelectedName();
@@ -629,7 +632,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
-        private String combineSwGT()
+        public String combineSwGT()
         {
             if((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == true)){
                 if ((SwimmerGoalTimeSecTxtBox.TextLength == 1))
@@ -668,7 +671,7 @@ namespace ComputerScienceInternalAssessment
             return swGT;
         }
 
-        private String combineSWT()
+        public String combineSWT()
         {
             if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMilSelected == true))
             {

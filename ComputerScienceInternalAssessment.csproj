@@ -70,11 +70,11 @@
     <Compile Include="EditSwimmerEventsForm.Designer.cs">
       <DependentUpon>EditSwimmerEventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditSwimmerListForm.cs">
+    <Compile Include="EditSwimmerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditSwimmerListForm.Designer.cs">
-      <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
+    <Compile Include="EditSwimmerForm.Designer.cs">
+      <DependentUpon>EditSwimmerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\UpdateSwimmerListDataGridViewEvent.cs" />
     <Compile Include="Processes\ImportExcel.cs" />
@@ -111,8 +111,8 @@
     <EmbeddedResource Include="EditSwimmerEventsForm.resx">
       <DependentUpon>EditSwimmerEventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditSwimmerListForm.resx">
-      <DependentUpon>EditSwimmerListForm.cs</DependentUpon>
+    <EmbeddedResource Include="EditSwimmerForm.resx">
+      <DependentUpon>EditSwimmerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>

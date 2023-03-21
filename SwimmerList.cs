@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using TreeView = System.Windows.Forms.TreeView;
 
 namespace ComputerScienceInternalAssessment
@@ -190,8 +191,11 @@ namespace ComputerScienceInternalAssessment
                 }
             }
 
-            
+
             //Swimmer[] swimmers = GetSwimmerList().ToArray();
+
+
+            //FIX Wording of GOAL TIME Drop Gain.
             if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Compare Time"].Index) && (e.RowIndex >= 0))
             {
                 try
@@ -283,15 +287,15 @@ namespace ComputerScienceInternalAssessment
                             {
                                 answer = defaultAnswer + "didn't drop or gain time.";
                             }
-            
+
                         }
                     }
 
-            //SwimmerFn + " " + SwimmerLn + " " + dropGain + " " + finish + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + sign + " " + finish + " difference from their time of " + SwimmerTime + ".";
-            // SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + "in the " Swimmerevt + "\n" + "Their goal time was " + SwimmerGoalTime + ".\n" + "This is a " + finish + " " + dropGain + ".";
-            //if(int.Parse(splitTime[])
+                    //SwimmerFn + " " + SwimmerLn + " " + dropGain + " " + finish + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + sign + " " + finish + " difference from their time of " + SwimmerTime + ".";
+                    // SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + "in the " Swimmerevt + "\n" + "Their goal time was " + SwimmerGoalTime + ".\n" + "This is a " + finish + " " + dropGain + ".";
+                    //if(int.Parse(splitTime[])
 
-            
+
                     MessageBox.Show(answer);
                     //MessageBox.Show(subtract + " " + finish);
                 }
@@ -303,6 +307,30 @@ namespace ComputerScienceInternalAssessment
                 ViewSwimmerEventsForm EventsForm = new ViewSwimmerEventsForm();
                 EventsForm.Show();
                 */
+            }
+            else if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Edit Swimmer"].Index) && (e.RowIndex >= 0))
+            {
+                try
+                {
+                    EditSwimmerForm edForm = new EditSwimmerForm(this);
+                    //SwimmerListDataGridView.Rows.Add(swForm.SendData());
+                    edForm.ShowDialog();
+                    /*
+                    swForm.check = swForm.checkInfo();
+                    if (swForm.check == true)
+                    {
+                        SwimmerListDataGridView.Rows.Add(swForm.swFirstName, swForm.swLastName, swForm.swGrade, swForm.swGender, swForm.swEvent, swForm.combineSwGT(), swForm.combineSWT());
+                    }
+                    else
+                    {
+                        swForm.Dispose();
+                    }
+                    */
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
             }
         }
 
@@ -742,8 +770,18 @@ namespace ComputerScienceInternalAssessment
             //this.Close();
             //AddSwimmerForm swForm = new AddSwimmerForm();
             AddSwimmerForm swForm = new AddSwimmerForm(this);
-            SwimmerListDataGridView.Rows.Add(swForm.SendData());
+            //SwimmerListDataGridView.Rows.Add(swForm.SendData());
             swForm.ShowDialog();
+            swForm.check = swForm.checkInfo();
+            if (swForm.check == true)
+            {
+                SwimmerListDataGridView.Rows.Add(swForm.swFirstName, swForm.swLastName, swForm.swGrade, swForm.swGender, swForm.swEvent, swForm.combineSwGT(), swForm.combineSWT());
+            }
+            else
+            {
+                swForm.Dispose();
+            }
+            //if(swForm.)
             //swForm.VisibleChanged += formVisibleChanged;
         }
 
