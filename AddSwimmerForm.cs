@@ -102,8 +102,8 @@ namespace ComputerScienceInternalAssessment
         public String swLastName = "";
 
         public bool check = true;
-        private String swGT;
-        private String swT;
+        public String swGT;
+        public String swT;
         private String answer;
 
 
@@ -387,7 +387,7 @@ namespace ComputerScienceInternalAssessment
                 //ENDED HERE!!!!!!
                 //ed.Show();
 
-                MessageBox.Show(answer);
+                MessageBox.Show(answer + swT + swGT);
                 //ed.swimmers.Add(s);
                 //this.Hide();
 
@@ -651,7 +651,7 @@ namespace ComputerScienceInternalAssessment
                 swGT = SwimmerGoalTimeMinTxtBox.Text + ":" + SwimmerGoalTimeSecTxtBox.Text + "." + SwimmerGoalTimeMilTxtBox.Text;
             }
 
-            else if((SwimmerGoalTimeMinTxtBox == null) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == true))
+            if((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == true))
             {
                 if ((SwimmerGoalTimeSecTxtBox.TextLength == 1))
                 {
@@ -691,7 +691,7 @@ namespace ComputerScienceInternalAssessment
                 swT = SwimmerTimeMinTxtBox.Text + ":" + SwimmerTimeSecTxtBox.Text + "." + SwimmerTimeMilTxtBox.Text;
             }
 
-            else if ((SwimmerTimeMinTxtBox == null) && (swTimeSecSelected == true) && (swTimeMilSelected == true))
+            if ((swTimeMinSelected == false) && (swTimeSecSelected == true) && (swTimeMilSelected == true))
             {
                 if ((SwimmerTimeSecTxtBox.TextLength == 1))
                 {

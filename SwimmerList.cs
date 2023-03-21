@@ -315,8 +315,11 @@ namespace ComputerScienceInternalAssessment
                     EditSwimmerForm edForm = new EditSwimmerForm(this);
                     //SwimmerListDataGridView.Rows.Add(swForm.SendData());
                     edForm.ShowDialog();
+                    //check function to determine if formatting is correct.
+                    //if check is true, than replace row with info.
+                    
+                    edForm.check = edForm.checkInfo();
                     /*
-                    swForm.check = swForm.checkInfo();
                     if (swForm.check == true)
                     {
                         SwimmerListDataGridView.Rows.Add(swForm.swFirstName, swForm.swLastName, swForm.swGrade, swForm.swGender, swForm.swEvent, swForm.combineSwGT(), swForm.combineSWT());
@@ -326,6 +329,17 @@ namespace ComputerScienceInternalAssessment
                         swForm.Dispose();
                     }
                     */
+
+                    /*
+                     * if (row.Cells["Pro_ID"].ToString() == txt_ProID.Text)
+                        {
+                             // update your row
+                                row.Cells["Purchase_Qty"] = txt_Qty.Text;
+
+                            updated = true;
+                            break; // no need to go any further
+                        }
+                        */
                 }
                 catch (Exception exception)
                 {
@@ -581,7 +595,7 @@ namespace ComputerScienceInternalAssessment
         }
         */
 
-        private void BackToStartBtn_Click(object sender, EventArgs e)
+                    private void BackToStartBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             StartForm stForm = new StartForm();
@@ -775,7 +789,7 @@ namespace ComputerScienceInternalAssessment
             swForm.check = swForm.checkInfo();
             if (swForm.check == true)
             {
-                SwimmerListDataGridView.Rows.Add(swForm.swFirstName, swForm.swLastName, swForm.swGrade, swForm.swGender, swForm.swEvent, swForm.combineSwGT(), swForm.combineSWT());
+                SwimmerListDataGridView.Rows.Add(swForm.swFirstName, swForm.swLastName, swForm.swGrade, swForm.swGender, swForm.swEvent, swForm.swGT, swForm.swT);
             }
             else
             {

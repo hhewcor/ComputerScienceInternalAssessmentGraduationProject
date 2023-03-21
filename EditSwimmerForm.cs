@@ -35,6 +35,64 @@ namespace ComputerScienceInternalAssessment
             this.ControlBox = false;
         }
 
+        public bool check = true;
+        private String answer;
+
+        //ENDED HERE
+        public bool checkInfo()
+        {
+            answer = "";
+            //bool conditionOne = checkSelectedName();
+            //bool conditionTwo = checkSelectedGrade();
+            // bool conditionThree = checkGenderSelected();
+            // bool conditionFour = checkStrokeSelected();
+            // bool conditionFive = checkDistanceSelected();
+            // bool conditionSix = checkEvent();
+            // bool conditionSeven = checkGT();
+            // bool conditionEight = checkTime();
+
+            /*
+            if (conditionOne == false)
+            {
+                return false;
+            }
+            else if (conditionTwo == false)
+            {
+                return false;
+            }
+            else if (conditionThree == false)
+            {
+                return false;
+            }
+            else if (conditionFour == false)
+            {
+                return false;
+            }
+            else if (conditionFive == false)
+            {
+                return false;
+            }
+            else if (conditionSix == false)
+            {
+                return false;
+            }
+            else if (conditionSeven == false)
+            {
+                return false;
+            }
+            else if (conditionEight == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            */
+            return false;
+        }
+    
+
         private void BackToSwimmerListFormBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
