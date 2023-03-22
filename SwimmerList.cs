@@ -36,7 +36,7 @@ namespace ComputerScienceInternalAssessment
             //swimmers = new List<Swimmer>();
             //instance = this;
 
-           // listBox1 = lb;
+            // listBox1 = lb;
 
             // ConstructTreeView();
             ConstructSwimmerListDataGridView();
@@ -312,13 +312,73 @@ namespace ComputerScienceInternalAssessment
             {
                 try
                 {
-                    EditSwimmerForm edForm = new EditSwimmerForm(this);
+                    
+                    //int rowIndex = Convert.ToInt32(e.CommandArgument);
+                    int rowIndex = e.RowIndex;
+                    string SwimmerFn = dataValue[e.RowIndex, 0];
+                    string SwimmerLn = dataValue[e.RowIndex, 1];
+                    string SwimmerGrd = dataValue[e.RowIndex, 2];
+                    string SwimmerGnd = dataValue[e.RowIndex, 3];
+                    string Swimmerevt = dataValue[e.RowIndex, 4];
+                    string SwimmerGoalTime = dataValue[e.RowIndex, 5];
+                    string SwimmerTime = dataValue[e.RowIndex, 6];
+
+                    /*
+                    string[] splitGoalTime = SwimmerGoalTime.Split(':', '.');
+                    string[] splitTime = SwimmerTime.Split(':', '.');
+                    */
+
+                    string[] splitEvent = Swimmerevt.Split(' ');
+
+                    String distance = splitEvent[0];
+                    String stroke = splitEvent[1];
+                    //int length = splitGoalTime.Length;
+
+                    /*
+                    String sGTMin;
+                    String sGTSec;
+                    String sGTMil;
+                    String sTMin;
+                    String sTSec;
+                    String sTMil;
+                    */
+
+                    /*
+                    if(splitGoalTime.Length == 3)
+                    {
+                        string sGTMin = splitGoalTime[0];
+                        string sGTSec = splitGoalTime[1];
+                        string sGTMil = splitGoalTime[2];
+                    }
+                    else if(splitGoalTime.Length == 2)
+                    {
+                        string sGTMin = "-";
+                        string sGTSec = splitGoalTime[0];
+                        string sGTMil = splitGoalTime[1];
+                    }
+
+                    if(splitTime.Length == 3)
+                    {
+                        string sTMin = splitTime[0];
+                        string sTSec = splitTime[1];
+                        string sTMil = splitTime[2];
+                    }
+                    else if(splitTime.Length == 2)
+                    {
+                        string sTMin = "-";
+                        string sTSec = splitTime[0];
+                        string sTMil = splitTime[1];
+                    }
+
+                    */
+
+                    EditSwimmerForm edForm = new EditSwimmerForm(rowIndex, this, SwimmerFn, SwimmerLn, SwimmerGrd, SwimmerGnd, stroke, distance, SwimmerGoalTime, SwimmerTime);
                     //SwimmerListDataGridView.Rows.Add(swForm.SendData());
-                    edForm.ShowDialog();
+                     edForm.ShowDialog();
                     //check function to determine if formatting is correct.
                     //if check is true, than replace row with info.
-                    
-                    edForm.check = edForm.checkInfo();
+
+                    //edForm.check = edForm.checkInfo();
                     /*
                     if (swForm.check == true)
                     {
@@ -340,13 +400,14 @@ namespace ComputerScienceInternalAssessment
                             break; // no need to go any further
                         }
                         */
+                    
                 }
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
-            }
-        }
+        }   }
+       
 
         //This will generate a generic list for testing purposes.
         //Need to fix so that the user can add and remove swimmers.
@@ -595,7 +656,7 @@ namespace ComputerScienceInternalAssessment
         }
         */
 
-                    private void BackToStartBtn_Click(object sender, EventArgs e)
+           private void BackToStartBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             StartForm stForm = new StartForm();

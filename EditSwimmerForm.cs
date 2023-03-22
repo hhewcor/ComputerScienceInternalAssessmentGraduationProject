@@ -13,12 +13,55 @@ namespace ComputerScienceInternalAssessment
     public partial class EditSwimmerForm : Form
     {
 
+        //SwimmerListForm instance;
+        int index;
         SwimmerListForm instance;
+        String swFirstName;
+        String swLastName;
+        String swGrd;
+        String swGnd;
+        String swStroke;
+        String swDistance;
 
-        public EditSwimmerForm(SwimmerListForm sLF)
+        String swGT;
+        String swT;
+
+        /*String swGTMin;
+        String swGTSec;
+        String swGTMil;
+        String swTMin;
+        String swTSec;
+        String swTMil;
+        */
+
+        //rowIndex, this, SwimmerFn, SwimmerLn, SwimmerGrd, SwimmerGnd, stroke, distance, sGTMin, sGTSec, sGTMil, sTMin, sTSec, sTMil
+
+        //Convert String of times to ints to avoid errors later.
+        public EditSwimmerForm(int i, SwimmerListForm edL, String fn, String ln, String grd, String gd, String str, String dist, String swimmerGoalTime, String swimmerTime)
         {
             InitializeComponent();
-            this.instance = sLF;
+            this.index = i;
+            this.instance = edL;
+            this.swFirstName = fn;
+            this.swGrd = grd;
+            this.swGnd = gd;
+            this.swStroke = str;
+            this.swDistance = dist;
+            this.swGT = swimmerGoalTime;
+            this.swT = swimmerTime;
+
+            /*
+            this.swGTMin = swGTM;
+            this.swGTSec = swGTS;
+            this.swGTMil = swGTML;
+            this.swTMin = swTM;
+            this.swTSec = swTS;
+            this.swTMil = swTML;
+            */
+            
+            //DataGridViewRow row = this.instance.SwimmerListDataGridView.Rows[e.RowIndex];
+            //txtID.Text = row.Cells[0].Value.ToString();
+            //FirstNameTxtBox.Text = t;
         }
 
         /*
