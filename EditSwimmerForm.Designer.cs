@@ -96,6 +96,7 @@ namespace ComputerScienceInternalAssessment
             this.Dist50RadioBtn.TabStop = true;
             this.Dist50RadioBtn.Text = "50";
             this.Dist50RadioBtn.UseVisualStyleBackColor = true;
+            this.Dist50RadioBtn.CheckedChanged += new System.EventHandler(this.Dist50RadioBtn_CheckedChanged);
             // 
             // Dist100RadioBtn
             // 
@@ -107,6 +108,7 @@ namespace ComputerScienceInternalAssessment
             this.Dist100RadioBtn.TabStop = true;
             this.Dist100RadioBtn.Text = "100";
             this.Dist100RadioBtn.UseVisualStyleBackColor = true;
+            this.Dist100RadioBtn.CheckedChanged += new System.EventHandler(this.Dist100RadioBtn_CheckedChanged);
             // 
             // Dist200RadioBtn
             // 
@@ -118,6 +120,7 @@ namespace ComputerScienceInternalAssessment
             this.Dist200RadioBtn.TabStop = true;
             this.Dist200RadioBtn.Text = "200";
             this.Dist200RadioBtn.UseVisualStyleBackColor = true;
+            this.Dist200RadioBtn.CheckedChanged += new System.EventHandler(this.Dist200RadioBtn_CheckedChanged);
             // 
             // Dist500RadioBtn
             // 
@@ -129,6 +132,7 @@ namespace ComputerScienceInternalAssessment
             this.Dist500RadioBtn.TabStop = true;
             this.Dist500RadioBtn.Text = "500";
             this.Dist500RadioBtn.UseVisualStyleBackColor = true;
+            this.Dist500RadioBtn.CheckedChanged += new System.EventHandler(this.Dist500RadioBtn_CheckedChanged);
             // 
             // label3
             // 
@@ -157,6 +161,8 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerTimeSecTxtBox.Name = "SwimmerTimeSecTxtBox";
             this.SwimmerTimeSecTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeSecTxtBox.TabIndex = 56;
+            this.SwimmerTimeSecTxtBox.TextChanged += new System.EventHandler(this.SwimmerTimeSecTxtBox_TextChanged);
+            this.SwimmerTimeSecTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerTimeSecTxtBox_KeyPress);
             // 
             // SwimmerTimeMinTxtBox
             // 
@@ -165,6 +171,8 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerTimeMinTxtBox.Name = "SwimmerTimeMinTxtBox";
             this.SwimmerTimeMinTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeMinTxtBox.TabIndex = 55;
+            this.SwimmerTimeMinTxtBox.TextChanged += new System.EventHandler(this.SwimmerTimeMinTxtBox_TextChanged);
+            this.SwimmerTimeMinTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerTimeMinTxtBox_KeyPress);
             // 
             // SwimmerTimeLabel
             // 
@@ -185,6 +193,7 @@ namespace ComputerScienceInternalAssessment
             this.BreastStrRadioBtn.TabStop = true;
             this.BreastStrRadioBtn.Text = "Breast";
             this.BreastStrRadioBtn.UseVisualStyleBackColor = true;
+            this.BreastStrRadioBtn.CheckedChanged += new System.EventHandler(this.BreastStrRadioBtn_CheckedChanged);
             // 
             // label2
             // 
@@ -206,6 +215,7 @@ namespace ComputerScienceInternalAssessment
             this.FlyStrRadioBtn.TabStop = true;
             this.FlyStrRadioBtn.Text = "Fly";
             this.FlyStrRadioBtn.UseVisualStyleBackColor = true;
+            this.FlyStrRadioBtn.CheckedChanged += new System.EventHandler(this.FlyStrRadioBtn_CheckedChanged);
             // 
             // BackStrRadioBtn
             // 
@@ -217,6 +227,7 @@ namespace ComputerScienceInternalAssessment
             this.BackStrRadioBtn.TabStop = true;
             this.BackStrRadioBtn.Text = "Back";
             this.BackStrRadioBtn.UseVisualStyleBackColor = true;
+            this.BackStrRadioBtn.CheckedChanged += new System.EventHandler(this.BackStrRadioBtn_CheckedChanged);
             // 
             // label1
             // 
@@ -235,6 +246,8 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerGoalTimeMinTxtBox.Name = "SwimmerGoalTimeMinTxtBox";
             this.SwimmerGoalTimeMinTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeMinTxtBox.TabIndex = 49;
+            this.SwimmerGoalTimeMinTxtBox.TextChanged += new System.EventHandler(this.SwimmerGoalTimeMinTxtBox_TextChanged);
+            this.SwimmerGoalTimeMinTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerGoalTimeMinTxtBox_KeyPress);
             // 
             // SwimmerGoalTimeLabel
             // 
@@ -252,6 +265,8 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerGoalTimeMilTxtBox.Name = "SwimmerGoalTimeMilTxtBox";
             this.SwimmerGoalTimeMilTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeMilTxtBox.TabIndex = 51;
+            this.SwimmerGoalTimeMilTxtBox.TextChanged += new System.EventHandler(this.SwimmerGoalTimeMilTxtBox_TextChanged);
+            this.SwimmerGoalTimeMilTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerGoalTimeMilTxtBox_KeyPress);
             // 
             // SwimmerGoalTimeSecTxtBox
             // 
@@ -260,6 +275,8 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerGoalTimeSecTxtBox.Name = "SwimmerGoalTimeSecTxtBox";
             this.SwimmerGoalTimeSecTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerGoalTimeSecTxtBox.TabIndex = 50;
+            this.SwimmerGoalTimeSecTxtBox.TextChanged += new System.EventHandler(this.SwimmerGoalTimeSecTxtBox_TextChanged);
+            this.SwimmerGoalTimeSecTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerGoalTimeSecTxtBox_KeyPress);
             // 
             // UpdateSwimmerBtn
             // 
@@ -270,6 +287,7 @@ namespace ComputerScienceInternalAssessment
             this.UpdateSwimmerBtn.TabIndex = 44;
             this.UpdateSwimmerBtn.Text = "Update";
             this.UpdateSwimmerBtn.UseVisualStyleBackColor = false;
+            this.UpdateSwimmerBtn.Click += new System.EventHandler(this.UpdateSwimmerBtn_Click);
             // 
             // FreeStrRadioBtn
             // 
@@ -281,6 +299,7 @@ namespace ComputerScienceInternalAssessment
             this.FreeStrRadioBtn.TabStop = true;
             this.FreeStrRadioBtn.Text = "Free";
             this.FreeStrRadioBtn.UseVisualStyleBackColor = true;
+            this.FreeStrRadioBtn.CheckedChanged += new System.EventHandler(this.FreeStrRadioBtn_CheckedChanged);
             // 
             // GradeGroupBox
             // 
@@ -305,6 +324,7 @@ namespace ComputerScienceInternalAssessment
             this.NinthGradeRadioBtn.TabStop = true;
             this.NinthGradeRadioBtn.Text = "9th";
             this.NinthGradeRadioBtn.UseVisualStyleBackColor = true;
+            this.NinthGradeRadioBtn.CheckedChanged += new System.EventHandler(this.NinthGradeRadioBtn_CheckedChanged);
             // 
             // TenthGradeRadioBtn
             // 
@@ -316,6 +336,7 @@ namespace ComputerScienceInternalAssessment
             this.TenthGradeRadioBtn.TabStop = true;
             this.TenthGradeRadioBtn.Text = "10th";
             this.TenthGradeRadioBtn.UseVisualStyleBackColor = true;
+            this.TenthGradeRadioBtn.CheckedChanged += new System.EventHandler(this.TenthGradeRadioBtn_CheckedChanged);
             // 
             // EleventhGradeRadioBtn
             // 
@@ -327,6 +348,7 @@ namespace ComputerScienceInternalAssessment
             this.EleventhGradeRadioBtn.TabStop = true;
             this.EleventhGradeRadioBtn.Text = "11th";
             this.EleventhGradeRadioBtn.UseVisualStyleBackColor = true;
+            this.EleventhGradeRadioBtn.CheckedChanged += new System.EventHandler(this.EleventhGradeRadioBtn_CheckedChanged);
             // 
             // TwelthGradeRadioBtn
             // 
@@ -338,6 +360,7 @@ namespace ComputerScienceInternalAssessment
             this.TwelthGradeRadioBtn.TabStop = true;
             this.TwelthGradeRadioBtn.Text = "12th";
             this.TwelthGradeRadioBtn.UseVisualStyleBackColor = true;
+            this.TwelthGradeRadioBtn.CheckedChanged += new System.EventHandler(this.TwelthGradeRadioBtn_CheckedChanged);
             // 
             // LastNameTxtBox
             // 
@@ -346,6 +369,7 @@ namespace ComputerScienceInternalAssessment
             this.LastNameTxtBox.Name = "LastNameTxtBox";
             this.LastNameTxtBox.Size = new System.Drawing.Size(119, 20);
             this.LastNameTxtBox.TabIndex = 47;
+            this.LastNameTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastNameTxtBox_KeyPress);
             // 
             // FirstNameTxtBox
             // 
@@ -354,6 +378,7 @@ namespace ComputerScienceInternalAssessment
             this.FirstNameTxtBox.Name = "FirstNameTxtBox";
             this.FirstNameTxtBox.Size = new System.Drawing.Size(119, 20);
             this.FirstNameTxtBox.TabIndex = 46;
+            this.FirstNameTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FirstNameTxtBox_KeyPress);
             // 
             // BackToSwimmerListFormBtn
             // 
@@ -405,6 +430,7 @@ namespace ComputerScienceInternalAssessment
             this.FemaleRadioBtn.TabStop = true;
             this.FemaleRadioBtn.Text = "Female";
             this.FemaleRadioBtn.UseVisualStyleBackColor = true;
+            this.FemaleRadioBtn.CheckedChanged += new System.EventHandler(this.FemaleRadioBtn_CheckedChanged);
             // 
             // MaleRadioBtn
             // 
@@ -416,6 +442,7 @@ namespace ComputerScienceInternalAssessment
             this.MaleRadioBtn.TabStop = true;
             this.MaleRadioBtn.Text = "Male";
             this.MaleRadioBtn.UseVisualStyleBackColor = true;
+            this.MaleRadioBtn.CheckedChanged += new System.EventHandler(this.MaleRadioBtn_CheckedChanged);
             // 
             // SwimmerListHelpBtn
             // 
@@ -451,6 +478,7 @@ namespace ComputerScienceInternalAssessment
             this.IMstrRadioBtn.TabStop = true;
             this.IMstrRadioBtn.Text = "IM";
             this.IMstrRadioBtn.UseVisualStyleBackColor = true;
+            this.IMstrRadioBtn.CheckedChanged += new System.EventHandler(this.IMstrRadioBtn_CheckedChanged);
             // 
             // SwimmerTimeMilTxtBox
             // 
@@ -459,6 +487,8 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerTimeMilTxtBox.Name = "SwimmerTimeMilTxtBox";
             this.SwimmerTimeMilTxtBox.Size = new System.Drawing.Size(30, 20);
             this.SwimmerTimeMilTxtBox.TabIndex = 57;
+            this.SwimmerTimeMilTxtBox.TextChanged += new System.EventHandler(this.SwimmerTimeMilTxtBox_TextChanged);
+            this.SwimmerTimeMilTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SwimmerTimeMilTxtBox_KeyPress);
             // 
             // EditSwimmerForm
             // 

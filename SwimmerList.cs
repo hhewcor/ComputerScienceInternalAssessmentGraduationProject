@@ -372,7 +372,7 @@ namespace ComputerScienceInternalAssessment
 
                     */
 
-                    EditSwimmerForm edForm = new EditSwimmerForm(rowIndex, this, SwimmerFn, SwimmerLn, SwimmerGrd, SwimmerGnd, stroke, distance, SwimmerGoalTime, SwimmerTime);
+                    EditSwimmerForm edForm = new EditSwimmerForm(this, SwimmerFn, SwimmerLn, SwimmerGrd, SwimmerGnd, stroke, distance, SwimmerGoalTime, SwimmerTime);
                     //SwimmerListDataGridView.Rows.Add(swForm.SendData());
                      edForm.ShowDialog();
                     //check function to determine if formatting is correct.

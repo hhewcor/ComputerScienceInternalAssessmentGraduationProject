@@ -65,6 +65,12 @@ namespace ComputerScienceInternalAssessment
         //groupbox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Name
         //var buttons = this.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
 
+        private bool swFirstNameSelected = false;
+        public String swFirstName = "";
+
+        private bool swLastNameSelected = false;
+        public String swLastName = "";
+
         private bool swGradeSelected = false;
         public String swGrade = "";
 
@@ -95,11 +101,7 @@ namespace ComputerScienceInternalAssessment
         //private int swTimeSec;
         //private int swTimeMil;
 
-        private bool swFirstNameSelected = false;
-        public String swFirstName = "";
-
-        private bool swLastNameSelected = false;
-        public String swLastName = "";
+       
 
         public bool check = true;
         public String swGT;
@@ -207,7 +209,7 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerGoalTimeMinTxtBox != null)
             {
                 swGoalTimeMinSelected = true;
-                String stTimeMil = SwimmerGoalTimeMinTxtBox.Text;
+                //String stTimeMil = SwimmerGoalTimeMinTxtBox.Text;
                 //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
@@ -221,7 +223,7 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerGoalTimeSecTxtBox != null)
             {
                 swGoalTimeSecSelected = true;
-                String stTimeMil = SwimmerGoalTimeSecTxtBox.Text;
+                //String stTimeMil = SwimmerGoalTimeSecTxtBox.Text;
                 //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
@@ -234,7 +236,7 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerGoalTimeMilTxtBox != null)
             {
                 swGoalTimeMilSelected = true;
-                String stTimeMil = SwimmerGoalTimeMilTxtBox.Text;
+                //String stTimeMil = SwimmerGoalTimeMilTxtBox.Text;
                 //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
@@ -249,7 +251,7 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerTimeMinTxtBox != null)
             {
                 swTimeMinSelected = true;
-                String stTimeMil = SwimmerTimeMinTxtBox.Text;
+                //String stTimeMil = SwimmerTimeMinTxtBox.Text;
                 //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
@@ -263,7 +265,7 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerTimeSecTxtBox != null)
             {
                 swTimeSecSelected = true;
-                String stTimeMil = SwimmerTimeSecTxtBox.Text;
+                //String stTimeMil = SwimmerTimeSecTxtBox.Text;
                 //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
@@ -283,7 +285,7 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerTimeMilTxtBox != null)
             { 
                     swTimeMilSelected = true;
-                    String stTimeMil = SwimmerTimeMilTxtBox.Text;
+                    //String stTimeMil = SwimmerTimeMilTxtBox.Text;
                     //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else 
@@ -333,7 +335,7 @@ namespace ComputerScienceInternalAssessment
              swimmers.Add(s);
              EditSwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender, swimmer.SwimmerEvent, swimmer.GoalTime, swimmer.Time);
          */
-            SwimmerListForm f = new SwimmerListForm();
+            //SwimmerListForm f = new SwimmerListForm();
 
             /*
              * swGoalTimeMin = Convert.ToInt32(SwimmerGoalTimeMinTxtBox);
@@ -359,7 +361,7 @@ namespace ComputerScienceInternalAssessment
                 //var ed = (SwimmerListForm)this.Owner;
 
 
-                SwimmerListForm ed = new SwimmerListForm(this);
+                //SwimmerListForm ed = new SwimmerListForm(this);
 
                 swEvent = swDistance + " " + swStroke;
                 combineSwGT();
@@ -594,8 +596,8 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
-            private bool checkTime()
-        {
+        private bool checkTime()
+            {
             if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMilSelected == false))
             {
                 answer += "Please check that you have entered a time in the correct format. ";
