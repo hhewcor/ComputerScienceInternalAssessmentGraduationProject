@@ -16,15 +16,15 @@ namespace ComputerScienceInternalAssessment
         //SwimmerListForm instance;
         //int index;
         SwimmerListForm instance;
-        String swFirstName;
-        String swLastName;
-        String swGrade;
-        String swGender;
-        String swStroke;
-        String swDistance;
+        public String swFirstName;
+        public String swLastName;
+        public String swGrade;
+        public String swGender;
+        public String swStroke;
+        public String swDistance;
 
-        String swGT;
-        String swT;
+        public String swGT;
+        public String swT;
 
         /*String swGTMin;
         String swGTSec;
@@ -224,7 +224,7 @@ namespace ComputerScienceInternalAssessment
                 combineSwGT();
                 combineSWT();
 
-                MessageBox.Show(answer + swT + swGT);
+                MessageBox.Show(answer + " " + swT +  " " + swGT + " " + swFirstName + " " + swLastName + " " + swDistance + " " + swStroke + " " + swGender + " " + swGrade);
                 //ed.swimmers.Add(s);
                 //this.Hide();
 
@@ -554,6 +554,7 @@ namespace ComputerScienceInternalAssessment
             {
                 MessageBox.Show("please enter letters only");
                 e.Handled = true;
+                //swFirstNameSelected = true;
             }
 
             if ((FirstNameTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
@@ -569,6 +570,7 @@ namespace ComputerScienceInternalAssessment
             {
                 MessageBox.Show("please enter letters only");
                 e.Handled = true;
+                //swLastNameSelected = true;
             }
 
             if ((LastNameTxtBox.TextLength == 1) && (e.KeyChar == (char)Keys.Back))
@@ -738,6 +740,11 @@ namespace ComputerScienceInternalAssessment
             {
                 swTimeMilSelected = false;
             }
+        }
+
+        private void SwimmerListHelpBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("PLACE HOLDER");
         }
     }
 }

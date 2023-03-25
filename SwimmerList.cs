@@ -312,8 +312,6 @@ namespace ComputerScienceInternalAssessment
             {
                 try
                 {
-                    
-                    //int rowIndex = Convert.ToInt32(e.CommandArgument);
                     int rowIndex = e.RowIndex;
                     string SwimmerFn = dataValue[e.RowIndex, 0];
                     string SwimmerLn = dataValue[e.RowIndex, 1];
@@ -323,90 +321,61 @@ namespace ComputerScienceInternalAssessment
                     string SwimmerGoalTime = dataValue[e.RowIndex, 5];
                     string SwimmerTime = dataValue[e.RowIndex, 6];
 
-                    /*
-                    string[] splitGoalTime = SwimmerGoalTime.Split(':', '.');
-                    string[] splitTime = SwimmerTime.Split(':', '.');
-                    */
-
                     string[] splitEvent = Swimmerevt.Split(' ');
 
                     String distance = splitEvent[0];
                     String stroke = splitEvent[1];
-                    //int length = splitGoalTime.Length;
-
-                    /*
-                    String sGTMin;
-                    String sGTSec;
-                    String sGTMil;
-                    String sTMin;
-                    String sTSec;
-                    String sTMil;
-                    */
-
-                    /*
-                    if(splitGoalTime.Length == 3)
-                    {
-                        string sGTMin = splitGoalTime[0];
-                        string sGTSec = splitGoalTime[1];
-                        string sGTMil = splitGoalTime[2];
-                    }
-                    else if(splitGoalTime.Length == 2)
-                    {
-                        string sGTMin = "-";
-                        string sGTSec = splitGoalTime[0];
-                        string sGTMil = splitGoalTime[1];
-                    }
-
-                    if(splitTime.Length == 3)
-                    {
-                        string sTMin = splitTime[0];
-                        string sTSec = splitTime[1];
-                        string sTMil = splitTime[2];
-                    }
-                    else if(splitTime.Length == 2)
-                    {
-                        string sTMin = "-";
-                        string sTSec = splitTime[0];
-                        string sTMil = splitTime[1];
-                    }
-
-                    */
 
                     EditSwimmerForm edForm = new EditSwimmerForm(this, SwimmerFn, SwimmerLn, SwimmerGrd, SwimmerGnd, stroke, distance, SwimmerGoalTime, SwimmerTime);
-                    //SwimmerListDataGridView.Rows.Add(swForm.SendData());
-                     edForm.ShowDialog();
-                    //check function to determine if formatting is correct.
-                    //if check is true, than replace row with info.
+                    edForm.checkEdit = edForm.checkInfo();
+                    edForm.ShowDialog();
 
-                    //edForm.check = edForm.checkInfo();
-                    /*
-                    if (swForm.check == true)
+                    if (edForm.checkEdit == true)
                     {
-                        SwimmerListDataGridView.Rows.Add(swForm.swFirstName, swForm.swLastName, swForm.swGrade, swForm.swGender, swForm.swEvent, swForm.combineSwGT(), swForm.combineSWT());
+
+                        SwimmerListDataGridView[0, rowIndex].Value = edForm.swFirstName;
+                        SwimmerListDataGridView[1, rowIndex].Value = edForm.swLastName;
+                        SwimmerListDataGridView[2, rowIndex].Value = edForm.swGrade;
+                        SwimmerListDataGridView[3, rowIndex].Value = edForm.swGender;
+                        SwimmerListDataGridView[4, rowIndex].Value = edForm.swEvent;
+                        SwimmerListDataGridView[5, rowIndex].Value = edForm.swGT;
+                        SwimmerListDataGridView[6, rowIndex].Value = edForm.swT;
                     }
                     else
                     {
-                        swForm.Dispose();
+                        edForm.Dispose();
                     }
-                    */
 
-                    /*
-                     * if (row.Cells["Pro_ID"].ToString() == txt_ProID.Text)
-                        {
-                             // update your row
-                                row.Cells["Purchase_Qty"] = txt_Qty.Text;
-
-                            updated = true;
-                            break; // no need to go any further
-                        }
-                        */
-                    
                 }
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
-        }   }
+            }
+            else if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Delete Swimmer"].Index) && (e.RowIndex >= 0))
+            {
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Do you wish to delete this swimmer?", "Delete Swimmer", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        SwimmerListDataGridView.Rows.Remove(SwimmerListDataGridView.Rows[e.RowIndex]);
+                    }
+                    /*
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do something else
+                    }
+                    int rowIndex = e.RowIndex;
+                    
+                    //SwimmerListDataGridView.Rows.Remove(rowIndex);*/
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+            }
+        }
        
 
         //This will generate a generic list for testing purposes.
@@ -414,11 +383,12 @@ namespace ComputerScienceInternalAssessment
         //Also need to add the criteria that Grade can only be integers
         //Also need to add the criteria that Gender can only be one letter long.
 
+        /*
         public void addToGrid(String fn, String ln, String grd, String gd, String evt, String gt, String tm)
         {
             SwimmerListDataGridView.Rows.Add(fn, ln, grd, gd, evt, gt, tm);
         }
-
+        */
         /*
         public List<Swimmer> GetSwimmerList()
         {
@@ -665,7 +635,7 @@ namespace ComputerScienceInternalAssessment
 
         private void SwimmerListHelpBtn_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("PLACE HOLDER");
         }
 
         private void SearchFirstNameTxt_TextChanged(object sender, EventArgs e)

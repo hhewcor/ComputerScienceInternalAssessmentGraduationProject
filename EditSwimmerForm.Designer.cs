@@ -453,6 +453,7 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerListHelpBtn.TabIndex = 60;
             this.SwimmerListHelpBtn.Text = "Help";
             this.SwimmerListHelpBtn.UseVisualStyleBackColor = false;
+            this.SwimmerListHelpBtn.Click += new System.EventHandler(this.SwimmerListHelpBtn_Click);
             // 
             // StrokeGroupBox
             // 

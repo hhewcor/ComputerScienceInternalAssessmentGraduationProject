@@ -59,7 +59,7 @@ namespace ComputerScienceInternalAssessment
 
         private void SwimmerListHelpBtn_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("PLACE HOLDER");
         }
 
         //groupbox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Name
