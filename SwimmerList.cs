@@ -16,39 +16,14 @@ namespace ComputerScienceInternalAssessment
 {
     public partial class SwimmerListForm : Form
     {
-        //private readonly DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-
-        // DataTable _dt = new DataTable();
-        // bool isXML = false;
-
-        //public static List<Swimmer> swimmers;
-        // public ListBox lb = new ListBox();
-
-        //Dictionary<string, Swimmer> swList = new Dictionary<string, Swimmer>();
-        //public List<Swimmer> sw;
-
-        //public static SwimmerListForm instance;
-
-        //AddSwimmerForm swForm = new ;
+        //Initializes the form and sets up SwimmerListDataGridView.
         public SwimmerListForm()
         {
             InitializeComponent();
-            //swimmers = new List<Swimmer>();
-            //instance = this;
-
-            // listBox1 = lb;
-
-            // ConstructTreeView();
-            ConstructSwimmerListDataGridView();
-
-        }
-
-        public SwimmerListForm(AddSwimmerForm aSF)
-        {
-            InitializeComponent();
             ConstructSwimmerListDataGridView();
         }
 
+        //Disables user controls to change the sizing of the form and the maximize/minimize.
         private void SwimmerListForm_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -56,132 +31,64 @@ namespace ComputerScienceInternalAssessment
             this.ControlBox = false;
         }
 
-        /*
-        public SwimmerListForm SWLF { get; set; }
-
-        public EditSwimmerListForm(SwimmerListForm swLF)
-        {
-            InitializeComponent();
-            this.SwimmerListForm = swLF;
-        }
-        */
-
+        //Creates the SwimmerListDataGridView.
         private void ConstructSwimmerListDataGridView()
         {
-            //add columns
+            //Adds seven columns to SwimmerListDataGridView.
             SwimmerListDataGridView.ColumnCount = 7;
 
+            //Sets the name of the seven columns of SwimmerListDataGridView.
             SwimmerListDataGridView.Columns[0].Name = "First Name";
-            //SwimmerListDataGridView.Columns[0].ReadOnly = true;
-
             SwimmerListDataGridView.Columns[1].Name = "Last Name";
-            // SwimmerListDataGridView.Columns[1].ReadOnly = true;
-
             SwimmerListDataGridView.Columns[2].Name = "Grade";
-            //SwimmerListDataGridView.Columns[2].ReadOnly = true;
-
             SwimmerListDataGridView.Columns[3].Name = "Gender";
-            //SwimmerListDataGridView.Columns[3].ReadOnly = true;
-
             SwimmerListDataGridView.Columns[4].Name = "Event";
-
             SwimmerListDataGridView.Columns[5].Name = "Goal Time";
-
             SwimmerListDataGridView.Columns[6].Name = "Swimmer Time";
 
+            //Autosizes the columns to show all the text.
             SwimmerListDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //addButtonColumn();
 
+            //Adds to the SwimmerListDataGridView a clickable button that allows the user to compare the goal time and actual time of the swimmer.
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
             col.UseColumnTextForButtonValue = true;
             col.Text = "VIEW";
             col.Name = "Compare Time";
             SwimmerListDataGridView.Columns.Add(col);
 
+            //Adds to the SwimmerListDataGridView a clickable button that allows the user to edit the fields of the swimmer.
             DataGridViewButtonColumn col2 = new DataGridViewButtonColumn();
             col2.UseColumnTextForButtonValue = true;
             col2.Text = "Edit";
             col2.Name = "Edit Swimmer";
             SwimmerListDataGridView.Columns.Add(col2);
 
+            //Adds to the SwimmerListDataGridView a clickable button that allows the user to delete the swimmer from SwimmerListDataGridView.
             DataGridViewButtonColumn col3 = new DataGridViewButtonColumn();
             col3.UseColumnTextForButtonValue = true;
             col3.Text = "Delete";
             col3.Name = "Delete Swimmer";
             SwimmerListDataGridView.Columns.Add(col3);
 
+            //Disables the filter that allows a user to sort based on column the SwimmerListDataGridView. (ascending/descending)
             foreach (DataGridViewColumn column in SwimmerListDataGridView.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-
-            //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
-            //loadRows();
-
         }
-
-        /*private void loadRows()
-        {
-            SwimmerListDataGridView.Rows.Clear();
-            //listView1.Items.AddRange(swimmers);
-            //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
-            
-            foreach (Swimmer s in GetSwimmerList())
-            {
-                SwimmerListDataGridView.Rows.Add(s.FirstName, s.LastName, s.Grade, s.Gender, s.SwimmerEvent, s.GoalTime, s.Time); ;
-            }
-            
-
-            foreach (var kvp in swList)
-            {
-                SwimmerListDataGridView.Rows.Add("Key = {0}, Value = {1}", kvp.Value);
-            }
-            //this.addSwimmerRow("Test", "Test", "10", "F", "test", "1:01.92", "2:04.81");
-        }*/
-
-        /*
-        public void addSwimmerRow(String fn, String ln, String grd, String gd, String evt, String gt, String tm)
-        {
-            
-            Swimmer s = new Swimmer()
-            {
-                FirstName = fn,
-                LastName = ln,
-                Grade = grd,
-                Gender = gd,
-                SwimmerEvent = evt,
-                GoalTime = gt,
-                Time = tm
-            };
-            swList.Add(s.FirstName + " " + s.LastName, s);
-            //SwimmerListDataGridView.Rows.Add(fn, ln, grd, gd, evt, gt, tm);
-            //this.loadRows();
-        }
-        */
-
-        /*
-        private void AddButtonColumn()
-        {
-            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
-            col.UseColumnTextForButtonValue = true;
-            col.Text = "VIEW";
-            col.Name = "SwimmerEvents";
-            SwimmerListDataGridView.Columns.Add(col);
-        }
-        */
 
         private void SwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //first of all create a 2D array varialble and count the rows and //column of data grid view
+            //Creates a 2D array the size of the SwimmerListDataGridView
             string[,] dataValue = new string[SwimmerListDataGridView.Rows.Count, SwimmerListDataGridView.Columns.Count];
 
-            //loop through the rows of data grid view 
+            //loop through the rows of SwimmerListDataGridView
             foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
             {
                 //getting index of row
                 int i = row.Index;
-                //loop through the column of data grid view
 
+                //loop through the columns of SwimmerListDataGridView
                 foreach (DataGridViewColumn col in SwimmerListDataGridView.Columns)
                 {
                     //getting index of column
@@ -191,11 +98,8 @@ namespace ComputerScienceInternalAssessment
                 }
             }
 
-
-            //Swimmer[] swimmers = GetSwimmerList().ToArray();
-
-
-            //FIX Wording of GOAL TIME Drop Gain.
+            //TODO: FIX Wording of GOAL TIME Drop Gain.
+            //
             if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Compare Time"].Index) && (e.RowIndex >= 0))
             {
                 try
@@ -229,8 +133,6 @@ namespace ComputerScienceInternalAssessment
 
                     subtract = decimal.Parse(test2) - decimal.Parse(test);
 
-
-
                     if (subtract >= 1000 || subtract <= -1000)
                     {
                         part = Convert.ToInt32(subtract) / 1000;
@@ -241,7 +143,6 @@ namespace ComputerScienceInternalAssessment
                         subtract /= 100;
                         finish = subtract.ToString();
                     }
-
 
                     defaultAnswer = SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + " in the " + Swimmerevt + ".\n" + "Their goal time was " + SwimmerGoalTime + "." + "\n" + "They ";
 
@@ -287,27 +188,17 @@ namespace ComputerScienceInternalAssessment
                             {
                                 answer = defaultAnswer + "didn't drop or gain time.";
                             }
-
                         }
                     }
 
-                    //SwimmerFn + " " + SwimmerLn + " " + dropGain + " " + finish + " in " + Swimmerevt + " from their goal time of " + SwimmerGoalTime + ". This is a " + sign + " " + finish + " difference from their time of " + SwimmerTime + ".";
-                    // SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + "in the " Swimmerevt + "\n" + "Their goal time was " + SwimmerGoalTime + ".\n" + "This is a " + finish + " " + dropGain + ".";
-                    //if(int.Parse(splitTime[])
-
-
                     MessageBox.Show(answer);
-                    //MessageBox.Show(subtract + " " + finish);
                 }
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
-                /*this.Hide();
-                ViewSwimmerEventsForm EventsForm = new ViewSwimmerEventsForm();
-                EventsForm.Show();
-                */
             }
+
             else if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Edit Swimmer"].Index) && (e.RowIndex >= 0))
             {
                 try
@@ -345,30 +236,23 @@ namespace ComputerScienceInternalAssessment
                     {
                         edForm.Dispose();
                     }
-
                 }
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
             }
+
             else if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Delete Swimmer"].Index) && (e.RowIndex >= 0))
             {
                 try
                 {
-                    DialogResult dialogResult = MessageBox.Show("Do you wish to delete this swimmer?", "Delete Swimmer", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Do you wish to delete this swimmer?", "Delete Swimmer Confirmation", MessageBoxButtons.YesNo);
+
                     if (dialogResult == DialogResult.Yes)
                     {
                         SwimmerListDataGridView.Rows.Remove(SwimmerListDataGridView.Rows[e.RowIndex]);
                     }
-                    /*
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //do something else
-                    }
-                    int rowIndex = e.RowIndex;
-                    
-                    //SwimmerListDataGridView.Rows.Remove(rowIndex);*/
                 }
                 catch (Exception exception)
                 {
@@ -376,263 +260,15 @@ namespace ComputerScienceInternalAssessment
                 }
             }
         }
-       
 
-        //This will generate a generic list for testing purposes.
-        //Need to fix so that the user can add and remove swimmers.
-        //Also need to add the criteria that Grade can only be integers
-        //Also need to add the criteria that Gender can only be one letter long.
-
-        /*
-        public void addToGrid(String fn, String ln, String grd, String gd, String evt, String gt, String tm)
-        {
-            SwimmerListDataGridView.Rows.Add(fn, ln, grd, gd, evt, gt, tm);
-        }
-        */
-        /*
-        public List<Swimmer> GetSwimmerList()
-        {
-
-            //  List<SwimmerMeetModel> SwimmerMeet = new List<SwimmerMeetModel>();
-           // List<Swimmer> swimmers = new List<Swimmer>();
-            // List<>
-
-            /*SwimmerMeetModel m = new SwimmerMeetModel()
-            {
-                SwimmerMeetName = "Rabbit Sprintoff",
-                SwimmerMeetDate = "1 / 13 / 22",
-                SwimmerResultName = "500 Free",
-                SwimmerResultTime = "8:34.21"
-            };
-            
-            
-
-            
-            Swimmer s = new Swimmer()
-            {
-                FirstName = "Robin",
-                LastName = "Hood",
-                Grade = "10",
-                Gender = "M",
-                SwimmerEvent = "100 fr",
-                GoalTime = "50.98",
-                Time = "49.67"
-            };
-            swimmers.Add(s);
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            //swimmers.Add(m);
-
-            s = new Swimmer()
-            {
-                FirstName = "Bat",
-                LastName = "Man",
-                Grade = "11",
-                Gender = "M",
-                SwimmerEvent = "100 fl",
-                GoalTime = "55.31",
-                Time = "56.22"
-            };
-            swimmers.Add(s);
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "James",
-                LastName = "Bond",
-                Grade = "12",
-                Gender = "M",
-                SwimmerEvent = "50 fr",
-                GoalTime = "20.31",
-                Time = "20.31"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-            s = new Swimmer()
-            {
-                FirstName = "Princess",
-                LastName = "Leia",
-                Grade = "12",
-                Gender = "F",
-                SwimmerEvent = "100 br",
-                GoalTime = "1:05.93",
-                Time = "1:07.81"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Princess",
-                LastName = "Peach",
-                Grade = "9",
-                Gender = "F",
-                SwimmerEvent = "200 IM",
-                GoalTime = "2:17.65",
-                Time = "2:15.26"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Spider",
-                LastName = "Man",
-                Grade = "9",
-                Gender = "M",
-                SwimmerEvent = "50 fr",
-                GoalTime = "22.15",
-                Time = "21.82"
-            };
-
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Ant",
-                LastName = "Man",
-                Grade = "11",
-                Gender = "M",
-                SwimmerEvent = "50 fr",
-                GoalTime = "25.13",
-                Time = "25.13"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Romeo",
-                LastName = "Montague",
-                Grade = "12",
-                Gender = "M",
-                SwimmerEvent = "500 fr",
-                GoalTime = "5:24.81",
-                Time = "5:24.91"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Katniss",
-                LastName = "Everdeen",
-                Grade = "10",
-                Gender = "F",
-                SwimmerEvent = "500 fr",
-                GoalTime = "5:42.67",
-                Time = "5:42.42"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Hermione",
-                LastName = "Granger",
-                Grade = "9",
-                Gender = "F",
-                SwimmerEvent = "200 IM",
-                GoalTime = "2:25.39",
-                Time = "2:25.39"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Elle",
-                LastName = "Woods",
-                Grade = "11",
-                Gender = "F",
-                SwimmerEvent = "100 bk",
-                GoalTime = "1:02.31",
-                Time = "1:02.92"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Regina",
-                LastName = "George",
-                Grade = "11",
-                Gender = "F",
-                SwimmerEvent = "200 fr",
-                GoalTime = "2:03.82",
-                Time = "1:59.82"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-            s = new Swimmer()
-            {
-                FirstName = "Jack",
-                LastName = "Sparrow",
-                Grade = "10",
-                Gender = "M",
-                SwimmerEvent = "200 fr",
-                GoalTime = "1:59.35",
-                Time = "2:07.35"
-            };
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-
-            s = new Swimmer()
-            {
-                FirstName = "Sherlock",
-                LastName = "Holmes",
-                Grade = "12",
-                Gender = "M",
-                SwimmerEvent = "200 fr",
-                GoalTime = "1:59.35",
-                Time = "2:03.82"
-            };
-
-            
-            SwimmerMeetModel m = new SwimmerMeetModel();
-            m = new SwimmerMeetModel()
-            {
-
-            };
-            
-            
-
-            swimmers.Add(s);
-
-            swList.Add(s.FirstName + " " + s.LastName, s);
-
-
-            return swimmers;
-        }
-
-
-        /*public static explicit operator SwimmerListForm(Form v)
-        {
-            throw new NotImplementedException();
-        }
-        */
-
-           private void BackToStartBtn_Click(object sender, EventArgs e)
+        private void BackToStartBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             StartForm stForm = new StartForm();
             stForm.Show();
         }
 
+        //ENDED HERE ON CODE REVIEW.
         private void SwimmerListHelpBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("PLACE HOLDER");
@@ -644,8 +280,8 @@ namespace ComputerScienceInternalAssessment
             {
                 row.Visible = true;
             }
-            SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[0], ListSortDirection.Ascending);
 
+            SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[0], ListSortDirection.Ascending);
         }
 
         private void SearchLastNameTxt_TextChanged(object sender, EventArgs e)
@@ -945,6 +581,184 @@ namespace ComputerScienceInternalAssessment
             SwimmerListDataGridView.AllowUserToAddRows = false;
             SwimmerListDataGridView.AllowUserToDeleteRows = false;
             SwimmerListDataGridView.ReadOnly = true;
+        }
+        */
+
+        /*
+        //Test Data
+        public List<Swimmer> GetSwimmerList()
+        {
+            // List<Swimmer> swimmers = new List<Swimmer>();
+            Swimmer s = new Swimmer()
+            {
+                FirstName = "Robin",
+                LastName = "Hood",
+                Grade = "10",
+                Gender = "M",
+                SwimmerEvent = "100 fr",
+                GoalTime = "50.98",
+                Time = "49.67"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Bat",
+                LastName = "Man",
+                Grade = "11",
+                Gender = "M",
+                SwimmerEvent = "100 fl",
+                GoalTime = "55.31",
+                Time = "56.22"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "James",
+                LastName = "Bond",
+                Grade = "12",
+                Gender = "M",
+                SwimmerEvent = "50 fr",
+                GoalTime = "20.31",
+                Time = "20.31"
+            };
+            swimmers.Add(s);
+
+            swList.Add(s.FirstName + " " + s.LastName, s);
+            s = new Swimmer()
+            {
+                FirstName = "Princess",
+                LastName = "Leia",
+                Grade = "12",
+                Gender = "F",
+                SwimmerEvent = "100 br",
+                GoalTime = "1:05.93",
+                Time = "1:07.81"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Princess",
+                LastName = "Peach",
+                Grade = "9",
+                Gender = "F",
+                SwimmerEvent = "200 IM",
+                GoalTime = "2:17.65",
+                Time = "2:15.26"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Spider",
+                LastName = "Man",
+                Grade = "9",
+                Gender = "M",
+                SwimmerEvent = "50 fr",
+                GoalTime = "22.15",
+                Time = "21.82"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Ant",
+                LastName = "Man",
+                Grade = "11",
+                Gender = "M",
+                SwimmerEvent = "50 fr",
+                GoalTime = "25.13",
+                Time = "25.13"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Romeo",
+                LastName = "Montague",
+                Grade = "12",
+                Gender = "M",
+                SwimmerEvent = "500 fr",
+                GoalTime = "5:24.81",
+                Time = "5:24.91"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Katniss",
+                LastName = "Everdeen",
+                Grade = "10",
+                Gender = "F",
+                SwimmerEvent = "500 fr",
+                GoalTime = "5:42.67",
+                Time = "5:42.42"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Hermione",
+                LastName = "Granger",
+                Grade = "9",
+                Gender = "F",
+                SwimmerEvent = "200 IM",
+                GoalTime = "2:25.39",
+                Time = "2:25.39"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Elle",
+                LastName = "Woods",
+                Grade = "11",
+                Gender = "F",
+                SwimmerEvent = "100 bk",
+                GoalTime = "1:02.31",
+                Time = "1:02.92"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Regina",
+                LastName = "George",
+                Grade = "11",
+                Gender = "F",
+                SwimmerEvent = "200 fr",
+                GoalTime = "2:03.82",
+                Time = "1:59.82"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Jack",
+                LastName = "Sparrow",
+                Grade = "10",
+                Gender = "M",
+                SwimmerEvent = "200 fr",
+                GoalTime = "1:59.35",
+                Time = "2:07.35"
+            };
+            swimmers.Add(s);
+
+            s = new Swimmer()
+            {
+                FirstName = "Sherlock",
+                LastName = "Holmes",
+                Grade = "12",
+                Gender = "M",
+                SwimmerEvent = "200 fr",
+                GoalTime = "1:59.35",
+                Time = "2:03.82"
+            };
+            swimmers.Add(s);
+
+            return swimmers;
         }
         */
     }

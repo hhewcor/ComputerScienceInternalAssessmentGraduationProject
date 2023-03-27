@@ -33,10 +33,7 @@ namespace ComputerScienceInternalAssessment
         {
             this.BackToStartBtn = new System.Windows.Forms.Button();
             this.SwimmerListHelpBtn = new System.Windows.Forms.Button();
-            this.SearchFirstNameTxt = new System.Windows.Forms.TextBox();
-            this.SearchFirstNameLabel = new System.Windows.Forms.Label();
-            this.SearchLastNameLabel = new System.Windows.Forms.Label();
-            this.SearchLastNameTxt = new System.Windows.Forms.TextBox();
+            this.SearchTxt = new System.Windows.Forms.TextBox();
             this.SearchSwimmerNameBtn = new System.Windows.Forms.Button();
             this.FilterFemaleBtn = new System.Windows.Forms.Button();
             this.FilterMaleBtn = new System.Windows.Forms.Button();
@@ -48,7 +45,11 @@ namespace ComputerScienceInternalAssessment
             this.resetBtn = new System.Windows.Forms.Button();
             this.FilterLable = new System.Windows.Forms.Label();
             this.AddSwimmerBtn = new System.Windows.Forms.Button();
+            this.FirstNameRadioBtn = new System.Windows.Forms.RadioButton();
+            this.LastNameRadioBtn = new System.Windows.Forms.RadioButton();
+            this.SearchGroupBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
+            this.SearchGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // BackToStartBtn
@@ -73,46 +74,19 @@ namespace ComputerScienceInternalAssessment
             this.SwimmerListHelpBtn.UseVisualStyleBackColor = false;
             this.SwimmerListHelpBtn.Click += new System.EventHandler(this.SwimmerListHelpBtn_Click);
             // 
-            // SearchFirstNameTxt
+            // SearchTxt
             // 
-            this.SearchFirstNameTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.SearchFirstNameTxt.Location = new System.Drawing.Point(116, 52);
-            this.SearchFirstNameTxt.Name = "SearchFirstNameTxt";
-            this.SearchFirstNameTxt.Size = new System.Drawing.Size(229, 20);
-            this.SearchFirstNameTxt.TabIndex = 2;
-            this.SearchFirstNameTxt.TextChanged += new System.EventHandler(this.SearchFirstNameTxt_TextChanged);
-            // 
-            // SearchFirstNameLabel
-            // 
-            this.SearchFirstNameLabel.AutoSize = true;
-            this.SearchFirstNameLabel.Location = new System.Drawing.Point(16, 55);
-            this.SearchFirstNameLabel.Name = "SearchFirstNameLabel";
-            this.SearchFirstNameLabel.Size = new System.Drawing.Size(94, 13);
-            this.SearchFirstNameLabel.TabIndex = 3;
-            this.SearchFirstNameLabel.Text = "Search First Name";
-            // 
-            // SearchLastNameLabel
-            // 
-            this.SearchLastNameLabel.AutoSize = true;
-            this.SearchLastNameLabel.Location = new System.Drawing.Point(12, 85);
-            this.SearchLastNameLabel.Name = "SearchLastNameLabel";
-            this.SearchLastNameLabel.Size = new System.Drawing.Size(95, 13);
-            this.SearchLastNameLabel.TabIndex = 4;
-            this.SearchLastNameLabel.Text = "Search Last Name";
-            // 
-            // SearchLastNameTxt
-            // 
-            this.SearchLastNameTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.SearchLastNameTxt.Location = new System.Drawing.Point(114, 85);
-            this.SearchLastNameTxt.Name = "SearchLastNameTxt";
-            this.SearchLastNameTxt.Size = new System.Drawing.Size(231, 20);
-            this.SearchLastNameTxt.TabIndex = 5;
-            this.SearchLastNameTxt.TextChanged += new System.EventHandler(this.SearchLastNameTxt_TextChanged);
+            this.SearchTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.SearchTxt.Location = new System.Drawing.Point(15, 95);
+            this.SearchTxt.Name = "SearchTxt";
+            this.SearchTxt.Size = new System.Drawing.Size(229, 20);
+            this.SearchTxt.TabIndex = 2;
+            this.SearchTxt.TextChanged += new System.EventHandler(this.SearchFirstNameTxt_TextChanged);
             // 
             // SearchSwimmerNameBtn
             // 
             this.SearchSwimmerNameBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(368, 66);
+            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(258, 68);
             this.SearchSwimmerNameBtn.Name = "SearchSwimmerNameBtn";
             this.SearchSwimmerNameBtn.Size = new System.Drawing.Size(79, 23);
             this.SearchSwimmerNameBtn.TabIndex = 6;
@@ -240,11 +214,45 @@ namespace ComputerScienceInternalAssessment
             this.AddSwimmerBtn.UseVisualStyleBackColor = false;
             this.AddSwimmerBtn.Click += new System.EventHandler(this.AddSwimmerBtn_Click);
             // 
+            // FirstNameRadioBtn
+            // 
+            this.FirstNameRadioBtn.AutoSize = true;
+            this.FirstNameRadioBtn.Location = new System.Drawing.Point(6, 17);
+            this.FirstNameRadioBtn.Name = "FirstNameRadioBtn";
+            this.FirstNameRadioBtn.Size = new System.Drawing.Size(75, 17);
+            this.FirstNameRadioBtn.TabIndex = 29;
+            this.FirstNameRadioBtn.TabStop = true;
+            this.FirstNameRadioBtn.Text = "First Name";
+            this.FirstNameRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // LastNameRadioBtn
+            // 
+            this.LastNameRadioBtn.AutoSize = true;
+            this.LastNameRadioBtn.Location = new System.Drawing.Point(109, 15);
+            this.LastNameRadioBtn.Name = "LastNameRadioBtn";
+            this.LastNameRadioBtn.Size = new System.Drawing.Size(85, 17);
+            this.LastNameRadioBtn.TabIndex = 30;
+            this.LastNameRadioBtn.TabStop = true;
+            this.LastNameRadioBtn.Text = "radioButton2";
+            this.LastNameRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // SearchGroupBox
+            // 
+            this.SearchGroupBox.Controls.Add(this.FirstNameRadioBtn);
+            this.SearchGroupBox.Controls.Add(this.LastNameRadioBtn);
+            this.SearchGroupBox.Location = new System.Drawing.Point(24, 49);
+            this.SearchGroupBox.Name = "SearchGroupBox";
+            this.SearchGroupBox.Size = new System.Drawing.Size(200, 38);
+            this.SearchGroupBox.TabIndex = 31;
+            this.SearchGroupBox.TabStop = false;
+            this.SearchGroupBox.Text = "Search";
+            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 427);
+            this.Controls.Add(this.SearchGroupBox);
             this.Controls.Add(this.AddSwimmerBtn);
             this.Controls.Add(this.FilterLable);
             this.Controls.Add(this.FilterFemaleBtn);
@@ -254,11 +262,8 @@ namespace ComputerScienceInternalAssessment
             this.Controls.Add(this.FilterEleventhGradeBtn);
             this.Controls.Add(this.SearchSwimmerNameBtn);
             this.Controls.Add(this.FilterTenthGradeBtn);
-            this.Controls.Add(this.SearchLastNameTxt);
             this.Controls.Add(this.FilterNinthGradeBtn);
-            this.Controls.Add(this.SearchLastNameLabel);
-            this.Controls.Add(this.SearchFirstNameLabel);
-            this.Controls.Add(this.SearchFirstNameTxt);
+            this.Controls.Add(this.SearchTxt);
             this.Controls.Add(this.SwimmerListHelpBtn);
             this.Controls.Add(this.BackToStartBtn);
             this.Controls.Add(this.SwimmerListDataGridView);
@@ -266,6 +271,8 @@ namespace ComputerScienceInternalAssessment
             this.Text = "SwimmerList";
             this.Load += new System.EventHandler(this.SwimmerListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).EndInit();
+            this.SearchGroupBox.ResumeLayout(false);
+            this.SearchGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,10 +282,7 @@ namespace ComputerScienceInternalAssessment
 
         private System.Windows.Forms.Button BackToStartBtn;
         private System.Windows.Forms.Button SwimmerListHelpBtn;
-        private System.Windows.Forms.TextBox SearchFirstNameTxt;
-        private System.Windows.Forms.Label SearchFirstNameLabel;
-        private System.Windows.Forms.Label SearchLastNameLabel;
-        private System.Windows.Forms.TextBox SearchLastNameTxt;
+        private System.Windows.Forms.TextBox SearchTxt;
         private System.Windows.Forms.Button SearchSwimmerNameBtn;
         private System.Windows.Forms.Button FilterFemaleBtn;
         private System.Windows.Forms.Button FilterMaleBtn;
@@ -290,5 +294,8 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.Label FilterLable;
         private System.Windows.Forms.Button AddSwimmerBtn;
         public  System.Windows.Forms.DataGridView SwimmerListDataGridView;
+        private System.Windows.Forms.RadioButton FirstNameRadioBtn;
+        private System.Windows.Forms.RadioButton LastNameRadioBtn;
+        private System.Windows.Forms.GroupBox SearchGroupBox;
     }
 }
