@@ -48,6 +48,7 @@ namespace ComputerScienceInternalAssessment
             this.FirstNameRadioBtn = new System.Windows.Forms.RadioButton();
             this.LastNameRadioBtn = new System.Windows.Forms.RadioButton();
             this.SearchGroupBox = new System.Windows.Forms.GroupBox();
+            this.FirstAndLastNameBtn = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SearchGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -77,16 +78,16 @@ namespace ComputerScienceInternalAssessment
             // SearchTxt
             // 
             this.SearchTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.SearchTxt.Location = new System.Drawing.Point(15, 95);
+            this.SearchTxt.Location = new System.Drawing.Point(42, 89);
             this.SearchTxt.Name = "SearchTxt";
-            this.SearchTxt.Size = new System.Drawing.Size(229, 20);
+            this.SearchTxt.Size = new System.Drawing.Size(377, 20);
             this.SearchTxt.TabIndex = 2;
-            this.SearchTxt.TextChanged += new System.EventHandler(this.SearchFirstNameTxt_TextChanged);
+            this.SearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
             // 
             // SearchSwimmerNameBtn
             // 
             this.SearchSwimmerNameBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(258, 68);
+            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(340, 60);
             this.SearchSwimmerNameBtn.Name = "SearchSwimmerNameBtn";
             this.SearchSwimmerNameBtn.Size = new System.Drawing.Size(79, 23);
             this.SearchSwimmerNameBtn.TabIndex = 6;
@@ -228,24 +229,36 @@ namespace ComputerScienceInternalAssessment
             // LastNameRadioBtn
             // 
             this.LastNameRadioBtn.AutoSize = true;
-            this.LastNameRadioBtn.Location = new System.Drawing.Point(109, 15);
+            this.LastNameRadioBtn.Location = new System.Drawing.Point(87, 17);
             this.LastNameRadioBtn.Name = "LastNameRadioBtn";
-            this.LastNameRadioBtn.Size = new System.Drawing.Size(85, 17);
+            this.LastNameRadioBtn.Size = new System.Drawing.Size(76, 17);
             this.LastNameRadioBtn.TabIndex = 30;
             this.LastNameRadioBtn.TabStop = true;
-            this.LastNameRadioBtn.Text = "radioButton2";
+            this.LastNameRadioBtn.Text = "Last Name";
             this.LastNameRadioBtn.UseVisualStyleBackColor = true;
             // 
             // SearchGroupBox
             // 
+            this.SearchGroupBox.Controls.Add(this.FirstAndLastNameBtn);
             this.SearchGroupBox.Controls.Add(this.FirstNameRadioBtn);
             this.SearchGroupBox.Controls.Add(this.LastNameRadioBtn);
-            this.SearchGroupBox.Location = new System.Drawing.Point(24, 49);
+            this.SearchGroupBox.Location = new System.Drawing.Point(42, 45);
             this.SearchGroupBox.Name = "SearchGroupBox";
-            this.SearchGroupBox.Size = new System.Drawing.Size(200, 38);
+            this.SearchGroupBox.Size = new System.Drawing.Size(292, 38);
             this.SearchGroupBox.TabIndex = 31;
             this.SearchGroupBox.TabStop = false;
             this.SearchGroupBox.Text = "Search";
+            // 
+            // FirstAndLastNameBtn
+            // 
+            this.FirstAndLastNameBtn.AutoSize = true;
+            this.FirstAndLastNameBtn.Location = new System.Drawing.Point(169, 15);
+            this.FirstAndLastNameBtn.Name = "FirstAndLastNameBtn";
+            this.FirstAndLastNameBtn.Size = new System.Drawing.Size(120, 17);
+            this.FirstAndLastNameBtn.TabIndex = 31;
+            this.FirstAndLastNameBtn.TabStop = true;
+            this.FirstAndLastNameBtn.Text = "First And Last Name";
+            this.FirstAndLastNameBtn.UseVisualStyleBackColor = true;
             // 
             // SwimmerListForm
             // 
@@ -297,5 +310,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.RadioButton FirstNameRadioBtn;
         private System.Windows.Forms.RadioButton LastNameRadioBtn;
         private System.Windows.Forms.GroupBox SearchGroupBox;
+        private System.Windows.Forms.RadioButton FirstAndLastNameBtn;
     }
 }
