@@ -49,6 +49,7 @@ namespace ComputerScienceInternalAssessment
             this.LastNameRadioBtn = new System.Windows.Forms.RadioButton();
             this.SearchGroupBox = new System.Windows.Forms.GroupBox();
             this.FirstAndLastNameBtn = new System.Windows.Forms.RadioButton();
+            this.ClearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SwimmerListDataGridView)).BeginInit();
             this.SearchGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +81,7 @@ namespace ComputerScienceInternalAssessment
             this.SearchTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.SearchTxt.Location = new System.Drawing.Point(42, 89);
             this.SearchTxt.Name = "SearchTxt";
-            this.SearchTxt.Size = new System.Drawing.Size(377, 20);
+            this.SearchTxt.Size = new System.Drawing.Size(292, 20);
             this.SearchTxt.TabIndex = 2;
             this.SearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
             // 
@@ -252,7 +253,7 @@ namespace ComputerScienceInternalAssessment
             // FirstAndLastNameBtn
             // 
             this.FirstAndLastNameBtn.AutoSize = true;
-            this.FirstAndLastNameBtn.Location = new System.Drawing.Point(169, 15);
+            this.FirstAndLastNameBtn.Location = new System.Drawing.Point(166, 15);
             this.FirstAndLastNameBtn.Name = "FirstAndLastNameBtn";
             this.FirstAndLastNameBtn.Size = new System.Drawing.Size(120, 17);
             this.FirstAndLastNameBtn.TabIndex = 31;
@@ -260,11 +261,24 @@ namespace ComputerScienceInternalAssessment
             this.FirstAndLastNameBtn.Text = "First And Last Name";
             this.FirstAndLastNameBtn.UseVisualStyleBackColor = true;
             // 
+            // ClearBtn
+            // 
+            this.ClearBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClearBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClearBtn.Location = new System.Drawing.Point(340, 90);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(79, 19);
+            this.ClearBtn.TabIndex = 32;
+            this.ClearBtn.Text = "Clear";
+            this.ClearBtn.UseVisualStyleBackColor = false;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
             // SwimmerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 427);
+            this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.SearchGroupBox);
             this.Controls.Add(this.AddSwimmerBtn);
             this.Controls.Add(this.FilterLable);
@@ -311,5 +325,6 @@ namespace ComputerScienceInternalAssessment
         private System.Windows.Forms.RadioButton LastNameRadioBtn;
         private System.Windows.Forms.GroupBox SearchGroupBox;
         private System.Windows.Forms.RadioButton FirstAndLastNameBtn;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }
