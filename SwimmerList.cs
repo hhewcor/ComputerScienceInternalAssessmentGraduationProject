@@ -1,16 +1,6 @@
-﻿using ComputerScienceInternalAssessment.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-using TreeView = System.Windows.Forms.TreeView;
 
 namespace ComputerScienceInternalAssessment
 {
@@ -53,7 +43,7 @@ namespace ComputerScienceInternalAssessment
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
             col.UseColumnTextForButtonValue = true;
             col.Text = "VIEW";
-            col.Name = "Compare Time";
+            col.Name = "Calculate Time";
             SwimmerListDataGridView.Columns.Add(col);
 
             //Adds to the SwimmerListDataGridView a clickable button that allows the user to edit the fields of the swimmer.
@@ -100,7 +90,7 @@ namespace ComputerScienceInternalAssessment
 
             //TODO: FIX Wording of GOAL TIME Drop Gain.
             //
-            if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Compare Time"].Index) && (e.RowIndex >= 0))
+            if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Calculate Time"].Index) && (e.RowIndex >= 0))
             {
                 try
                 {
@@ -221,7 +211,7 @@ namespace ComputerScienceInternalAssessment
                     edForm.checkEdit = edForm.checkInfo();
                     edForm.ShowDialog();
 
-                    if (edForm.checkEdit == true)
+                    if (edForm.checkEdit == true && edForm.change == true)
                     {
                         SwimmerListDataGridView[0, rowIndex].Value = edForm.swFirstName;
                         SwimmerListDataGridView[1, rowIndex].Value = edForm.swLastName;
@@ -273,10 +263,7 @@ namespace ComputerScienceInternalAssessment
             MessageBox.Show("PLACE HOLDER");
         }
 
-        private bool FirstNameOptionSelected = false;
-        private bool LastNameOptionSelected = false;
-        private bool FirstAndLastNameOptionSelected = false;
-        private bool OptionsSelected = true;
+        private int rowCount = 0;
 
         private void SearchSwimmerNameBtn_Click(object sender, EventArgs e)
         {
@@ -311,8 +298,17 @@ namespace ComputerScienceInternalAssessment
                             if ((cell.ColumnIndex == 0) && !(String.Equals(cell.Value, word))) //Set your Column Index
                             {
                                 row.Visible = false;
+                                rowCount += 1;
                             }
                         }
+                    }
+                    if(rowCount == SwimmerListDataGridView.Rows.Count)
+                    {
+                        MessageBox.Show("Swimmer(s) with first name " + word + " not found.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Swimmer(s) with first name " + word + " found.");
                     }
                 }
 
@@ -328,8 +324,17 @@ namespace ComputerScienceInternalAssessment
                             if ((cell.ColumnIndex == 1) && !(String.Equals(cell.Value, word))) //Set your Column Index
                             {
                                 row.Visible = false;
+                                rowCount += 1;
                             }
                         }
+                    }
+                    if (rowCount == SwimmerListDataGridView.Rows.Count)
+                    {
+                        MessageBox.Show("Swimmer(s) with last name " + word + " not found.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Swimmer(s) with last name " + word + " found.");
                     }
                 }
 
@@ -609,40 +614,12 @@ namespace ComputerScienceInternalAssessment
         {
             resetGrid();
             SearchTxt.Text = string.Empty;
+
             FirstNameRadioBtn.Checked = false;
-            FirstNameOptionSelected = false;
-
             LastNameRadioBtn.Checked = false;
-            LastNameOptionSelected = false;
-
             FirstAndLastNameBtn.Checked = false;
-            FirstAndLastNameOptionSelected = false;
-
-            OptionsSelected = false;
-        }
-
-        private void FirstNameRadioBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            FirstNameOptionSelected = true;
-            LastNameOptionSelected = false;
-            FirstAndLastNameOptionSelected = false;
-            OptionsSelected = true;
-        }
-
-        private void LastNameRadioBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            LastNameOptionSelected= true;
-            FirstNameOptionSelected = false;
-            FirstNameOptionSelected = false;
-            OptionsSelected = true;
-        }
-
-        private void FirstAndLastNameBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            FirstAndLastNameOptionSelected = true;
-            FirstNameOptionSelected = false;
-            LastNameOptionSelected = false;
-            OptionsSelected = true;
+    
+            rowCount = 0;
         }
 
 

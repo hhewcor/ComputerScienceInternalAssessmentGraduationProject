@@ -79,7 +79,7 @@ namespace ComputerScienceInternalAssessment
             // SearchTxt
             // 
             this.SearchTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.SearchTxt.Location = new System.Drawing.Point(42, 89);
+            this.SearchTxt.Location = new System.Drawing.Point(24, 89);
             this.SearchTxt.Name = "SearchTxt";
             this.SearchTxt.Size = new System.Drawing.Size(292, 20);
             this.SearchTxt.TabIndex = 2;
@@ -88,9 +88,9 @@ namespace ComputerScienceInternalAssessment
             // SearchSwimmerNameBtn
             // 
             this.SearchSwimmerNameBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(340, 60);
+            this.SearchSwimmerNameBtn.Location = new System.Drawing.Point(331, 43);
             this.SearchSwimmerNameBtn.Name = "SearchSwimmerNameBtn";
-            this.SearchSwimmerNameBtn.Size = new System.Drawing.Size(79, 23);
+            this.SearchSwimmerNameBtn.Size = new System.Drawing.Size(79, 34);
             this.SearchSwimmerNameBtn.TabIndex = 6;
             this.SearchSwimmerNameBtn.Text = "Search";
             this.SearchSwimmerNameBtn.UseVisualStyleBackColor = false;
@@ -100,7 +100,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterFemaleBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterFemaleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterFemaleBtn.Location = new System.Drawing.Point(549, 96);
+            this.FilterFemaleBtn.Location = new System.Drawing.Point(549, 89);
             this.FilterFemaleBtn.Name = "FilterFemaleBtn";
             this.FilterFemaleBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterFemaleBtn.TabIndex = 7;
@@ -112,7 +112,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterMaleBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterMaleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterMaleBtn.Location = new System.Drawing.Point(468, 96);
+            this.FilterMaleBtn.Location = new System.Drawing.Point(468, 89);
             this.FilterMaleBtn.Name = "FilterMaleBtn";
             this.FilterMaleBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterMaleBtn.TabIndex = 6;
@@ -124,7 +124,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterTwelthGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterTwelthGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterTwelthGradeBtn.Location = new System.Drawing.Point(549, 64);
+            this.FilterTwelthGradeBtn.Location = new System.Drawing.Point(549, 58);
             this.FilterTwelthGradeBtn.Name = "FilterTwelthGradeBtn";
             this.FilterTwelthGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterTwelthGradeBtn.TabIndex = 5;
@@ -136,7 +136,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterEleventhGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterEleventhGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterEleventhGradeBtn.Location = new System.Drawing.Point(468, 64);
+            this.FilterEleventhGradeBtn.Location = new System.Drawing.Point(468, 58);
             this.FilterEleventhGradeBtn.Name = "FilterEleventhGradeBtn";
             this.FilterEleventhGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterEleventhGradeBtn.TabIndex = 4;
@@ -148,7 +148,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterTenthGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterTenthGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterTenthGradeBtn.Location = new System.Drawing.Point(549, 33);
+            this.FilterTenthGradeBtn.Location = new System.Drawing.Point(549, 26);
             this.FilterTenthGradeBtn.Name = "FilterTenthGradeBtn";
             this.FilterTenthGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterTenthGradeBtn.TabIndex = 3;
@@ -160,7 +160,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.FilterNinthGradeBtn.BackColor = System.Drawing.Color.Plum;
             this.FilterNinthGradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterNinthGradeBtn.Location = new System.Drawing.Point(468, 33);
+            this.FilterNinthGradeBtn.Location = new System.Drawing.Point(468, 26);
             this.FilterNinthGradeBtn.Name = "FilterNinthGradeBtn";
             this.FilterNinthGradeBtn.Size = new System.Drawing.Size(75, 25);
             this.FilterNinthGradeBtn.TabIndex = 2;
@@ -188,7 +188,7 @@ namespace ComputerScienceInternalAssessment
             // resetBtn
             // 
             this.resetBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.resetBtn.Location = new System.Drawing.Point(643, 64);
+            this.resetBtn.Location = new System.Drawing.Point(642, 60);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(75, 27);
             this.resetBtn.TabIndex = 10;
@@ -208,9 +208,9 @@ namespace ComputerScienceInternalAssessment
             // AddSwimmerBtn
             // 
             this.AddSwimmerBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AddSwimmerBtn.Location = new System.Drawing.Point(742, 64);
+            this.AddSwimmerBtn.Location = new System.Drawing.Point(742, 65);
             this.AddSwimmerBtn.Name = "AddSwimmerBtn";
-            this.AddSwimmerBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddSwimmerBtn.Size = new System.Drawing.Size(75, 44);
             this.AddSwimmerBtn.TabIndex = 28;
             this.AddSwimmerBtn.Text = "Add Swimmer";
             this.AddSwimmerBtn.UseVisualStyleBackColor = false;
@@ -243,7 +243,7 @@ namespace ComputerScienceInternalAssessment
             this.SearchGroupBox.Controls.Add(this.FirstAndLastNameBtn);
             this.SearchGroupBox.Controls.Add(this.FirstNameRadioBtn);
             this.SearchGroupBox.Controls.Add(this.LastNameRadioBtn);
-            this.SearchGroupBox.Location = new System.Drawing.Point(42, 45);
+            this.SearchGroupBox.Location = new System.Drawing.Point(24, 41);
             this.SearchGroupBox.Name = "SearchGroupBox";
             this.SearchGroupBox.Size = new System.Drawing.Size(292, 38);
             this.SearchGroupBox.TabIndex = 31;
@@ -253,7 +253,7 @@ namespace ComputerScienceInternalAssessment
             // FirstAndLastNameBtn
             // 
             this.FirstAndLastNameBtn.AutoSize = true;
-            this.FirstAndLastNameBtn.Location = new System.Drawing.Point(166, 15);
+            this.FirstAndLastNameBtn.Location = new System.Drawing.Point(166, 17);
             this.FirstAndLastNameBtn.Name = "FirstAndLastNameBtn";
             this.FirstAndLastNameBtn.Size = new System.Drawing.Size(120, 17);
             this.FirstAndLastNameBtn.TabIndex = 31;
@@ -265,9 +265,9 @@ namespace ComputerScienceInternalAssessment
             // 
             this.ClearBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClearBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClearBtn.Location = new System.Drawing.Point(340, 90);
+            this.ClearBtn.Location = new System.Drawing.Point(331, 83);
             this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(79, 19);
+            this.ClearBtn.Size = new System.Drawing.Size(79, 31);
             this.ClearBtn.TabIndex = 32;
             this.ClearBtn.Text = "Clear";
             this.ClearBtn.UseVisualStyleBackColor = false;

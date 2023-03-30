@@ -26,6 +26,8 @@ namespace ComputerScienceInternalAssessment
         public String swGT;
         public String swT;
 
+        public bool change;
+
         /*String swGTMin;
         String swGTSec;
         String swGTMil;
@@ -230,6 +232,7 @@ namespace ComputerScienceInternalAssessment
 
                 //ed.Show();
                 //sendData();
+                change = true;
                 this.Hide();
             }
             else
@@ -470,7 +473,8 @@ namespace ComputerScienceInternalAssessment
 
         private void BackToSwimmerListFormBtn_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            change = false;
+            this.Hide();
         }
 
         private void NinthGradeRadioBtn_CheckedChanged(object sender, EventArgs e)
