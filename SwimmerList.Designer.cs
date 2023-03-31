@@ -80,6 +80,7 @@ namespace ComputerScienceInternalAssessment
             // 
             this.SearchTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.SearchTxt.Location = new System.Drawing.Point(24, 89);
+            this.SearchTxt.MaxLength = 50;
             this.SearchTxt.Name = "SearchTxt";
             this.SearchTxt.Size = new System.Drawing.Size(292, 20);
             this.SearchTxt.TabIndex = 2;

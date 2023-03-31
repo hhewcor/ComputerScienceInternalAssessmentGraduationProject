@@ -1,46 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ComputerScienceInternalAssessment
 {
     public partial class AddSwimmerForm : Form
     {
-        /*
-        public AddSwimmerForm(EditSwimmerListForm edswF)
-        {
-            InitializeComponent();
-            this.ed = edswF;
-        }
-        */
-
-        //public static AddSwimmerForm instance;
-
-        //public SwimmerListForm LF { get; set; }
-
+        //Helps with passing all values set with this form back to the SwimmerListForm.
         SwimmerListForm instance;
 
-
+        //Instantiates the Form.
         public AddSwimmerForm(SwimmerListForm edSLF)
         {
             InitializeComponent();
             this.instance = edSLF;
         }
 
+        //Old constructor.
         public AddSwimmerForm()
         {
             InitializeComponent();
         }
 
-        //public EditSwimmerListForm ed { get; set; }
-
-
+        //Restricts the user from changing the size of the form.
         private void AddSwimmerForm_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -48,22 +29,20 @@ namespace ComputerScienceInternalAssessment
             this.ControlBox = false;
         }
 
+        //Allows the user to go back to the SwimmerListForm without adding a new swimmer to the SwimmerListDataGridView.
         private void BackToEditSwimmerListFormBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-           // this.Close();
-           // SwimmerListForm sl = new SwimmerListForm();
-            //sl.Show();
         }
 
+        //Help button.
         private void SwimmerListHelpBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("PLACE HOLDER");
+            MessageBox.Show("No fields can be left blank.\n" + "You must have a first name, a last name, a grade, a gender, a stroke, a distance, a goal time, and a time.\n" + "You can only type characters into the First and Last Name fields.\n" + "You can only type digits into the goal time and time fields. \n" + "Click the add button when you have complete all the fields to add the swimmer to the SwimmerListDataGridView.");
         }
 
-        //groupbox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Name
-        //var buttons = this.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
-
+        //Variables that are used to verify that the data is in the correct format
+        //and the share the data with the SwimmerListForm to be added to the SwimmerListDataGridView.
         private bool swFirstNameSelected = false;
         public String swFirstName = "";
 
@@ -88,27 +67,17 @@ namespace ComputerScienceInternalAssessment
         private bool swGoalTimeSecSelected = false;
         private bool swGoalTimeMilSelected = false;
 
-        //private int swGoalTimeMin;
-        //private int swGoalTimeSec;
-        //private int swGoalTimeMil;
-
         private bool swTimeMinSelected = false;
         private bool swTimeSecSelected = false;
         private bool swTimeMilSelected = false;
-
-        //private int swTimeMin;
-        //private int swTimeSec;
-        //private int swTimeMil;
-
-       
 
         public bool check = true;
         public String swGT;
         public String swT;
         private String answer;
 
-
-        // GRADE ------------------------------------------------------------
+        // *********************************************************************************
+        // GRADE: Used to determine which radio button in the Grade group is selected.
         private void NinthGradeRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
            swGradeSelected = true;
@@ -133,7 +102,8 @@ namespace ComputerScienceInternalAssessment
           swGrade = "12";
         }
 
-        //Gender ----------------------------------------------
+        // *********************************************************************************
+        //Gender: Used to determine which radio button in the Gender group is selected.
         private void MaleRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
           swGenderSelected = true;
@@ -146,7 +116,8 @@ namespace ComputerScienceInternalAssessment
           swGender = "F";
         }
 
-        //Stroke ----------------------------------------------------
+        // *********************************************************************************
+        //Stroke: Used to determine which radio button in the Stroke group is selected.
         private void FlyStrRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
            swStrokeSelected = true;
@@ -177,7 +148,8 @@ namespace ComputerScienceInternalAssessment
            swStroke = "IM";
         }
 
-        //Distance -------------------------------------------------------------
+        // *********************************************************************************
+        //Distance: Used to determine which radio button in the Distance group is selected.
         private void Dist50RadioBtn_CheckedChanged(object sender, EventArgs e)
         {
            swDistanceSelected = true;
@@ -202,14 +174,13 @@ namespace ComputerScienceInternalAssessment
            swDistance = "500";
         }
 
-        //Swimmer Goal Time -----------------------------------------
+        // *********************************************************************************
+        //Swimmer Goal Time: Determines if the user has typed a value into the goal time boxes.
         private void SwimmerGoalTimeMinTxtBox_TextChanged(object sender, EventArgs e)
         {
             if (SwimmerGoalTimeMinTxtBox != null)
             {
                 swGoalTimeMinSelected = true;
-                //String stTimeMil = SwimmerGoalTimeMinTxtBox.Text;
-                //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
             {
@@ -222,8 +193,6 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerGoalTimeSecTxtBox != null)
             {
                 swGoalTimeSecSelected = true;
-                //String stTimeMil = SwimmerGoalTimeSecTxtBox.Text;
-                //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
             {
@@ -235,8 +204,6 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerGoalTimeMilTxtBox != null)
             {
                 swGoalTimeMilSelected = true;
-                //String stTimeMil = SwimmerGoalTimeMilTxtBox.Text;
-                //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
             {
@@ -244,14 +211,13 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
-        //Swimmer Time ------------------------------------------------------
+        // *********************************************************************************
+        //Swimmer Time: Determines if the user has typed a value into the time boxes.
         private void SwimmerTimeMinTxtBox_TextChanged(object sender, EventArgs e)
         {
             if (SwimmerTimeMinTxtBox != null)
             {
                 swTimeMinSelected = true;
-                //String stTimeMil = SwimmerTimeMinTxtBox.Text;
-                //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
             {
@@ -264,8 +230,6 @@ namespace ComputerScienceInternalAssessment
             if (SwimmerTimeSecTxtBox != null)
             {
                 swTimeSecSelected = true;
-                //String stTimeMil = SwimmerTimeSecTxtBox.Text;
-                //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else
             {
@@ -275,17 +239,9 @@ namespace ComputerScienceInternalAssessment
 
         private void SwimmerTimeMilTxtBox_TextChanged(object sender, EventArgs e)
         {
-            /*if (!char.IsNumber(e.KeyChar))
-             {
-                 e.Handled = true;
-             }
-            */
-
             if (SwimmerTimeMilTxtBox != null)
             { 
                     swTimeMilSelected = true;
-                    //String stTimeMil = SwimmerTimeMilTxtBox.Text;
-                    //swTimeMil = Convert.ToInt32(stTimeMil);
             }
             else 
             { 
@@ -293,125 +249,35 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
-        //Swimmer Name -----------------------------------------------------
-        /*
-        private void FirstNameTxtBox_TextChanged(object sender, EventArgs e)
-        {
-            if(FirstNameTxtBox != null)
-            {
-                swFirstNameSelected = true;
-                //swFirstName = FirstNameTxtBox.Text;
-            }
-        }
-
-        private void LastNameTxtBox_TextChanged(object sender, EventArgs e)
-        {
-            if (LastNameTxtBox != null)
-            {
-                swLastNameSelected = true;
-                //swLastName = LastNameTxtBox.Text;
-            }
-        }
-        */
-
-        //##############################################################################################################
-        //ADD SWIMMER BUTTON **********************************************************************************************
-
+        // *********************************************************************************
+        //ADD SWIMMER BUTTON.
         private void AddSwimmerBtn_Click(object sender, EventArgs e)
         {
-
-            //List<Swimmer> swimmers = new List<Swimmer>();
-            /* Swimmer s = new Swimmer()
-             {
-                 FirstName = "Robin",
-                 LastName = "Hood",
-                 Grade = "10",
-                 Gender = "M",
-                 SwimmerEvent = "100 fr",
-                 GoalTime = "50.98",
-                 Time = "49.67"
-             };
-             swimmers.Add(s);
-             EditSwimmerListDataGridView.Rows.Add(swimmer.FirstName, swimmer.LastName, swimmer.Grade, swimmer.Gender, swimmer.SwimmerEvent, swimmer.GoalTime, swimmer.Time);
-         */
-            //SwimmerListForm f = new SwimmerListForm();
-
-            /*
-             * swGoalTimeMin = Convert.ToInt32(SwimmerGoalTimeMinTxtBox);
-            swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox);
-            swGoalTimeMil = Convert.ToInt32(SwimmerGoalTimeMilTxtBox);
-
-            swTimeMin = Convert.ToInt32(SwimmerTimeMinTxtBox);
-            swTimeSec = Convert.ToInt32(SwimmerTimeSecTxtBox);
-            swTimeMil = Convert.ToInt32(SwimmerTimeMilTxtBox);
-            */
-
-            //checkSelected();
-            //check = true;
-            
-            //combineSwGT();
-            //combineSWT();
-
+            //Verifies if the data in the form is in the correct format.
             check = checkInfo();
 
+            //Structures the message that will be presented to the user.
             if (check == true)
             {
                 answer = "Swimmer added.";
-                //var ed = (SwimmerListForm)this.Owner;
-
-
-                //SwimmerListForm ed = new SwimmerListForm(this);
-
+                
                 swEvent = swDistance + " " + swStroke;
                 combineSwGT();
                 combineSWT();
 
+                MessageBox.Show(answer);
 
-                /*Swimmer s = new Swimmer()
-                {
-                    FirstName = swFirstName,
-                    LastName = swLastName,
-                    Grade = swGrade,
-                    Gender = swGender,
-                    SwimmerEvent = swEvent,
-                    GoalTime = combineSwGT(),
-                    Time = combineSWT()
-                };
-                */
-
-                //SwimmerListForm.instance.swimmers.Add(s);
-                //this.Visible = false;
-
-                //SwimmerListForm.SwimmerListDataGridView.Rows.Add(swFirstName, swLastName, swGrade, swGender, swEvent, combineSwGT(), combineSWT());
-
-
-                //ENDED HERE!!!!!!
-                //ed.Show();
-
-                MessageBox.Show(answer + swT + swGT);
-                //ed.swimmers.Add(s);
-                //this.Hide();
-
-                //ed.Show();
-                //sendData();
                 this.Hide();
             }
-            else { 
+
+            //Shows the user what is wrong with their formatting.
+            else 
+            { 
                     MessageBox.Show(answer);
-               
-                /*this.Hide();
-                EditSwimmerListForm edsl = new EditSwimmerListForm();
-                MessageBox.Show("Swimmer added.");
-                edsl.Show();
-                */
-                //f.addSwimmerRow(swFirstName, swLastName, swGrade, swGender, swEvent, )
             }
-            
-            //f.addSwimmerRow()
         }
 
-
-
+        //Checks if the data is in the correct format.
         public bool checkInfo()
         {
             answer = "";
@@ -461,6 +327,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the first and last name fields have data correctly entered into them.
         private bool checkSelectedName()
         {
             swFirstName = FirstNameTxtBox.Text;
@@ -477,6 +344,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the user selected a grade for the swimmer.
         private bool checkSelectedGrade()
         {
             if (swGradeSelected == false)
@@ -490,6 +358,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the user selected a gender for the swimmer.
         private bool checkGenderSelected()
         {
             if(swGenderSelected == false)
@@ -503,6 +372,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the user selected a distance for the swimmer.
         private bool checkDistanceSelected()
         {
             if(swDistanceSelected == false)
@@ -516,6 +386,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the user selected a stroke for the swimmer.
         private bool checkStrokeSelected()
         {
             if(swStrokeSelected == false)
@@ -529,6 +400,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the distance and stroke combination is a possible high school event.
         private bool checkEvent()
         {
             if((swDistance != "100") && (swStroke == "fl") && (swDistanceSelected == true))
@@ -557,6 +429,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the swimmer Goal time is in the correct format.
         private bool checkGT()
         {
             if ((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == false) && (swGoalTimeMilSelected == false))
@@ -595,6 +468,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Checks if the swimmer time is in the correct format.
         private bool checkTime()
             {
             if ((swTimeMinSelected == false) && (swTimeSecSelected == false) && (swTimeMilSelected == false))
@@ -633,38 +507,32 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Combines the swimmer goal time to be the correct format for the SwimmerListDataGridView on the SwimmerListForm.
         public String combineSwGT()
         {
             if((swGoalTimeMinSelected == true) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == true)){
-                if ((SwimmerGoalTimeSecTxtBox.TextLength == 1))
+                if (SwimmerGoalTimeSecTxtBox.TextLength == 1)
                 {
                     SwimmerGoalTimeSecTxtBox.Text = "0" + SwimmerGoalTimeSecTxtBox.Text;
                 }
-                if ((SwimmerGoalTimeMilTxtBox.TextLength == 1))
+                if (SwimmerGoalTimeMilTxtBox.TextLength == 1)
                 {
                     SwimmerGoalTimeMilTxtBox.Text = "0" + SwimmerGoalTimeMilTxtBox.Text;
                 }
-
-                //swGoalTimeMin = Convert.ToInt32(SwimmerGoalTimeMinTxtBox.Text);
-                //swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox.Text);
-                //swGoalTimeMil = Convert.ToInt32(SwimmerGoalTimeMilTxtBox.Text);
 
                 swGT = SwimmerGoalTimeMinTxtBox.Text + ":" + SwimmerGoalTimeSecTxtBox.Text + "." + SwimmerGoalTimeMilTxtBox.Text;
             }
 
             if((swGoalTimeMinSelected == false) && (swGoalTimeSecSelected == true) && (swGoalTimeMilSelected == true))
             {
-                if ((SwimmerGoalTimeSecTxtBox.TextLength == 1))
+                if (SwimmerGoalTimeSecTxtBox.TextLength == 1)
                 {
                     SwimmerGoalTimeSecTxtBox.Text = "0" + SwimmerGoalTimeSecTxtBox.Text;
                 }
-                if ((SwimmerGoalTimeMilTxtBox.TextLength == 1))
+                if (SwimmerGoalTimeMilTxtBox.TextLength == 1)
                 {
                     SwimmerGoalTimeMilTxtBox.Text = "0" + SwimmerGoalTimeMilTxtBox.Text;
                 }
-
-                //swGoalTimeSec = Convert.ToInt32(SwimmerGoalTimeSecTxtBox.Text);
-                //swGoalTimeMil = Convert.ToInt32(SwimmerGoalTimeMilTxtBox.Text);
 
                 swGT = SwimmerGoalTimeSecTxtBox.Text + "." + SwimmerGoalTimeMilTxtBox.Text;
             }
@@ -672,39 +540,33 @@ namespace ComputerScienceInternalAssessment
             return swGT;
         }
 
+        //Combines the swimmer time into the correct format for the SwimmerListDataGridView on the SwimmerListForm.
         public String combineSWT()
         {
             if ((swTimeMinSelected == true) && (swTimeSecSelected == true) && (swTimeMilSelected == true))
             {
-                if ((SwimmerTimeSecTxtBox.TextLength == 1))
+                if (SwimmerTimeSecTxtBox.TextLength == 1)
                 {
                     SwimmerTimeSecTxtBox.Text = "0" + SwimmerTimeSecTxtBox.Text;
                 }
-                if ((SwimmerTimeMilTxtBox.TextLength == 1))
+                if (SwimmerTimeMilTxtBox.TextLength == 1)
                 {
                     SwimmerTimeMilTxtBox.Text = "0" + SwimmerTimeMilTxtBox.Text;
                 }
-
-                //swTimeMin = Convert.ToInt32(SwimmerTimeMinTxtBox.Text);
-                //swTimeSec = Convert.ToInt32(SwimmerTimeSecTxtBox.Text);
-                //swTimeMil = Convert.ToInt32(SwimmerTimeMilTxtBox.Text);
 
                 swT = SwimmerTimeMinTxtBox.Text + ":" + SwimmerTimeSecTxtBox.Text + "." + SwimmerTimeMilTxtBox.Text;
             }
 
             if ((swTimeMinSelected == false) && (swTimeSecSelected == true) && (swTimeMilSelected == true))
             {
-                if ((SwimmerTimeSecTxtBox.TextLength == 1))
+                if (SwimmerTimeSecTxtBox.TextLength == 1)
                 {
                     SwimmerTimeSecTxtBox.Text = "0" + SwimmerTimeSecTxtBox.Text;
                 }
-                if ((SwimmerTimeMilTxtBox.TextLength == 1))
+                if (SwimmerTimeMilTxtBox.TextLength == 1)
                 {
                     SwimmerTimeMilTxtBox.Text = "0" + SwimmerTimeMilTxtBox.Text;
                 }
-
-                //swTimeSec = Convert.ToInt32(SwimmerTimeSecTxtBox.Text);
-                //swTimeMil = Convert.ToInt32(SwimmerTimeMilTxtBox.Text);
 
                 swT = SwimmerTimeSecTxtBox.Text + "." + SwimmerTimeMilTxtBox.Text;
             }
@@ -712,11 +574,12 @@ namespace ComputerScienceInternalAssessment
             return swT;
         }
 
+        //Restricts the user to only typing digits in the minutes box for the swimmer goal time.
         private void SwimmerGoalTimeMinTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
             {
-                MessageBox.Show("please enter digits only");
+                MessageBox.Show("Please enter digits only.");
                 e.Handled = true;
             }
 
@@ -727,11 +590,12 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Restricts the user to only typing digits in the seconds box for the swimmer goal time.
         private void SwimmerGoalTimeSecTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
             {
-                MessageBox.Show("please enter digits only");
+                MessageBox.Show("Please enter digits only.");
                 e.Handled = true;
             }
 
@@ -742,11 +606,12 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Restricts the user to only typing digits in the milliseconds box for the swimmer goal time.
         private void SwimmerGoalTimeMilTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
             {
-                MessageBox.Show("please enter digits only");
+                MessageBox.Show("Please enter digits only.");
                 e.Handled = true;
             }
 
@@ -757,11 +622,12 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Restricts the user to only typing digits in the minutes box for the swimmer time. 
         private void SwimmerTimeMinTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
             {
-                MessageBox.Show("please enter digits only");
+                MessageBox.Show("Please enter digits only.");
                 e.Handled = true;
             }
 
@@ -772,11 +638,12 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Restrics the user to only typing digits in the seconds box for the swimmer time.
         private void SwimmerTimeSecTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
             {
-                MessageBox.Show("please enter digits only");
+                MessageBox.Show("Please enter digits only.");
                 e.Handled = true;
             }
 
@@ -787,11 +654,12 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Restricts the user to only typing digits in the milliseconds box for the swimmer time.
         private void SwimmerTimeMilTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
             {
-                MessageBox.Show("please enter digits only");
+                MessageBox.Show("Please enter digits only.");
                 e.Handled = true;
             }
 
@@ -802,11 +670,12 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Restricts the user to only typing characters in the First Name Text Box.
         private void FirstNameTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
             {
-                MessageBox.Show("please enter letters only");
+                MessageBox.Show("Please enter letters only.");
                 e.Handled = true;
             }
 
@@ -817,11 +686,12 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Restricts the user to only typing characters in the Last Name Text Box.
         private void LastNameTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == '-')))
             {
-                MessageBox.Show("please enter letters only");
+                MessageBox.Show("Please enter letters only.");
                 e.Handled = true;
             }
 
@@ -831,17 +701,5 @@ namespace ComputerScienceInternalAssessment
                 swLastNameSelected = false;
             }
         }
-
-
-        // 100 fly, 100 bk, 100 br, 200 IM
-
-        //Test that every field is filled out.
-        //Test that certain events aren't combined.
-        //Allow for swTimeMin field to be blank in a certain case.
-        //Allow for swGTMin to be blank in a certain case.
-        //if check is true then add the information to the tempswimmerlist.
-        //close this form.
-        //open updated edit swimmer list page.
-
     }
 }

@@ -67,18 +67,19 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Event triggers when the user clicks on a button inside the SwimmerListDataGridView.
         private void SwimmerListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Creates a 2D array the size of the SwimmerListDataGridView
+            //Creates a 2D array the size of the SwimmerListDataGridView.
             string[,] dataValue = new string[SwimmerListDataGridView.Rows.Count, SwimmerListDataGridView.Columns.Count];
 
-            //loop through the rows of SwimmerListDataGridView
+            //Loops through the rows of SwimmerListDataGridView.
             foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
             {
-                //getting index of row
+                //Gets index of row.
                 int i = row.Index;
 
-                //loop through the columns of SwimmerListDataGridView
+                //Loops through the columns of SwimmerListDataGridView.
                 foreach (DataGridViewColumn col in SwimmerListDataGridView.Columns)
                 {
                     //getting index of column
@@ -88,12 +89,13 @@ namespace ComputerScienceInternalAssessment
                 }
             }
 
-            //TODO: FIX Wording of GOAL TIME Drop Gain.
-            //
+            //Gets the row index of the Calculate Time column for when the user clicks on the view button to calculate the time
+            //of a particular swimmer.
             if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Calculate Time"].Index) && (e.RowIndex >= 0))
             {
                 try
                 {
+                    //Variables
                     string SwimmerFn = dataValue[e.RowIndex, 0];
                     string SwimmerLn = dataValue[e.RowIndex, 1];
                     string Swimmerevt = dataValue[e.RowIndex, 4];
@@ -111,16 +113,19 @@ namespace ComputerScienceInternalAssessment
                     string[] splitGoalTime = SwimmerGoalTime.Split(':', '.');
                     string[] splitTime = SwimmerTime.Split(':', '.');
 
+                    //Adds the values from the swimmer goal time that was split up by the ':' and '.' .
                     for (int x = 0; x < splitGoalTime.Length; x++)
                     {
                         test += splitGoalTime[x];
                     }
 
+                    //Adds the values from the Swimmer time that was split up by the ':' and '.'.
                     for (int y = 0; y < splitTime.Length; y++)
                     {
                         test2 += splitTime[y];
                     }
 
+                    //Determines whether the goal time or the swimmer time was greater. Used to determine if the swimmer gained/dropped/or swam the same time.
                     subtract = decimal.Parse(test2) - decimal.Parse(test);
 
                     if (subtract >= 1000 || subtract <= -1000)
@@ -134,65 +139,85 @@ namespace ComputerScienceInternalAssessment
                         finish = subtract.ToString();
                     }
 
+                    //Sets up the message displayed in the message box once calculations are done.
                     defaultAnswer = SwimmerFn + " " + SwimmerLn + " swam " + SwimmerTime + " in the " + Swimmerevt + ".\n" + "Their goal time was " + SwimmerGoalTime + "." + "\n" + "They ";
 
+                    //If the minute/second of the swimmer time is greater than the minute/second of the goal time, the swimmer gained time.
                     if (int.Parse(splitTime[0]) > int.Parse(splitGoalTime[0]))
                     {
                         dropGain = "gained";
                         answer = defaultAnswer + dropGain + " " + finish + ".";
                     }
+
+                    //If the minute/second of the swimmer time is less than the minute/second of the goal time, then the swimmer droped time.
                     if (int.Parse(splitTime[0]) < int.Parse(splitGoalTime[0]))
                     {
                         dropGain = "dropped";
                         answer = defaultAnswer + dropGain + " " + finish + ".";
                     }
+
+                    //If the minute/second of the swimmer time equals the minute/second of the goal time, needed to verify the second/millisecond.
                     if (int.Parse(splitTime[0]) == int.Parse(splitGoalTime[0]))
                     {
+                        //If the second/millisecond of the swimmer time is greater than the second/millisecond of the goal time, then the swimmer gained time.
                         if (int.Parse(splitTime[1]) > int.Parse(splitGoalTime[1]))
                         {
                             dropGain = "gained";
                             answer = defaultAnswer + dropGain + " " + finish + ".";
                         }
+                        //If the second/millisecond of the swimmer time is less than the second/millisecond of the goal time, then the swimmer dropped time.
                         if (int.Parse(splitTime[1]) < int.Parse(splitGoalTime[1]))
                         {
                             dropGain = "dropped";
                             answer = defaultAnswer + dropGain + " " + finish + ".";
                         }
+                        //If the second/millisecond of the swimmer time is equal to the second/millisecond of the goal time, then swimmer didn't drop or gain time.
                         if ((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 2))
                         {
                             answer = defaultAnswer + "didn't drop or gain time.";
                         }
+
+                        //If the second of the swimmer time is equal to the second of the goal time.
                         if ((int.Parse(splitTime[1]) == int.Parse(splitGoalTime[1])) && (splitTime.Length == 3))
                         {
+                            //If the millisecond of swimmer time is greater than the millisecond of goal time, then the swimmer gained time.
                             if (int.Parse(splitTime[2]) > int.Parse(splitGoalTime[2]))
                             {
                                 dropGain = "gained";
                                 answer = defaultAnswer + dropGain + " " + finish + ".";
                             }
+
+                            //If the millisecond of swimmer time is less than the millisecond of goal time, then the swimmer dropped time.
                             if (int.Parse(splitTime[2]) < int.Parse(splitGoalTime[2]))
                             {
                                 dropGain = "dropped";
                                 answer = defaultAnswer + dropGain + " " + finish + ".";
                             }
+
+                            //If the millisecond of swimmer time is equal to the millisecond of goal time, then the swimmer didn't drop or gain time.
                             if (int.Parse(splitTime[2]) == int.Parse(splitGoalTime[2]))
                             {
                                 answer = defaultAnswer + "didn't drop or gain time.";
                             }
                         }
                     }
-
+                    //Prints the calculation for the swimmer.
                     MessageBox.Show(answer);
                 }
+                //Catch used if there is an instance that I didn't think of when calculating whether a swimmer gained/dropped/ or remained at the same time.
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
             }
 
+            //Gets the row index of the Edit Swimmer column for when the user clicks on the edit button to change the values
+            //of a particular swimmer.
             else if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Edit Swimmer"].Index) && (e.RowIndex >= 0))
             {
                 try
                 {
+                    //Variables
                     int rowIndex = e.RowIndex;
                     string SwimmerFn = dataValue[e.RowIndex, 0];
                     string SwimmerLn = dataValue[e.RowIndex, 1];
@@ -207,12 +232,15 @@ namespace ComputerScienceInternalAssessment
                     String distance = splitEvent[0];
                     String stroke = splitEvent[1];
 
+                    //Opens a modal of the EditSwimmer Form. Sends all the current data of the particular swimmer row to the form. Only one instance of this form is created.
                     EditSwimmerForm edForm = new EditSwimmerForm(this, SwimmerFn, SwimmerLn, SwimmerGrd, SwimmerGnd, stroke, distance, SwimmerGoalTime, SwimmerTime);
                     edForm.checkEdit = edForm.checkInfo();
                     edForm.ShowDialog();
 
+                    //Not performed unless the data was inputted into the form correctly, and the form was actually changed.
                     if (edForm.checkEdit == true && edForm.change == true)
                     {
+                        //Updates the SwimmerListDataGridView
                         SwimmerListDataGridView[0, rowIndex].Value = edForm.swFirstName;
                         SwimmerListDataGridView[1, rowIndex].Value = edForm.swLastName;
                         SwimmerListDataGridView[2, rowIndex].Value = edForm.swGrade;
@@ -226,23 +254,28 @@ namespace ComputerScienceInternalAssessment
                         edForm.Dispose();
                     }
                 }
+                //Catch used if there is an instance I didn't think of when passing data between the SwimmerListForm and the EditSwimmerForm.
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
             }
 
+            //Gets the row index of the Delete Swimmer column for when the user clicks on the delete button to remove a swimmer from the SwimmerDataGridView.
             else if ((e.ColumnIndex == SwimmerListDataGridView.Columns["Delete Swimmer"].Index) && (e.RowIndex >= 0))
             {
                 try
                 {
+                    //Creates MessageBox as a modal that confirms whether the user wishes to delete the swimmer.
                     DialogResult dialogResult = MessageBox.Show("Do you wish to delete this swimmer?", "Delete Swimmer Confirmation", MessageBoxButtons.YesNo);
 
+                    //Removes the swimmer if the user clicks yes.
                     if (dialogResult == DialogResult.Yes)
                     {
                         SwimmerListDataGridView.Rows.Remove(SwimmerListDataGridView.Rows[e.RowIndex]);
                     }
                 }
+                //Catch used if situation occurs that I didn't predict for removing a swimmer from the SwimmerListDataGridView.
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
@@ -250,6 +283,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //When user clicks on the Back button, the SwimmerListForm is hidden and the user is returned to the StartForm.
         private void BackToStartBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -257,40 +291,51 @@ namespace ComputerScienceInternalAssessment
             stForm.Show();
         }
 
-        //ENDED HERE ON CODE REVIEW.
+        //Help button.
         private void SwimmerListHelpBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("PLACE HOLDER");
+            MessageBox.Show("ADD SWIMMER: Click on the Add Swimmer button. \n" + "EDIT: Click on the Edit Button under the column name Edit Swimmer to edit the values of the selected swimmer. \n" + "DELETE: Click on the Delete Button under the column name Delete Swimmer to remove the selected swimmer from the DataGridView.\n" + "SEARCH: Click on the FirstName criteria to find all instances of the name typed into the search bar." + " Click on the LastName criteria to find all instances of the name typed into the search bar." + " Click on the FirstAndLastName criteria to find one specific name from the DataGridView. *Name must be separated by a space. \n" + "RESET SEARCH: Click on the Clear button. \n" + "FILTER: Click on any of the pink buttons. To reset the filters click on the Reset button.\n" + "\n" + "*NOTE: A swimmer must be added before you can edit, delete, search, or filter the list.");
         }
 
+        //Int that helps keep track of whether the SwimmerListDataGridView has had all of its rows hidden.
         private int rowCount = 0;
 
+        //When user clicks on the SearchSwimmerNameBtn, the SearchTxtBox is verified before filtering the SwimmerListDataGridView.
         private void SearchSwimmerNameBtn_Click(object sender, EventArgs e)
         {
+            //Verifies if the SwimmerListDataGridView is empty.
             if (SwimmerListDataGridView.Rows.Count == 0)
             {
                 MessageBox.Show("Please add some swimmers.");
             }
+            //Verifies that the search bar isn't empty and the search criteria is selected.
             else if (((FirstNameRadioBtn.Checked == false) && (LastNameRadioBtn.Checked == false) && (FirstAndLastNameBtn.Checked == false)) && (SearchTxt.Text == string.Empty))
             {
                 MessageBox.Show("Please enter a name and select a search criteria.");
             }
+            //Verifies that the search bar isn't empty
             else if(SearchTxt.Text == String.Empty)
             {
                 MessageBox.Show("Please enter a name in the search bar.");
             }
+
+            //Verifies that a search criteria was selected.
             else if((FirstNameRadioBtn.Checked == false) && (LastNameRadioBtn.Checked == false) && (FirstAndLastNameBtn.Checked == false))
             {
                 MessageBox.Show("Please select a search criteria.");
             }
             else
             {
+                //Word to be found.
                 string word = SearchTxt.Text;
+
+                //Performs the FirstName search criteria option.
                 if ((FirstNameRadioBtn.Checked == true) && (word != string.Empty))
                 {
-                    //resetGrid();
+                    //Sorts the first names by ascending order.
                     SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[0], ListSortDirection.Ascending);
 
+                    //Loops through the SwimmerListDataGridView to hide any rows whose first name doesn't equal the name being searched.
                     foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
                     {
                         foreach (DataGridViewCell cell in row.Cells)
@@ -302,6 +347,8 @@ namespace ComputerScienceInternalAssessment
                             }
                         }
                     }
+
+                    //Checks if all the rows in SwimmerListDataGridView had been hidden to determine what message should be presented to the user.
                     if(rowCount == SwimmerListDataGridView.Rows.Count)
                     {
                         MessageBox.Show("Swimmer(s) with first name " + word + " not found.");
@@ -312,11 +359,13 @@ namespace ComputerScienceInternalAssessment
                     }
                 }
 
+                //Performs the LastName search criteria option.
                 if ((LastNameRadioBtn.Checked == true) && (word != string.Empty))
                 {
-                    //resetGrid();
+                    //Sorts the last names by ascending order.
                     SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[1], ListSortDirection.Ascending);
 
+                    //Loops through the SwimmerListDataGridView to hide any rows whose last names doesn't equal the name being searched.
                     foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
                     {
                         foreach (DataGridViewCell cell in row.Cells)
@@ -328,6 +377,8 @@ namespace ComputerScienceInternalAssessment
                             }
                         }
                     }
+
+                    //Checks if all rows in SwimmerListDataGridView had been hidden to determine what message should be presented to the user.
                     if (rowCount == SwimmerListDataGridView.Rows.Count)
                     {
                         MessageBox.Show("Swimmer(s) with last name " + word + " not found.");
@@ -338,36 +389,33 @@ namespace ComputerScienceInternalAssessment
                     }
                 }
 
+                //Performs the FirstAndLastName search criteria option.
                 if ((FirstAndLastNameBtn.Checked == true) && (word != string.Empty))
                 {
-                    //string input = SearchTxt.Text;
-
-                    //string[] split = word.Split(' ');
+                    //Sorts the first names by ascending order.
                     SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[0], ListSortDirection.Ascending);
 
-                    //String[] valuesFirstName = new String[SwimmerListDataGridView.Rows.Count];
-                    //String[] valuesLastName = new String[SwimmerListDataGridView.Rows.Count];
+                    //Creates a String array the size of the Rows in SwimmerListDataGridView.
                     String[] names = new string[SwimmerListDataGridView.Rows.Count];
 
+                    //Fills the String array names with a concatenated First and Last Name.
                     foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
                     {
                         //getting index of row
                         int i = row.Index;
-                        //valuesFirstName[row.Index] = SwimmerListDataGridView.Rows[i].Cells[0].Value.ToString();
-                        //valuesLastName[row.Index] = SwimmerListDataGridView.Rows[i].Cells[1].Value.ToString();
+                        
                         names[row.Index] = SwimmerListDataGridView.Rows[i].Cells[0].Value.ToString() + " " + SwimmerListDataGridView.Rows[i].Cells[1].Value.ToString();
                     }
 
-                    //SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[1], ListSortDirection.Ascending);
-
-                    //if (SwimmerListDataGridView.Rows[])
-
+                    //Binary searches to find the location of the name being searched if it exists within the names String array.
                     int location = binarySearch(names, word);
 
+                    //If the name doesn't exist within the SwimmerListDataGridView, informs the user that the name doesn't exist.
                     if(location == -1)
                     {
                         MessageBox.Show("Swimmer with first and last name " + word + " not found.");
                     }
+                    //If the name exists within the SwimmerListDataGridView, hides all rows that are not the name being searched for.
                     else
                     {
                         MessageBox.Show("Swimmer with first and last name " + word + " found.");
@@ -380,97 +428,38 @@ namespace ComputerScienceInternalAssessment
                             }
                         }
                     }
-                    //int locationLastName = binarySearch(valuesLastName, split[1]);
                 }
             }
         }
 
-        /*
-         * SwimmerListDataGridView.Sort(SwimmerListDataGridView.Columns[0], ListSortDirection.Ascending);
-
-                String[] values = new String[SwimmerListDataGridView.Rows.Count];
-
-                foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
-                {
-                    //getting index of row
-                    int i = row.Index;
-                    values[row.Index] = SwimmerListDataGridView.Rows[i].Cells[0].Value.ToString();
-                }
-
-                int location = binarySearch(values, SearchTxt.Text);
-
-                if (location == -1)
-                {
-                    MessageBox.Show("Value not found.");
-                }
-                else
-                {
-                    foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
-                    {
-                        int ind = row.Index;
-                        if (ind != location)
-                        {
-                            SwimmerListDataGridView.Rows[ind].Visible = false;
-                        }
-                    }
-                }
-        */
-
-            /*String[] values = new String[SwimmerListDataGridView.Rows.Count];
-
-                foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
-                {
-                    //getting index of row
-                    int i = row.Index;
-                    values[row.Index] = SwimmerListDataGridView.Rows[i].Cells[0].Value.ToString();
-                }
-
-                int location = binarySearch(values, SearchTxt.Text);
-
-                if(location == -1)
-                {
-                    MessageBox.Show("Value not found.");
-                }
-                else
-                {
-                    foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
-                    {
-                        int ind = row.Index;
-                        if(ind != location)
-                        {
-                            SwimmerListDataGridView.Rows[ind].Visible = false;
-                        }
-                    }
-                    //SwimmerListDataGridView.Rows[location].Visible = true;
-                }
-            }
-            */
-
+        //Method to sort through a String array to find the desired string. l = min r = max m = middle
         static int binarySearch(String[] arr, String x)
         {
-            int l = 0, r = arr.Length - 1;
-            while (l <= r)
+            int min = 0, max = arr.Length - 1;
+            while (min <= max)
             {
-                int m = l + (r - l) / 2;
+                int middle = min + (max - min) / 2;
 
-                int res = x.CompareTo(arr[m]);
+                int result = x.CompareTo(arr[middle]);
 
-                // Check if x is present at mid
-                if (res == 0)
-                    return m;
+                // Check if String x is present at middle
+                if (result == 0)
+                    return middle;
 
-                // If x greater, ignore left half
-                if (res > 0)
-                    l = m + 1;
+                // If String x greater, ignore left half.
+                if (result > 0)
+                    min = middle + 1;
 
-                // If x is smaller, ignore right half
+                // If String x is smaller, ignore right half.
                 else
-                    r = m - 1;
+                    max = middle - 1;
             }
 
+            //Returns -1 if the string isn't in the DataGridView.
             return -1;
         }
 
+        //Filters swimmers in the ninth grade in the SwimmerListDataGridView.
         private void FilterNinthGradeBtn_Click(object sender, EventArgs e)
         {
             string word = "9";
@@ -479,7 +468,7 @@ namespace ComputerScienceInternalAssessment
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word))
                     {
                         row.Visible = false;
                     }
@@ -487,6 +476,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Filters swimmers in the tenth grade in the SwimmerListDataGridView.
         private void FilterTenthGradeBtn_Click(object sender, EventArgs e)
         {
             string word = "10";
@@ -495,7 +485,7 @@ namespace ComputerScienceInternalAssessment
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word))
                     {
                         row.Visible = false;
                     }
@@ -503,6 +493,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Filters swimmers in the eleventh grade in the SwimmerListDataGridView.
         private void FilterEleventhGradeBtn_Click(object sender, EventArgs e)
         {
             string word = "11";
@@ -511,7 +502,7 @@ namespace ComputerScienceInternalAssessment
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word))
                     {
                         row.Visible = false;
                     }
@@ -519,6 +510,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Filters swimmers in the twelth grade in the SwimmerListDataGridView.
         private void FilterTwelthGradeBtn_Click(object sender, EventArgs e)
         {
             string word = "12";
@@ -527,7 +519,7 @@ namespace ComputerScienceInternalAssessment
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if ((cell.ColumnIndex == 2) && (cell.Value != word)) //Set your Column Index
+                    if ((cell.ColumnIndex == 2) && (cell.Value != word))
                     {
                         row.Visible = false;
                     }
@@ -535,6 +527,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Filters swimmers that are male in the SwimmerListDataGridView.
         private void FilterMaleBtn_Click(object sender, EventArgs e)
         {
             string word = "M";
@@ -543,7 +536,7 @@ namespace ComputerScienceInternalAssessment
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if ((cell.ColumnIndex == 3) && (cell.Value != word)) //Set your Column Index
+                    if ((cell.ColumnIndex == 3) && (cell.Value != word))
                     {
                         row.Visible = false;
                     }
@@ -551,6 +544,7 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Filters swimmers that are female in the SwimmerListDataGridView.
         private void FilterFemaleBtn_Click(object sender, EventArgs e)
         {
             string word = "F";
@@ -567,11 +561,13 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Clears all filters on the SwimmerListDataGridView.
         private void resetBtn_Click(object sender, EventArgs e)
         {
             resetGrid();
         }
 
+        //Makes all hidden rows in the SwimmerListDataGridView visible.
         private void resetGrid()
         {
             foreach (DataGridViewRow row in SwimmerListDataGridView.Rows)
@@ -580,13 +576,14 @@ namespace ComputerScienceInternalAssessment
             }
         }
 
+        //Opens the AddSwimmerForm when the user clicks on the AddSwimmer button.
         private void AddSwimmerBtn_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //AddSwimmerForm swForm = new AddSwimmerForm();
+            //Opens a modal form.
             AddSwimmerForm swForm = new AddSwimmerForm(this);
-            //SwimmerListDataGridView.Rows.Add(swForm.SendData());
             swForm.ShowDialog();
+
+            //Verifies that all information has been verified on the form before adding the swimmer to the SwimmerListDataGridView.
             swForm.check = swForm.checkInfo();
             if (swForm.check == true)
             {
@@ -596,20 +593,19 @@ namespace ComputerScienceInternalAssessment
             {
                 swForm.Dispose();
             }
-            //if(swForm.)
-            //swForm.VisibleChanged += formVisibleChanged;
         }
 
+        //Restricts the user to only typing characters and the backspace.
         private void SearchTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == (char)Keys.Space)))
             {
                 MessageBox.Show("Please type letters only.");
                 e.Handled = true;
-                //swFirstNameSelected = true;
             }
         }
 
+        //Resets the SwimmerListDataGridView and clears the Search criteria and Search bar.
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             resetGrid();
@@ -621,167 +617,6 @@ namespace ComputerScienceInternalAssessment
     
             rowCount = 0;
         }
-
-
-        /*public String CopyData()
-        {
-            string response = "";
-            for (int x = 0; x < SwimmerListDataGridView.Rows.Count; x++)
-            {
-                for (int y = 0; y < SwimmerListDataGridView.Columns.Count; y++)
-                {
-                    if (SwimmerListDataGridView.Rows[x].Cells[y].Value.ToString() != null)
-                    {
-                        response = SwimmerListDataGridView.Rows[x].Cells[y].Value.ToString();
-                        return response;
-                    }
-                }
-            }
-        }
-        */
-
-        /*
-       private void EditSwimmerListBtn_Click(object sender, EventArgs e)
-       {
-
-           EditSwimmerListForm EditSwimmer = new EditSwimmerListForm();
-           EditSwimmer.Owner = this;
-           try
-           {
-               this.Hide();
-               EditSwimmer.ShowDialog();
-           }
-           finally
-           {
-               EditSwimmer.Dispose();
-           }
-           //this.Hide();
-           //EditSwimmerListForm.Show();
-
-
-           EditSwimmerListForm EditSwimmer = new EditSwimmerListForm(this);
-           this.Hide();
-           EditSwimmer.Show();
-       }
-           */
-
-        /*
-        private void formVisibleChanged(object sender, EventArgs e)
-        {
-            AddSwimmerForm swForm = (AddSwimmerForm)sender;
-            if (!swForm.Visible)
-            {
-                SwimmerListDataGridView.Rows.Add();
-                swForm.Dispose();
-            }
-        }
-        */
-
-        /*
-        private void ConstructTreeView()
-        {
-            foreach (var swimmer in GetSwimmerList())
-            {
-                TreeNode node = treeView1.Nodes.Add("root", swimmer.FirstName + " " + swimmer.LastName);
-                TreeNode sub_node = node.Nodes.Add("gender", "Gender");
-                sub_node.Nodes.Add("M/F", swimmer.Gender);
-                sub_node = node.Nodes.Add("GT", "Goal Times");
-                sub_node.Nodes.Add("50frGT", "50 Free Goal Time");
-                sub_node.Nodes.Add("100frGT", "100 Free Goal Time");
-                sub_node.Nodes.Add("200frGT", "200 Free Goal Time");
-                sub_node.Nodes.Add("500frGT", "500 Free Goal Time");
-                sub_node.Nodes.Add("100flGT", "100 Fly Goal Time");
-                sub_node.Nodes.Add("100bkGT", "100 Back Goal Time");
-                sub_node.Nodes.Add("100brGT", "100 Breast Goal Time");
-                sub_node.Nodes.Add("200IMfrGT", "200 IM Goal Time");
-
-                sub_node = node.Nodes.Add("ViewMeetInfo", "View Meet Info");
-                TreeNode sub_sub_node = sub_node.Nodes.Add("meetDate", swimmer.SwimmerMeetDate);
-
-                //sub_node.Nodes.Add("meetDate", SwimmerMeet.SwimmerMeetName);
-                //sub_node.Nodes.Add("meetDate", swimmer.SwimmerMeetDate);
-                sub_sub_node.Nodes.Add("meetName", swimmer.SwimmerMeetName);
-            }
-            //TreeNode treeNode = new TreeNode("Robin Hood");
-           // treeView1.Nodes.Add(treeNode);
-
-        }
-        */
-
-        /*
-        private void ImportBtn_Click(object sender, EventArgs e)
-        {
-            var ImportForm = new ImportForm();
-            this.Hide();
-            ImportForm.Show();
-        }
-
-        private void ExportSwimmerListBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ExportSwimmerListForm exForm = new ExportSwimmerListForm();
-            exForm.Show();
-        }
-        */
-
-        /*
-        void SwimmerListDataGridView_DataBindingComplete(object sender,
-        DataGridViewBindingCompleteEventArgs e)
-        {
-            SwimmerListDataGridView.Rows[1].Cells["MyButton"] = new DataGridViewTextBoxCell();
-        }
-        */
-        /*
-       private void SwimmerListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-       {
-
-           //DataGridViewCellEventArgs e
-           //System.Windows.FormsDataGridViewCellEventArgs e
-           if (SwimmerListDataGridView.Columns[e.ColumnIndex].Name == "MyButton")
-               {
-                   // button clicked - do some logic
-               }
-               DataGridViewCell cell = (DataGridViewCell)SwimmerListDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-           if (cell.ColumnIndex == this.SwimmerListDataGridView.Columns["SwimmerEvents"].Index) 
-           {
-                   this.Hide();
-                   EditSwimmerListForm editForm = new EditSwimmerListForm();
-                   editForm.Show();
-           }
-       }
-
-
-       /*
-        * if(Loop){
-        * try{
-        *          this.Hide();
-                   EditSwimmerListForm editForm = new EditSwimmerListForm();
-                   editForm.Show();
-        * }
-        * catch (Exception exception) {
-        * Console.WriteLine(exception.Message);
-        * }
-        * }
-        * */
-
-        /* private void SwimmerListDataGridView_CellEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == SwimmerListDataGridView.Columns["View"].Index)
-            {
-                SwimmerListDataGridView.Columns["View"].ReadOnly = false;  // set all row as read-only
-                SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
-            }
-       //SwimmerListDataGridView.CellClick += SwimmerListDataGridView_CellClick;
-        }*/
-        /*
-        private void makeSwimmerListReadOnly()
-        {
-            SwimmerListDataGridView.AllowUserToAddRows = false;
-            SwimmerListDataGridView.AllowUserToDeleteRows = false;
-            SwimmerListDataGridView.ReadOnly = true;
-        }
-        */
 
         /*
         //Test Data
